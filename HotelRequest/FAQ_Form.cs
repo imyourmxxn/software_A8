@@ -17,11 +17,6 @@ namespace HotelRequest
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FAQ_Form_Load(object sender, EventArgs e)
         {
          
@@ -37,9 +32,5 @@ namespace HotelRequest
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
