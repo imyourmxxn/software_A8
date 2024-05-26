@@ -56,7 +56,7 @@
             // 
             // RequestAnswerEnroll_btn
             // 
-            this.RequestAnswerEnroll_btn.Location = new System.Drawing.Point(481, 499);
+            this.RequestAnswerEnroll_btn.Location = new System.Drawing.Point(482, 508);
             this.RequestAnswerEnroll_btn.Name = "RequestAnswerEnroll_btn";
             this.RequestAnswerEnroll_btn.Size = new System.Drawing.Size(95, 43);
             this.RequestAnswerEnroll_btn.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             // RequestAnswerBack_btn
             // 
-            this.RequestAnswerBack_btn.Location = new System.Drawing.Point(380, 499);
+            this.RequestAnswerBack_btn.Location = new System.Drawing.Point(368, 508);
             this.RequestAnswerBack_btn.Name = "RequestAnswerBack_btn";
             this.RequestAnswerBack_btn.Size = new System.Drawing.Size(95, 43);
             this.RequestAnswerBack_btn.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 604);
+            this.ClientSize = new System.Drawing.Size(632, 604);
             this.Controls.Add(this.RequestAnswerBack_btn);
             this.Controls.Add(this.Content_lbl);
             this.Controls.Add(this.RequestContentReadOnly_txt);
