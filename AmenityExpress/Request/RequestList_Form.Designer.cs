@@ -126,7 +126,7 @@
             this.Controls.Add(this.RequestListToWrite_btn);
             this.Controls.Add(this.RequestListFAQ_btn);
             this.Name = "RequestList_Form";
-            this.Text = "Form1";
+            this.Text = "요청사항리스트";
             this.Load += new System.EventHandler(this.RequestList_Form_Load);
             this.RequestList_groupbox.ResumeLayout(false);
             this.ResumeLayout(false);

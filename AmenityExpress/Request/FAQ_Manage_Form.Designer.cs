@@ -129,7 +129,7 @@
             this.Controls.Add(this.FAQQuestion_lbl);
             this.Controls.Add(this.FAQ_list);
             this.Name = "FAQ_Manage_Form";
-            this.Text = "FQA_Manage_Form";
+            this.Text = "관리자FAQ관리";
             this.Load += new System.EventHandler(this.FAQ_Manage_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

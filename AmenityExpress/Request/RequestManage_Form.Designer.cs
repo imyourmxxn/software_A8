@@ -195,7 +195,7 @@
             this.Controls.Add(this.RequestManagetoMainRequestUI_btn);
             this.Controls.Add(this.RequestManageAnswer_btn);
             this.Name = "RequestManage_Form";
-            this.Text = "Form4";
+            this.Text = "요청사항리스트";
             this.StatueGroup.ResumeLayout(false);
             this.StatueGroup.PerformLayout();
             this.ResumeLayout(false);

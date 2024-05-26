@@ -104,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(1015, 558);
             this.Controls.Add(this.groupBox1);
             this.Name = "FAQ_Form";
-            this.Text = "Form3";
+            this.Text = "FAQ";
             this.Load += new System.EventHandler(this.FAQ_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

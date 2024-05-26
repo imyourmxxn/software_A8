@@ -225,11 +225,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Request\FAQ_Form.resx">
+      <DependentUpon>FAQ_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Request\FAQ_Manage_Form.resx">
       <DependentUpon>FAQ_Manage_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Request\RequestAnswer_Form.resx">
       <DependentUpon>RequestAnswer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Request\RequestList_Form.resx">
+      <DependentUpon>RequestList_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Request\RequestManage_Form.resx">
       <DependentUpon>RequestManage_Form.cs</DependentUpon>

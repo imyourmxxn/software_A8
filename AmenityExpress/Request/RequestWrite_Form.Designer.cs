@@ -105,7 +105,7 @@
             this.Controls.Add(this.RequestKind_CmBox);
             this.Controls.Add(this.RequestKind_lbl);
             this.Name = "RequestWrite_Form";
-            this.Text = "Form2";
+            this.Text = "요청사항작성";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
