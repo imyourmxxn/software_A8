@@ -89,5 +89,16 @@ namespace AmenityExpress
             this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice;
         }
     }
+    public class FAQ
+    {
+        public int FAQNum;
+        public string Question;
+        public string Answer;
+
+        public FAQ(int FAQNum, string Question, string Answer)
+        {
+            this.FAQNum = FAQNum; this.Question = Question; this.Answer = Answer;
+        }
+    }
 }
 
