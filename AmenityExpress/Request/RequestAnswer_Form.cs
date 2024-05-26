@@ -20,7 +20,7 @@ namespace AmenityExpress
 
         private void RequestAnswerEnroll_btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RequestAnswer_txt.Text)) //gpt코드
+            if (string.IsNullOrWhiteSpace(RequestAnswer_txt.Text)) 
             {
                 MessageBox.Show("답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

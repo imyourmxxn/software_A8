@@ -1,6 +1,6 @@
 ﻿namespace AmenityExpress
 {
-    partial class FAQList_Form
+    partial class FAQ_Manage_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FAQ_listview = new System.Windows.Forms.ListView();
+            this.FAQ_list = new System.Windows.Forms.ListView();
             this.FAQQuestion_lbl = new System.Windows.Forms.Label();
             this.FAQQuestionContent_txt = new System.Windows.Forms.TextBox();
             this.FAQAnswer_lbl = new System.Windows.Forms.Label();
@@ -38,15 +38,16 @@
             this.FAQDel_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // FAQ_listview
+            // FAQ_list
             // 
-            this.FAQ_listview.HideSelection = false;
-            this.FAQ_listview.Location = new System.Drawing.Point(385, 52);
-            this.FAQ_listview.Name = "FAQ_listview";
-            this.FAQ_listview.Size = new System.Drawing.Size(579, 489);
-            this.FAQ_listview.TabIndex = 0;
-            this.FAQ_listview.UseCompatibleStateImageBehavior = false;
-            this.FAQ_listview.View = System.Windows.Forms.View.Details;
+            this.FAQ_list.HideSelection = false;
+            this.FAQ_list.Location = new System.Drawing.Point(385, 52);
+            this.FAQ_list.Name = "FAQ_list";
+            this.FAQ_list.Size = new System.Drawing.Size(579, 489);
+            this.FAQ_list.TabIndex = 0;
+            this.FAQ_list.UseCompatibleStateImageBehavior = false;
+            this.FAQ_list.View = System.Windows.Forms.View.Details;
+            this.FAQ_list.SelectedIndexChanged += new System.EventHandler(this.FAQ_list_SelectedIndexChanged);
             // 
             // FAQQuestion_lbl
             // 
@@ -114,7 +115,7 @@
             this.FAQDel_btn.UseVisualStyleBackColor = true;
             this.FAQDel_btn.Click += new System.EventHandler(this.FAQDel_btn_Click);
             // 
-            // FAQList_Form
+            // FAQ_Manage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,9 +127,10 @@
             this.Controls.Add(this.FAQAnswer_lbl);
             this.Controls.Add(this.FAQQuestionContent_txt);
             this.Controls.Add(this.FAQQuestion_lbl);
-            this.Controls.Add(this.FAQ_listview);
-            this.Name = "FAQList_Form";
-            this.Text = "FQAEnroll_Form";
+            this.Controls.Add(this.FAQ_list);
+            this.Name = "FAQ_Manage_Form";
+            this.Text = "FQA_Manage_Form";
+            this.Load += new System.EventHandler(this.FAQ_Manage_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +138,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView FAQ_listview;
+        private System.Windows.Forms.ListView FAQ_list;
         private System.Windows.Forms.Label FAQQuestion_lbl;
         private System.Windows.Forms.TextBox FAQQuestionContent_txt;
         private System.Windows.Forms.Label FAQAnswer_lbl;

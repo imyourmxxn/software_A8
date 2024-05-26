@@ -42,7 +42,12 @@ namespace AmenityExpress
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void RequestManage_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToFAQ_btn_Click(object sender, EventArgs e)
         {
 
         }

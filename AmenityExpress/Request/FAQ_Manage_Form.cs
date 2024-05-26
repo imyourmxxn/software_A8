@@ -12,12 +12,12 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace AmenityExpress
 {
-    public partial class FAQList_Form : Form
+    public partial class FAQ_Manage_Form : Form
     {
         string connectionString = "User Id=<admin>;Password=<1562>;DataSource=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=gyeongmin2022.kro.kr)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))";
         OracleConnection conn;
         OracleCommand cmd;
-        public FAQList_Form()
+        public FAQ_Manage_Form()
         {
             InitializeComponent();
         }
@@ -49,6 +49,16 @@ namespace AmenityExpress
         private void FAQDel_btn_Click(object sender, EventArgs e)
         {
             // 삭제 버튼 클릭 로직
+        }
+
+        private void FAQ_Manage_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FAQ_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

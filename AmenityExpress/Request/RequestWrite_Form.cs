@@ -83,5 +83,10 @@ namespace AmenityExpress
                 MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void RequestWriteBack_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

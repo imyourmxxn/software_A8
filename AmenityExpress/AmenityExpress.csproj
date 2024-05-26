@@ -129,11 +129,11 @@
     <Compile Include="Manager\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Request\FAQList_Form.cs">
+    <Compile Include="Request\FAQ_Manage_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Request\FAQList_Form.Designer.cs">
-      <DependentUpon>FAQList_Form.cs</DependentUpon>
+    <Compile Include="Request\FAQ_Manage_Form.Designer.cs">
+      <DependentUpon>FAQ_Manage_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Request\FAQ_Form.cs">
       <SubType>Form</SubType>
@@ -225,6 +225,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Request\FAQ_Manage_Form.resx">
+      <DependentUpon>FAQ_Manage_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Request\RequestAnswer_Form.resx">
+      <DependentUpon>RequestAnswer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Request\RequestManage_Form.resx">
+      <DependentUpon>RequestManage_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Request\RequestWrite_Form.resx">
+      <DependentUpon>RequestWrite_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
