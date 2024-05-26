@@ -1,4 +1,6 @@
 ﻿using AmenityExpress;
+using AmenityExpress.RoomManagement;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +29,7 @@ namespace AmenityExpress
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
 
-            addButton.Click += new EventHandler(addButton_Click);
+            
 
         }
 
@@ -75,6 +77,71 @@ namespace AmenityExpress
 
                     listView1.Items.Add(item);
                 }
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                Room room = new Room(
+                    int.Parse(selectedItem.SubItems[1].Text),
+                    selectedItem.SubItems[0].Text,
+                    int.Parse(selectedItem.SubItems[3].Text),
+                    int.Parse(selectedItem.SubItems[2].Text),
+                    selectedItem.SubItems[4].Text
+                );
+
+                using (DialogForm2 dialog = new DialogForm2(room))
+                {
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Room updatedRoom = dialog.RoomData;
+
+                        selectedItem.SubItems[0].Text = updatedRoom.Name;
+                        selectedItem.SubItems[1].Text = updatedRoom.Num.ToString();
+                        selectedItem.SubItems[2].Text = updatedRoom.Price.ToString();
+                        selectedItem.SubItems[3].Text = updatedRoom.MaxP.ToString();
+                        selectedItem.SubItems[4].Text = updatedRoom.Notice;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("수정할 항목을 선택하세요.");
+            }
+        }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+
+                listView1.Items.Remove(selectedItem);
+
+            }
+            else
+            {
+                MessageBox.Show("삭제할 항목을 선택하세요.");
+            }
+        }
+        private void DeleteRoom(int roomNum)
+        {
+            string sql = "DELETE FROM ROOM_MANAGE WHERE ROOMNUM = :ROOMNUM";
+            OracleParameter parameter = new OracleParameter("ROOMNUM", roomNum);
+
+            DBConnector dBConnector = new DBConnector();
+            
+            try
+            {
+                
+                MessageBox.Show("객실 정보가 삭제되었습니다.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다. : "+ ex.Message);
             }
         }
     }
