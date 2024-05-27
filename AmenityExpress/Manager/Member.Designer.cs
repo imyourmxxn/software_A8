@@ -50,6 +50,8 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,10 +63,10 @@
             this.Number,
             this.ID,
             this.CName});
-            this.dataGridView1.Location = new System.Drawing.Point(37, 319);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(344, 422);
             this.dataGridView1.TabIndex = 0;
             // 
             // Number
@@ -84,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(424, 319);
+            this.button1.Location = new System.Drawing.Point(474, 319);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 35);
             this.button1.TabIndex = 1;
@@ -94,7 +96,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(424, 401);
+            this.button2.Location = new System.Drawing.Point(474, 395);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 35);
             this.button2.TabIndex = 2;
@@ -104,7 +106,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(424, 477);
+            this.button3.Location = new System.Drawing.Point(474, 463);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 35);
             this.button3.TabIndex = 3;
@@ -115,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(35, 41);
+            this.label1.Location = new System.Drawing.Point(368, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 12);
             this.label1.TabIndex = 4;
@@ -126,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(35, 88);
+            this.label2.Location = new System.Drawing.Point(368, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 12);
             this.label2.TabIndex = 5;
@@ -136,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(35, 130);
+            this.label3.Location = new System.Drawing.Point(368, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 12);
             this.label3.TabIndex = 6;
@@ -146,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(35, 164);
+            this.label4.Location = new System.Drawing.Point(368, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 12);
             this.label4.TabIndex = 7;
@@ -156,7 +158,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(35, 200);
+            this.label5.Location = new System.Drawing.Point(368, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 12);
             this.label5.TabIndex = 8;
@@ -164,28 +166,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 38);
+            this.textBox1.Location = new System.Drawing.Point(456, 29);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 21);
             this.textBox1.TabIndex = 9;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 127);
+            this.textBox3.Location = new System.Drawing.Point(456, 118);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(201, 21);
             this.textBox3.TabIndex = 11;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 161);
+            this.textBox4.Location = new System.Drawing.Point(456, 152);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(201, 21);
             this.textBox4.TabIndex = 12;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(123, 197);
+            this.textBox5.Location = new System.Drawing.Point(456, 188);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(201, 21);
             this.textBox5.TabIndex = 13;
@@ -194,7 +196,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(35, 238);
+            this.label6.Location = new System.Drawing.Point(368, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 12);
             this.label6.TabIndex = 14;
@@ -204,7 +206,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(35, 275);
+            this.label7.Location = new System.Drawing.Point(368, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 12);
             this.label7.TabIndex = 15;
@@ -212,7 +214,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(123, 272);
+            this.textBox6.Location = new System.Drawing.Point(456, 263);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(201, 21);
             this.textBox6.TabIndex = 16;
@@ -220,7 +222,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(123, 236);
+            this.radioButton1.Location = new System.Drawing.Point(456, 227);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(35, 16);
             this.radioButton1.TabIndex = 17;
@@ -231,7 +233,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(191, 236);
+            this.radioButton2.Location = new System.Drawing.Point(524, 227);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(35, 16);
             this.radioButton2.TabIndex = 18;
@@ -241,16 +243,34 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 85);
+            this.textBox2.Location = new System.Drawing.Point(456, 76);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(201, 21);
             this.textBox2.TabIndex = 10;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(12, 33);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(212, 21);
+            this.textBox7.TabIndex = 20;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(245, 33);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 21);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "검색";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // Member
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 524);
+            this.ClientSize = new System.Drawing.Size(707, 524);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox6);
@@ -303,5 +323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CName;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button4;
     }
 }

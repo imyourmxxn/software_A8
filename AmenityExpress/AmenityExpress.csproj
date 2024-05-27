@@ -221,6 +221,9 @@
     <Compile Include="RoomManagement\RoomSearch_Form.Designer.cs">
       <DependentUpon>RoomSearch_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Manager\Member.resx">
+      <DependentUpon>Member.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
       <DependentUpon>MemberInformRetouch.cs</DependentUpon>
     </EmbeddedResource>
