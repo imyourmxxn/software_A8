@@ -123,6 +123,12 @@
     <Compile Include="Manager\Member.Designer.cs">
       <DependentUpon>Member.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\MemberInformRetouch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\MemberInformRetouch.Designer.cs">
+      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     <Compile Include="RoomManagement\RoomSearch_Form.Designer.cs">
       <DependentUpon>RoomSearch_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
+      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -257,6 +266,8 @@
   <ItemGroup>
     <None Include="Resources\캡처4.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Review\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
