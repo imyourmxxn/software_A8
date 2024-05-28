@@ -71,7 +71,7 @@
             this.RequestContent_txt.Name = "RequestContent_txt";
             this.RequestContent_txt.Size = new System.Drawing.Size(662, 305);
             this.RequestContent_txt.TabIndex = 3;
-            this.RequestContent_txt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.RequestContent_txt.TextChanged += new System.EventHandler(this.RequestContent_txt_TextChanged);
             // 
             // RequestWriteEnroll_btn
             // 

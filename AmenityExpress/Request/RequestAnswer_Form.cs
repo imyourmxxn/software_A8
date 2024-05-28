@@ -39,5 +39,10 @@ namespace AmenityExpress
             requestmanage_form.Show();
             //뒤에 폼은 닫히는 기능 추가해야함!!!!!
         }
+
+        private void RequestAnswer_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

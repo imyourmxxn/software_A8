@@ -32,7 +32,7 @@ namespace AmenityExpress
             RequestKind_CmBox.Items.Add("룸 서비스 요청");
             RequestKind_CmBox.Items.Add("기타사항 요청");
 
-            //this.RequestContent_txt.Text = "기본 텍스트";
+            this.RequestContent_txt.Text = "기본 텍스트";
         }
 
         private void RequestKind_CmBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,22 +56,36 @@ namespace AmenityExpress
             //        break;
             //}
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void RequestContent_txt_TextChanged(object sender, EventArgs e)
         {
-
+            switch (RequestKind_CmBox.SelectedItem.ToString())
+            {
+                case "객실 상품 교체 요청":
+                    RequestContent_txt.Text = "상품 교체 요청을 입력해주세요.";
+                    break;
+                case "어매니티 요청":
+                    RequestContent_txt.Text = "[어매니티 리스트]: 칫솔, 치약, 샴푸, 린스, 클렌징폼, 스킨, 로션, 수건";
+                    break;
+                case "룸 서비스 요청":
+                    RequestContent_txt.Text = "[식사부]\n전복솥밥, 가지만두, 동파육 덮밥, 봉골레파스타\n[디저트]\n초콜릿무스, 치즈케이크, 누텔라 크로플, 과일산도\n[음료부]\n콜라, 사이다, 맥주, 와인";
+                    break;
+                case "기타사항 요청":
+                    RequestContent_txt.Text = "기타 요청사항을 입력해주세요.";
+                    break;
+                default:
+                    RequestContent_txt.Text = string.Empty;
+                    break;
+            }
         }
-
-
 
         private void RequestWriteEnroll_btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RequestKind_CmBox.Text)) //gpt코드
+            if (string.IsNullOrWhiteSpace(RequestKind_CmBox.Text))
             {
                 MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 RequestContent_txt.Clear(); //내용 적었는데 요청사항 종류 안 골랐을 때
             }
-            else if (string.IsNullOrWhiteSpace(RequestContent_txt.Text)) //gpt코드
+            else if (string.IsNullOrWhiteSpace(RequestContent_txt.Text)) 
             {
                 MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 RequestContent_txt.Clear();
@@ -88,5 +102,6 @@ namespace AmenityExpress
         {
 
         }
+
     }
 }
