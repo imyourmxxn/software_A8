@@ -215,6 +215,12 @@
     <Compile Include="RoomManagement\RoomSearch_Form.Designer.cs">
       <DependentUpon>RoomSearch_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Main\CutomerMainUI.resx">
+      <DependentUpon>CutomerMainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ManagerMainUI.resx">
+      <DependentUpon>ManagerMainUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

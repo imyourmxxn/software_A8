@@ -28,43 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Back = new System.Windows.Forms.Button();
+            this.Back_btn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.year_com = new System.Windows.Forms.ComboBox();
+            this.month_com = new System.Windows.Forms.ComboBox();
+            this.week_com = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(106, 172);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(722, 282);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
-            // Back
+            // Back_btn
             // 
-            this.Back.Location = new System.Drawing.Point(27, 504);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(103, 38);
-            this.Back.TabIndex = 3;
-            this.Back.Text = "뒤로가기";
-            this.Back.UseVisualStyleBackColor = true;
+            this.Back_btn.Location = new System.Drawing.Point(27, 504);
+            this.Back_btn.Name = "Back_btn";
+            this.Back_btn.Size = new System.Drawing.Size(103, 38);
+            this.Back_btn.TabIndex = 3;
+            this.Back_btn.Text = "뒤로가기";
+            this.Back_btn.UseVisualStyleBackColor = true;
+            this.Back_btn.Click += new System.EventHandler(this.Back_btn_Click);
             // 
             // textBox1
             // 
@@ -84,44 +85,47 @@
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "   20xx";
             // 
-            // button4
+            // year_com
             // 
-            this.button4.Location = new System.Drawing.Point(903, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "주 별";
-            this.button4.UseVisualStyleBackColor = true;
+            this.year_com.FormattingEnabled = true;
+            this.year_com.Location = new System.Drawing.Point(641, 22);
+            this.year_com.Name = "year_com";
+            this.year_com.Size = new System.Drawing.Size(81, 23);
+            this.year_com.TabIndex = 13;
+            this.year_com.Text = " 년도 별";
+            this.year_com.SelectedIndexChanged += new System.EventHandler(this.year_com_SelectedIndexChanged);
             // 
-            // button3
+            // month_com
             // 
-            this.button3.Location = new System.Drawing.Point(811, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "월 별";
-            this.button3.UseVisualStyleBackColor = true;
+            this.month_com.FormattingEnabled = true;
+            this.month_com.Location = new System.Drawing.Point(758, 22);
+            this.month_com.Name = "month_com";
+            this.month_com.Size = new System.Drawing.Size(81, 23);
+            this.month_com.TabIndex = 14;
+            this.month_com.Text = " 월 별";
+            this.month_com.SelectedIndexChanged += new System.EventHandler(this.month_com_SelectedIndexChanged);
             // 
-            // button2
+            // week_com
             // 
-            this.button2.Location = new System.Drawing.Point(719, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "년도 별";
-            this.button2.UseVisualStyleBackColor = true;
+            this.week_com.FormattingEnabled = true;
+            this.week_com.Location = new System.Drawing.Point(880, 22);
+            this.week_com.Name = "week_com";
+            this.week_com.Size = new System.Drawing.Size(81, 23);
+            this.week_com.TabIndex = 15;
+            this.week_com.Text = "주 별";
+            this.week_com.SelectedIndexChanged += new System.EventHandler(this.week_com_SelectedIndexChanged);
             // 
             // MoneyUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 580);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.week_com);
+            this.Controls.Add(this.month_com);
+            this.Controls.Add(this.year_com);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.Back);
+            this.Controls.Add(this.Back_btn);
             this.Controls.Add(this.chart1);
             this.Name = "MoneyUI";
             this.Text = "Form1";
@@ -135,11 +139,11 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button Back_btn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox year_com;
+        private System.Windows.Forms.ComboBox month_com;
+        private System.Windows.Forms.ComboBox week_com;
     }
 }
