@@ -74,7 +74,7 @@ namespace AmenityExpress
             }
             return ds;
         }
-        public void DML_NON_QUERY(string sql, OracleParameter[] parameters)
+        public void DML_NON_QUERY(string sql, OracleParameter[] parameters) // DB에 클래스 단위로 정보를 삽입하는 함수
         {
             using (var conn = new OracleConnection(connstr))
             using (var cmd = new OracleCommand(sql, conn))
@@ -95,7 +95,6 @@ namespace AmenityExpress
                 }
             }
         }
-
+       
     }
 }
-

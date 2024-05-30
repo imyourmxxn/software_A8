@@ -2,15 +2,7 @@
 using AmenityExpress.RoomManagement;
 using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AmenityExpress
 {
@@ -28,9 +20,6 @@ namespace AmenityExpress
 
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
-
-            
-
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,30 +107,30 @@ namespace AmenityExpress
             if (listView1.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listView1.SelectedItems[0];
+                int roomNum = int.Parse(selectedItem.SubItems[1].Text);
+
+                DeleteRoom(roomNum);
 
                 listView1.Items.Remove(selectedItem);
-
             }
             else
             {
                 MessageBox.Show("삭제할 항목을 선택하세요.");
             }
         }
+
         private void DeleteRoom(int roomNum)
         {
-            string sql = "DELETE FROM ROOM_MANAGE WHERE ROOMNUM = :ROOMNUM";
-            OracleParameter parameter = new OracleParameter("ROOMNUM", roomNum);
+            string sql = $"DELETE FROM ROOM_MANAGE WHERE ROOMNUM = {roomNum}";
 
-            DBConnector dBConnector = new DBConnector();
-            
             try
             {
-                
+                DBConnector.DML_NON_QUERY(sql);
                 MessageBox.Show("객실 정보가 삭제되었습니다.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다. : "+ ex.Message);
+                MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다: " + ex.Message);
             }
         }
     }
