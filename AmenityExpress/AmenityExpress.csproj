@@ -191,17 +191,11 @@
     <Compile Include="Reserve\Reserv_Form.Designer.cs">
       <DependentUpon>Reserv_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\DialogForm.cs">
+    <Compile Include="RoomManagement\RoomInFormAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\DialogForm.Designer.cs">
-      <DependentUpon>DialogForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RoomManagement\DialogForm2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomManagement\DialogForm2.Designer.cs">
-      <DependentUpon>DialogForm2.cs</DependentUpon>
+    <Compile Include="RoomManagement\RoomInFormAdd.Designer.cs">
+      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomManagement\Pay_Form.cs">
       <SubType>Form</SubType>
@@ -209,11 +203,17 @@
     <Compile Include="RoomManagement\Pay_Form.Designer.cs">
       <DependentUpon>Pay_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearchM_Form.cs">
+    <Compile Include="RoomManagement\ManagerRoomCheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearchM_Form.Designer.cs">
-      <DependentUpon>RoomSearchM_Form.cs</DependentUpon>
+    <Compile Include="RoomManagement\ManagerRoomCheck.Designer.cs">
+      <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomManagement\RoomInformRetouching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
+      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomManagement\RoomSearch_Form.cs">
       <SubType>Form</SubType>
@@ -231,11 +231,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RoomManagement\DialogForm2.resx">
-      <DependentUpon>DialogForm2.cs</DependentUpon>
+    <EmbeddedResource Include="RoomManagement\ManagerRoomCheck.resx">
+      <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomManagement\RoomSearchM_Form.resx">
-      <DependentUpon>RoomSearchM_Form.cs</DependentUpon>
+    <EmbeddedResource Include="RoomManagement\RoomInFormAdd.resx">
+      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\RoomInformRetouching.resx">
+      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>

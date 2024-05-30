@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace AmenityExpress
 {
-    public partial class DialogForm : Form
+    public partial class RoomInFormAdd : Form
     {
         public Room RoomData { get; private set; }
-        public DialogForm()
+        public RoomInFormAdd()
         {
             InitializeComponent();
 
@@ -91,6 +91,11 @@ namespace AmenityExpress
             };
             DBConnector dbConnector = new DBConnector(); // DB 연결을 위한 객체 생성
             dbConnector.DML_NON_QUERY(sql,parameters);  //DB 객체 내에 있는 메소드 사용해서 삽입 실행
+        }
+
+        private void ImageAddBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

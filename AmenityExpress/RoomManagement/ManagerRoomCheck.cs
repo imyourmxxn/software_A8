@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AmenityExpress
 {
-    public partial class RoomSearchM_Form : Form
+    public partial class ManagerRoomCheck : Form
     {
-        public RoomSearchM_Form()
+        public ManagerRoomCheck()
         {
             InitializeComponent();
 
@@ -60,7 +60,7 @@ namespace AmenityExpress
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            using (DialogForm dialog = new DialogForm())
+            using (RoomInFormAdd dialog = new RoomInFormAdd())
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -93,7 +93,7 @@ namespace AmenityExpress
                     selectedItem.SubItems[4].Text
                 );
 
-                using (DialogForm2 dialog = new DialogForm2(room))
+                using (RoomInformRetouching dialog = new RoomInformRetouching(room))
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {

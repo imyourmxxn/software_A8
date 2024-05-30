@@ -1,7 +1,7 @@
 ﻿
 namespace AmenityExpress
 {
-    partial class RoomSearchM_Form
+    partial class ManagerRoomCheck
     {
         /// <summary>
         /// Required designer variable.
