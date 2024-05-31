@@ -184,6 +184,7 @@
             this.Name = "RoomInformRetouching";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomInformRetouching";
+            this.Load += new System.EventHandler(this.RoomInformRetouching_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

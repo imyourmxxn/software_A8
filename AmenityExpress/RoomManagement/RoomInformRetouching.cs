@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace AmenityExpress.RoomManagement
 {
@@ -93,6 +94,7 @@ namespace AmenityExpress.RoomManagement
                 int.TryParse(RoomPricetextBox.Text, out price))
             {
                 RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text);
+                UpdateRoomInDatabase(RoomData);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -100,6 +102,34 @@ namespace AmenityExpress.RoomManagement
             {
                 MessageBox.Show("유효한 값을 입력하세요.");
             }
+        }
+        private void UpdateRoomInDatabase(Room room)
+        {
+            string sql = "UPDATE ROOM_MANAGE SET NAME = :NAME, PRICE = :PRICE, MAX_CLIENT = :MAX_CLIENT, NOTICE = :NOTICE WHERE ROOMNUM = :ROOMNUM";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("ROOMNAME", room.Name),
+                new OracleParameter("ROOMPRICE", room.Price),
+                new OracleParameter("ROOMMAXP", room.MaxP),
+                new OracleParameter("ROOMNOTICE", room.Notice),
+                new OracleParameter("ROOMNUM", room.Num)
+            };
+
+            try
+            {
+                DBConnector dbConnector = new DBConnector();
+                dbConnector.DML_NON_QUERY(sql, parameters);
+                MessageBox.Show("객실 정보가 업데이트되었습니다.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("객실 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+            private void RoomInformRetouching_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using AmenityExpress.RoomManagement;
 using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace AmenityExpress
@@ -29,7 +30,7 @@ namespace AmenityExpress
 
         private void RoomSearchM_Form_Load(object sender, EventArgs e)
         {
-
+            LoadRoomData();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,6 +94,7 @@ namespace AmenityExpress
                         selectedItem.SubItems[2].Text = updatedRoom.Price.ToString();
                         selectedItem.SubItems[3].Text = updatedRoom.MaxP.ToString();
                         selectedItem.SubItems[4].Text = updatedRoom.Notice;
+                        
                     }
                 }
             }
@@ -101,7 +103,8 @@ namespace AmenityExpress
                 MessageBox.Show("수정할 항목을 선택하세요.");
             }
         }
-
+     
+        
         private void delBtn_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
@@ -118,6 +121,29 @@ namespace AmenityExpress
                 MessageBox.Show("삭제할 항목을 선택하세요.");
             }
         }
+        private void LoadRoomData()
+        {
+            string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE FROM ROOM_MANAGE";
+            DataSet ds = DBConnector.DML_QUERY(sql);
+
+            listView1.Items.Clear();
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                ListViewItem item = new ListViewItem(new[]
+                {
+                    row["NAME"].ToString(),
+                    row["ROOMNUM"].ToString(),
+                    row["PRICE"].ToString(),
+                    row["MAX_CLIENT"].ToString(),
+                    row["NOTICE"].ToString()
+                });
+
+                listView1.Items.Add(item);
+            }
+        }
+
+
 
         private void DeleteRoom(int roomNum)
         {
