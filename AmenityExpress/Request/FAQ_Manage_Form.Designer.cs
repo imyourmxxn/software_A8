@@ -36,10 +36,17 @@
             this.FAQEnroll_btn = new System.Windows.Forms.Button();
             this.FAQFix_btn = new System.Windows.Forms.Button();
             this.FAQDel_btn = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // FAQ_list
             // 
+            this.FAQ_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.FAQ_list.HideSelection = false;
             this.FAQ_list.Location = new System.Drawing.Point(385, 52);
             this.FAQ_list.Name = "FAQ_list";
@@ -115,6 +122,21 @@
             this.FAQDel_btn.UseVisualStyleBackColor = true;
             this.FAQDel_btn.Click += new System.EventHandler(this.FAQDel_btn_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No";
+            this.columnHeader1.Width = 66;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "질문 내용";
+            this.columnHeader2.Width = 245;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "답변 내용";
+            this.columnHeader3.Width = 264;
+            // 
             // FAQ_Manage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -146,5 +168,8 @@
         private System.Windows.Forms.Button FAQEnroll_btn;
         private System.Windows.Forms.Button FAQFix_btn;
         private System.Windows.Forms.Button FAQDel_btn;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

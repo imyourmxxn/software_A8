@@ -57,21 +57,22 @@ namespace AmenityExpress
     public class Request
     {
         public int SNum;
-        public string Client_Id;
-        public string Client_Name;
-        public string Manager_Id;
-        public string Manager_Name;
-        public string Detail;
+        public string CName;
+        public string MName;
+        public string RequestKind;
+        public string Content;
+        public string WriteDate;
         public string Answer;
-        public string Date;
-        public string Amenities;
-        public string RoomService;
+        public string AnswerDate;
+        public string Cid;
+        public string Mid;
+        public string RoomNum;
 
-        public Request(int SNum, string Client_Id, string Manager_Id, string Manager_Name, string Detail, string Answer, string Date,
-            string Amenities, string RoomService)
+        public Request(int SNum, string CName, string MName, string RequestKind, string Content, string Answer, string Cid,
+            string Mid, string RoomNum)
         {
-            this.SNum = SNum; this.Client_Id = Client_Id; this.Manager_Id = Manager_Id; this.Manager_Name = Manager_Name; this.Detail = Detail;
-            this.Answer = Answer; this.Date = Date; this.Amenities = Amenities; this.RoomService = RoomService;
+            this.SNum = SNum; this.CName = CName; this.MName = MName; this.RequestKind = RequestKind; this.Content = Content;
+            this.Answer = Answer; this.Cid = Cid; this.Mid = Mid; this.RoomNum = RoomNum;
         }
     }
 
