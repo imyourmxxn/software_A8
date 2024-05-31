@@ -12,7 +12,7 @@ namespace AmenityExpress
 {
     public partial class ManagerMainUI : Form
     {
-        public ManagerMainUI()
+        public ManagerMainUI(DataRow row)
         {
             InitializeComponent();
         }

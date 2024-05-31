@@ -25,29 +25,28 @@ namespace AmenityExpress
             conn = new OracleConnection(connstr);
         }
 
-        public static void DML_NON_QUERY(string sql) //insert, delete, update
+        public void DML_NON_QUERY(string sql, OracleParameter[] parameters)
         {
-            cmd.Connection = conn;
-            cmd.CommandText = sql;
-
-            try
+            using (var conn = new OracleConnection(connstr))
+            using (var cmd = new OracleCommand(sql, conn))
             {
-                conn.Open();
-                cmd.ExecuteNonQuery(); //반환값 x ==>void
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
 
-
-
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
-        public static DataSet DML_QUERY(string sql)
+                public static DataSet DML_QUERY(string sql)
         {
             cmd.Connection = conn;
             cmd.CommandText = sql;
