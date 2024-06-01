@@ -21,7 +21,7 @@ namespace AmenityExpress
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             var settings = config.AppSettings.Settings;
-            connstr = "data source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = gyeongmin2022.kro.kr)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = orcl)));USER ID=admin;PASSWORD=1562;";
+            connstr = "data source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = " + settings["host"].Value + ")(PORT = " + settings["port"].Value + ")))(CONNECT_DATA =(SERVICE_NAME = " + settings["sid"].Value + ")));USER ID=" + settings["id"].Value + ";PASSWORD=" + settings["pwd"].Value + ";";
             conn = new OracleConnection(connstr);
         }
 
