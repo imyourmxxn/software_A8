@@ -42,7 +42,6 @@ namespace AmenityExpress
             this.addButton = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
-            this.RoomRenewal_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -115,7 +114,7 @@ namespace AmenityExpress
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(270, 12);
+            this.updateBtn.Location = new System.Drawing.Point(395, 12);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(104, 59);
             this.updateBtn.TabIndex = 70;
@@ -125,7 +124,7 @@ namespace AmenityExpress
             // 
             // delBtn
             // 
-            this.delBtn.Location = new System.Drawing.Point(475, 12);
+            this.delBtn.Location = new System.Drawing.Point(718, 12);
             this.delBtn.Name = "delBtn";
             this.delBtn.Size = new System.Drawing.Size(104, 59);
             this.delBtn.TabIndex = 71;
@@ -133,22 +132,11 @@ namespace AmenityExpress
             this.delBtn.UseVisualStyleBackColor = true;
             this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
-            // RoomRenewal_btn
-            // 
-            this.RoomRenewal_btn.Location = new System.Drawing.Point(764, 12);
-            this.RoomRenewal_btn.Name = "RoomRenewal_btn";
-            this.RoomRenewal_btn.Size = new System.Drawing.Size(104, 59);
-            this.RoomRenewal_btn.TabIndex = 72;
-            this.RoomRenewal_btn.Text = "객실 정보 갱신";
-            this.RoomRenewal_btn.UseVisualStyleBackColor = true;
-            this.RoomRenewal_btn.Click += new System.EventHandler(this.RoomRenewal_btn_Click);
-            // 
             // ManagerRoomCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 500);
-            this.Controls.Add(this.RoomRenewal_btn);
             this.Controls.Add(this.delBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addButton);
@@ -176,6 +164,5 @@ namespace AmenityExpress
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button RoomRenewal_btn;
     }
 }

@@ -15,11 +15,13 @@ namespace AmenityExpress
 {
     public partial class RoomInFormAdd : Form
     {
+        private ListView parentListView;
         public Room RoomData { get; private set; }
         private string selectedImagePath;
-        public RoomInFormAdd()
+        public RoomInFormAdd(ListView listView)
         {
             InitializeComponent();
+            this.parentListView = listView;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -56,6 +58,10 @@ namespace AmenityExpress
             {
                 RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
                 InsertRoom(RoomData);  // DB에 값을 넣는 함수 실행
+
+                // 부모 폼의 ListView를 업데이트
+                DBRoomConnect.LoadRoomData(parentListView);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
