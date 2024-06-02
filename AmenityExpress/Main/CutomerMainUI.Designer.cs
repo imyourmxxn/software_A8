@@ -74,6 +74,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(151, 34);
             this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.ReadOnly = true;
             this.maskedTextBox1.Size = new System.Drawing.Size(561, 21);
             this.maskedTextBox1.TabIndex = 1;
             this.maskedTextBox1.Text = "어서오세요 홍길동님 잔여 마일리지 : 2500p";

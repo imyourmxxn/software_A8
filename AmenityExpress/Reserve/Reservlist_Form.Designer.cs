@@ -47,6 +47,8 @@
             this.CKIN_dtp = new System.Windows.Forms.DateTimePicker();
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.Search_lbl = new System.Windows.Forms.Label();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,17 +67,21 @@
             this.Reservelist_listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader5,
+            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader4});
             this.Reservelist_listView.FullRowSelect = true;
             this.Reservelist_listView.GridLines = true;
             this.Reservelist_listView.HideSelection = false;
-            this.Reservelist_listView.Location = new System.Drawing.Point(0, 55);
+            this.Reservelist_listView.Location = new System.Drawing.Point(0, 42);
+            this.Reservelist_listView.MultiSelect = false;
             this.Reservelist_listView.Name = "Reservelist_listView";
             this.Reservelist_listView.Size = new System.Drawing.Size(1070, 343);
             this.Reservelist_listView.TabIndex = 16;
             this.Reservelist_listView.UseCompatibleStateImageBehavior = false;
             this.Reservelist_listView.View = System.Windows.Forms.View.Details;
+            this.Reservelist_listView.SelectedIndexChanged += new System.EventHandler(this.Reservelist_listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -84,17 +90,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "연락처";
-            this.columnHeader2.Width = 882;
+            this.columnHeader2.Width = 570;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "객실번호";
-            this.columnHeader3.Width = 82;
+            this.columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "No.";
-            this.columnHeader4.Width = 42;
+            this.columnHeader4.Width = 50;
             // 
             // Reservelist_lbl
             // 
@@ -126,6 +132,7 @@
             this.Check_btn.TabIndex = 21;
             this.Check_btn.Text = "확인";
             this.Check_btn.UseVisualStyleBackColor = true;
+            this.Check_btn.Click += new System.EventHandler(this.Check_btn_Click);
             // 
             // panel1
             // 
@@ -159,7 +166,8 @@
             this.Room_cbb.Font = new System.Drawing.Font("굴림", 11F);
             this.Room_cbb.FormattingEnabled = true;
             this.Room_cbb.Items.AddRange(new object[] {
-            "선택안함"});
+            "선택안함",
+            "101"});
             this.Room_cbb.Location = new System.Drawing.Point(587, 53);
             this.Room_cbb.Name = "Room_cbb";
             this.Room_cbb.Size = new System.Drawing.Size(121, 23);
@@ -214,10 +222,10 @@
             // 
             this.Search_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Search_txt.Location = new System.Drawing.Point(77, 0);
-            this.Search_txt.Multiline = true;
             this.Search_txt.Name = "Search_txt";
-            this.Search_txt.Size = new System.Drawing.Size(336, 35);
+            this.Search_txt.Size = new System.Drawing.Size(336, 38);
             this.Search_txt.TabIndex = 7;
+            this.Search_txt.TextChanged += new System.EventHandler(this.Search_txt_TextChanged);
             // 
             // Search_lbl
             // 
@@ -228,6 +236,18 @@
             this.Search_lbl.Size = new System.Drawing.Size(71, 37);
             this.Search_lbl.TabIndex = 3;
             this.Search_lbl.Text = "이름";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "체크인";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 150;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "체크아웃";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 150;
             // 
             // Reservlist_Form
             // 
@@ -272,5 +292,7 @@
         private System.Windows.Forms.DateTimePicker CKIN_dtp;
         private System.Windows.Forms.TextBox Search_txt;
         private System.Windows.Forms.Label Search_lbl;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

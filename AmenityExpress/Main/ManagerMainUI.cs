@@ -31,5 +31,14 @@ namespace AmenityExpress
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Reservlist_Form form = new Reservlist_Form(null, true);
+            this.Visible = false;
+            form.Owner = this;
+            form.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

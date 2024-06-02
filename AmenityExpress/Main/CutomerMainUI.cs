@@ -65,7 +65,7 @@ namespace AmenityExpress
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Reservlist_Form reservelist = new Reservlist_Form(client);
+            Reservlist_Form reservelist = new Reservlist_Form(client, false);
             this.Visible = false;
             reservelist.Owner = this;
             reservelist.ShowDialog();

@@ -25,7 +25,27 @@ namespace AmenityExpress
             conn = new OracleConnection(connstr);
         }
 
-        public void DML_NON_QUERY(string sql, OracleParameter[] parameters)
+        public static void DML_NON_QUERY(string sql) //insert, delete, update
+        {
+            cmd.Connection = conn;
+            cmd.CommandText = sql;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery(); //반환값 x ==>void
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+            public void DML_NON_QUERY(string sql, OracleParameter[] parameters)
         {
             using (var conn = new OracleConnection(connstr))
             using (var cmd = new OracleCommand(sql, conn))

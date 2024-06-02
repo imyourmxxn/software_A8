@@ -15,9 +15,8 @@ namespace AmenityExpress
     {
         public LogIn()
         {
-
             InitializeComponent();
-
+            radioButton2.Checked = true;
         }
 
 
