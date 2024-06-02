@@ -41,6 +41,7 @@
             this.RoomNameLable = new System.Windows.Forms.Label();
             this.RoomNameTextBox = new System.Windows.Forms.TextBox();
             this.RetouchBtn = new System.Windows.Forms.Button();
+            this.ImageReuploadBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,11 +164,22 @@
             this.RetouchBtn.UseVisualStyleBackColor = true;
             this.RetouchBtn.Click += new System.EventHandler(this.RetouchBtn_Click);
             // 
+            // ImageReuploadBtn
+            // 
+            this.ImageReuploadBtn.Location = new System.Drawing.Point(21, 124);
+            this.ImageReuploadBtn.Name = "ImageReuploadBtn";
+            this.ImageReuploadBtn.Size = new System.Drawing.Size(131, 23);
+            this.ImageReuploadBtn.TabIndex = 27;
+            this.ImageReuploadBtn.Text = "객실 사진 수정";
+            this.ImageReuploadBtn.UseVisualStyleBackColor = true;
+            this.ImageReuploadBtn.Click += new System.EventHandler(this.ImageReuploadBtn_Click);
+            // 
             // RoomInformRetouching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 443);
+            this.Controls.Add(this.ImageReuploadBtn);
             this.Controls.Add(this.RetouchBtn);
             this.Controls.Add(this.RoomPictureBox);
             this.Controls.Add(this.Cancelbtn);
@@ -206,5 +218,6 @@
         private System.Windows.Forms.Label RoomNameLable;
         private System.Windows.Forms.TextBox RoomNameTextBox;
         private System.Windows.Forms.Button RetouchBtn;
+        private System.Windows.Forms.Button ImageReuploadBtn;
     }
 }

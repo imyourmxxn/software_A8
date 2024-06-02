@@ -14,6 +14,7 @@ namespace AmenityExpress.RoomManagement
     public partial class RoomInformRetouching : Form
     {
         public Room RoomData { get; private set; }
+        private string selectedImagePath;
         public RoomInformRetouching(Room room)
         {
             InitializeComponent();
@@ -22,8 +23,24 @@ namespace AmenityExpress.RoomManagement
             RoomMaxTextBox.Text = room.MaxP.ToString();
             RoomPricetextBox.Text = room.Price.ToString();
             RoomNoticeTextBox.Text = room.Notice;
-        }
+            selectedImagePath = room.ImagePath;
+            LoadRoomImage(room.ImagePath);
 
+
+
+        }
+        private void LoadRoomImage(string imagePath)
+        {
+            if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+            {
+                RoomPictureBox.Image = Image.FromFile(imagePath);
+            }
+            else
+            {
+                // 기본 이미지 설정
+                RoomPictureBox.Image = null; // 기본 이미지를 설정하거나 null로 설정
+            }
+        }
         private void RoomPictureBox_Click(object sender, EventArgs e)
         {
 
@@ -93,7 +110,7 @@ namespace AmenityExpress.RoomManagement
                 int.TryParse(RoomMaxTextBox.Text, out maxP) &&
                 int.TryParse(RoomPricetextBox.Text, out price))
             {
-                RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text);
+                RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
                 UpdateRoomInDatabase(RoomData);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -105,14 +122,15 @@ namespace AmenityExpress.RoomManagement
         }
         private void UpdateRoomInDatabase(Room room)
         {
-            string sql = "UPDATE ROOM_MANAGE SET NAME = :NAME, PRICE = :PRICE, MAX_CLIENT = :MAX_CLIENT, NOTICE = :NOTICE WHERE ROOMNUM = :ROOMNUM";
+            string sql = "UPDATE ROOM_MANAGE SET NAME = :NAME, PRICE = :PRICE, MAX_CLIENT = :MAX_CLIENT, NOTICE = :NOTICE, PHOTOPATH = :PHOTOPATH WHERE ROOMNUM = :ROOMNUM";
 
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("ROOMNAME", room.Name),
-                new OracleParameter("ROOMPRICE", room.Price),
-                new OracleParameter("ROOMMAXP", room.MaxP),
-                new OracleParameter("ROOMNOTICE", room.Notice),
+                new OracleParameter("NAME", room.Name),
+                new OracleParameter("PRICE", room.Price),
+                new OracleParameter("MAX_CLIENT", room.MaxP),
+                new OracleParameter("NOTICE", room.Notice),
+                new OracleParameter("PHOTOPATH", room.ImagePath),
                 new OracleParameter("ROOMNUM", room.Num)
             };
 
@@ -129,7 +147,19 @@ namespace AmenityExpress.RoomManagement
         }
             private void RoomInformRetouching_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void ImageReuploadBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                selectedImagePath = openFileDialog.FileName;
+                RoomPictureBox.Image = Image.FromFile(selectedImagePath);
+            }
         }
     }
 }

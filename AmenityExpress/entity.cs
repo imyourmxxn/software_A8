@@ -82,11 +82,12 @@ namespace AmenityExpress
         public int MaxP;
         public int Price;
         public string Notice;
+        public string ImagePath;
 
 
-        public Room(int Num, string Name, int MaxP, int Price, string Notice)
+        public Room(int Num, string Name, int MaxP, int Price, string Notice,string imagePath)
         {
-            this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice;
+            this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice; this.ImagePath = imagePath;
         }
     }
 }

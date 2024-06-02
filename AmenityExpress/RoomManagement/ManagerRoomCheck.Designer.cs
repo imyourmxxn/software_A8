@@ -32,7 +32,9 @@ namespace AmenityExpress
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -40,6 +42,7 @@ namespace AmenityExpress
             this.addButton = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
+            this.RoomRenewal_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -48,10 +51,17 @@ namespace AmenityExpress
             this.listView1.Location = new System.Drawing.Point(66, 99);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(756, 353);
+            this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 68;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // radioButton4
             // 
@@ -105,7 +115,7 @@ namespace AmenityExpress
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(377, 12);
+            this.updateBtn.Location = new System.Drawing.Point(270, 12);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(104, 59);
             this.updateBtn.TabIndex = 70;
@@ -115,7 +125,7 @@ namespace AmenityExpress
             // 
             // delBtn
             // 
-            this.delBtn.Location = new System.Drawing.Point(682, 12);
+            this.delBtn.Location = new System.Drawing.Point(475, 12);
             this.delBtn.Name = "delBtn";
             this.delBtn.Size = new System.Drawing.Size(104, 59);
             this.delBtn.TabIndex = 71;
@@ -123,11 +133,22 @@ namespace AmenityExpress
             this.delBtn.UseVisualStyleBackColor = true;
             this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
-            // RoomSearchM_Form
+            // RoomRenewal_btn
+            // 
+            this.RoomRenewal_btn.Location = new System.Drawing.Point(764, 12);
+            this.RoomRenewal_btn.Name = "RoomRenewal_btn";
+            this.RoomRenewal_btn.Size = new System.Drawing.Size(104, 59);
+            this.RoomRenewal_btn.TabIndex = 72;
+            this.RoomRenewal_btn.Text = "객실 정보 갱신";
+            this.RoomRenewal_btn.UseVisualStyleBackColor = true;
+            this.RoomRenewal_btn.Click += new System.EventHandler(this.RoomRenewal_btn_Click);
+            // 
+            // ManagerRoomCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 500);
+            this.Controls.Add(this.RoomRenewal_btn);
             this.Controls.Add(this.delBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addButton);
@@ -136,8 +157,8 @@ namespace AmenityExpress
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Name = "RoomSearchM_Form";
-            this.Text = "RoomSearchM_Form";
+            this.Name = "ManagerRoomCheck";
+            this.Text = "ManagerRoomCheck";
             this.Load += new System.EventHandler(this.RoomSearchM_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,5 +175,7 @@ namespace AmenityExpress
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button delBtn;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button RoomRenewal_btn;
     }
 }

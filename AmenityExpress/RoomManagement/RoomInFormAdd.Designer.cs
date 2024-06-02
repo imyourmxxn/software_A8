@@ -189,7 +189,7 @@
             this.Controls.Add(this.RoomNameTextBox);
             this.Name = "RoomInFormAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DialogForm";
+            this.Text = "RoomInFormAdd";
             this.Load += new System.EventHandler(this.DialogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).EndInit();
             this.ResumeLayout(false);

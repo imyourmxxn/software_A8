@@ -2,7 +2,9 @@
 using AmenityExpress.RoomManagement;
 using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace AmenityExpress
@@ -13,11 +15,13 @@ namespace AmenityExpress
         {
             InitializeComponent();
 
-            listView1.Columns.Add("Room Name", 100, HorizontalAlignment.Left);
+            
+            listView1.Columns.Add("Room Name", 200, HorizontalAlignment.Left);
             listView1.Columns.Add("Room Number", 100, HorizontalAlignment.Left);
             listView1.Columns.Add("Room Price", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Room MaxP", 100, HorizontalAlignment.Left);
+            listView1.Columns.Add("Room Max_Client", 100, HorizontalAlignment.Left);
             listView1.Columns.Add("Room Notice", 150, HorizontalAlignment.Left);
+           
 
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
@@ -63,8 +67,9 @@ namespace AmenityExpress
                         room.Price.ToString(),
                         room.MaxP.ToString(),
                         room.Notice
-                    });
 
+                    });
+                    item.Tag = room.ImagePath;
                     listView1.Items.Add(item);
                 }
             }
@@ -80,7 +85,8 @@ namespace AmenityExpress
                     selectedItem.SubItems[0].Text,
                     int.Parse(selectedItem.SubItems[3].Text),
                     int.Parse(selectedItem.SubItems[2].Text),
-                    selectedItem.SubItems[4].Text
+                    selectedItem.SubItems[4].Text,
+                    selectedItem.Tag?.ToString()
                 );
 
                 using (RoomInformRetouching dialog = new RoomInformRetouching(room))
@@ -94,7 +100,8 @@ namespace AmenityExpress
                         selectedItem.SubItems[2].Text = updatedRoom.Price.ToString();
                         selectedItem.SubItems[3].Text = updatedRoom.MaxP.ToString();
                         selectedItem.SubItems[4].Text = updatedRoom.Notice;
-                        
+                        selectedItem.Tag = updatedRoom.ImagePath;
+
                     }
                 }
             }
@@ -123,21 +130,63 @@ namespace AmenityExpress
         }
         private void LoadRoomData()
         {
-            string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE FROM ROOM_MANAGE";
+            string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE, PHOTOPATH FROM ROOM_MANAGE";
             DataSet ds = DBConnector.DML_QUERY(sql);
 
             listView1.Items.Clear();
 
-            foreach (DataRow row in ds.Tables[0].Rows)
+            // 이미지 리스트 생성
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(50, 50); // 이미지 크기 조정 (가로, 세로)
+
+            // 이미지를 표시할 이미지 리스트에 이미지 추가
+            Dictionary<int, int> imageIndexMapping = new Dictionary<int, int>();
+            int imageIndex = 0;
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                string imagePath = ds.Tables[0].Rows[i]["PHOTOPATH"].ToString();
+                if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+                {
+                    try
+                    {
+                        // 이미지 리스트에 이미지 추가
+                        imageList.Images.Add(Image.FromFile(imagePath));
+                        imageIndexMapping[i] = imageIndex;
+                        imageIndex++;
+                    }
+                    catch (Exception ex)
+                    {
+                        // 이미지 로드 실패 시 처리할 내용
+                        Console.WriteLine($"이미지 로드 실패: {ex.Message}");
+                        imageIndexMapping[i] = -1; // 이미지 로드 실패 시 인덱스를 -1로 설정
+                    }
+                }
+                else
+                {
+                    imageIndexMapping[i] = -1; // 이미지가 없는 경우 인덱스를 -1로 설정
+                }
+            }
+
+            // 리스트뷰에 이미지 리스트 연결
+            listView1.SmallImageList = imageList;
+
+            // 각 항목에 이미지 인덱스 설정하여 이미지 표시
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 ListViewItem item = new ListViewItem(new[]
                 {
-                    row["NAME"].ToString(),
-                    row["ROOMNUM"].ToString(),
-                    row["PRICE"].ToString(),
-                    row["MAX_CLIENT"].ToString(),
-                    row["NOTICE"].ToString()
-                });
+            ds.Tables[0].Rows[i]["NAME"].ToString(),
+            ds.Tables[0].Rows[i]["ROOMNUM"].ToString(),
+            ds.Tables[0].Rows[i]["PRICE"].ToString(),
+            ds.Tables[0].Rows[i]["MAX_CLIENT"].ToString(),
+            ds.Tables[0].Rows[i]["NOTICE"].ToString()
+        });
+
+                if (imageIndexMapping[i] != -1)
+                {
+                    item.ImageIndex = imageIndexMapping[i]; // 이미지 인덱스 설정
+                }
 
                 listView1.Items.Add(item);
             }
@@ -158,6 +207,11 @@ namespace AmenityExpress
             {
                 MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다: " + ex.Message);
             }
+        }
+
+        private void RoomRenewal_btn_Click(object sender, EventArgs e)
+        {
+            LoadRoomData();
         }
     }
 }
