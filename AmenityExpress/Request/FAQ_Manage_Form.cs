@@ -95,37 +95,21 @@ namespace AmenityExpress
 
         private void FAQDel_btn_Click(object sender, EventArgs e)//FAQ 삭제 버튼
         {
-            if (FAQ_list.SelectedItems.Count > 0)
-            {
-                ListViewItem selectedItem = FAQ_list.SelectedItems[0];
-                int roomNum = int.Parse(selectedItem.SubItems[1].Text);
-
-                //DeleteRoom(roomNum);
-
-                //listView1.Items.Remove(selectedItem);
-            }
-            else
-            {
-                MessageBox.Show("삭제할 항목을 선택하세요.");
-            }
-            //if (FAQ_list.SelectedItems.Count > 0)
-            //{
-            //    ListViewItem selectedItem = FAQ_list.SelectedItems[0];
-
-            //    FAQ_list.Items.Remove(selectedItem);
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("삭제할 항목을 선택하세요.");
-            //}
+            
         }
 
         private void FAQDel()
         {
-
+            if (FAQ_list.SelectedIndices.Count > 0)
+            {
+                for (int i = FAQ_list.SelectedIndices.Count - 1; i >= 0; i--)
+                    FAQ_list.Items.RemoveAt(FAQ_list.SelectedIndices[i]);
+            }
+            else
+            {
+                MessageBox.Show("삭제할 항목을 선택해주세요.");
+            }
         }
-
 
         private void FAQ_list_SelectedIndexChanged(object sender, EventArgs e)
         {

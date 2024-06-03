@@ -18,7 +18,7 @@ namespace AmenityExpress
             DBConnector dBConnector = new DBConnector();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FAQ_Manage_Form());
+            Application.Run(new FAQ_Form());
         }
     }
 }
