@@ -25,7 +25,7 @@ namespace AmenityExpress
 
         private void FAQ_Manage_Form_Load(object sender, EventArgs e)
         {
-
+            FAQ_ListView();
         }
         private void FAQEnroll_btn_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace AmenityExpress
                 FAQEnroll();
             }
         }
-        private void FAQEnroll()
+        private void FAQEnroll()  //FAQ DB에 등록하는 함수
         {
             string Question = FAQQuestionContent_txt.Text;
             string Answer = FAQAnswerContent_txt.Text;
@@ -63,6 +63,24 @@ namespace AmenityExpress
                 return;
             }
             MessageBox.Show("FAQ가 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FAQ_ListView();
+        }
+
+        private void FAQ_ListView()
+        {
+            string sql = "SELECT * FROM FAQLIST ORDER BY FAQNUM";
+            DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
+
+            FAQ_list.Items.Clear(); // 기존 항목을 지웁니다.
+
+            foreach (DataRow row in dbconnector.Tables[0].Rows)
+            {
+                ListViewItem item = new ListViewItem(row["FAQNUM"].ToString()); // 첫 번째 컬럼의 값을 사용합니다.
+                item.SubItems.Add(row["Question"].ToString());
+                item.SubItems.Add(row["ANSWER"].ToString());// 두 번째 컬럼의 값을 사용합니다.
+                                                             // 추가적인 컬럼이 있으면 여기에 추가합니다.
+                FAQ_list.Items.Add(item);
+            }
         }
 
         private void FAQFix_btn_Click(object sender, EventArgs e)
@@ -82,9 +100,9 @@ namespace AmenityExpress
                 ListViewItem selectedItem = FAQ_list.SelectedItems[0];
                 int roomNum = int.Parse(selectedItem.SubItems[1].Text);
 
-                DeleteRoom(roomNum);
+                //DeleteRoom(roomNum);
 
-                listView1.Items.Remove(selectedItem);
+                //listView1.Items.Remove(selectedItem);
             }
             else
             {

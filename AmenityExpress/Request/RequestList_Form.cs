@@ -32,11 +32,11 @@ namespace AmenityExpress
 
         }
 
-        private void RequestListToWrite_btn_Click(object sender, EventArgs e)
-        {
-            RequestWrite_Form requestwrite_form = new RequestWrite_Form(); //요청하기 폼으로 넘어가기
-            requestwrite_form.Show();
-        }
+        //private void RequestListToWrite_btn_Click(object sender, EventArgs e)
+        //{
+        //    RequestWrite_Form requestwrite_form = new RequestWrite_Form(); //요청하기 폼으로 넘어가기
+        //    requestwrite_form.Show();
+        //} //버튼 없앴음
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {

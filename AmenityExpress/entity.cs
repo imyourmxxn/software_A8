@@ -57,8 +57,6 @@ namespace AmenityExpress
     public class Request
     {
         public int SNum;
-        public string CName;
-        public string MName;
         public string RequestKind;
         public string Content;
         public string WriteDate;
@@ -66,12 +64,12 @@ namespace AmenityExpress
         public string AnswerDate;
         public string Cid;
         public string Mid;
-        public string RoomNum;
+        public int RoomNum;
 
-        public Request(int SNum, string CName, string MName, string RequestKind, string Content, string Answer, string Cid,
-            string Mid, string RoomNum)
+        public Request(int SNum, string RequestKind, string Content, string Answer, string Cid,
+            string Mid, int RoomNum)
         {
-            this.SNum = SNum; this.CName = CName; this.MName = MName; this.RequestKind = RequestKind; this.Content = Content;
+            this.SNum = SNum;   this.RequestKind = RequestKind; this.Content = Content;
             this.Answer = Answer; this.Cid = Cid; this.Mid = Mid; this.RoomNum = RoomNum;
         }
     }

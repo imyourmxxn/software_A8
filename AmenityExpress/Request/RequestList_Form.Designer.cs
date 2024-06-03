@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.RequestListFAQ_btn = new System.Windows.Forms.Button();
-            this.RequestListToWrite_btn = new System.Windows.Forms.Button();
             this.RequestList_list = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,12 +36,13 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox = new System.Windows.Forms.GroupBox();
             this.RequestListBack_btn = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // RequestListFAQ_btn
             // 
-            this.RequestListFAQ_btn.Location = new System.Drawing.Point(939, 25);
+            this.RequestListFAQ_btn.Location = new System.Drawing.Point(1201, 25);
             this.RequestListFAQ_btn.Name = "RequestListFAQ_btn";
             this.RequestListFAQ_btn.Size = new System.Drawing.Size(125, 53);
             this.RequestListFAQ_btn.TabIndex = 0;
@@ -50,27 +50,18 @@
             this.RequestListFAQ_btn.UseVisualStyleBackColor = true;
             this.RequestListFAQ_btn.Click += new System.EventHandler(this.RequestListFAQ_btn_Click);
             // 
-            // RequestListToWrite_btn
-            // 
-            this.RequestListToWrite_btn.Location = new System.Drawing.Point(795, 25);
-            this.RequestListToWrite_btn.Name = "RequestListToWrite_btn";
-            this.RequestListToWrite_btn.Size = new System.Drawing.Size(125, 53);
-            this.RequestListToWrite_btn.TabIndex = 2;
-            this.RequestListToWrite_btn.Text = "요청하기";
-            this.RequestListToWrite_btn.UseVisualStyleBackColor = true;
-            this.RequestListToWrite_btn.Click += new System.EventHandler(this.RequestListToWrite_btn_Click);
-            // 
             // RequestList_list
             // 
             this.RequestList_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.RequestList_list.HideSelection = false;
             this.RequestList_list.Location = new System.Drawing.Point(40, 47);
             this.RequestList_list.Name = "RequestList_list";
-            this.RequestList_list.Size = new System.Drawing.Size(963, 420);
+            this.RequestList_list.Size = new System.Drawing.Size(1217, 420);
             this.RequestList_list.TabIndex = 3;
             this.RequestList_list.UseCompatibleStateImageBehavior = false;
             this.RequestList_list.View = System.Windows.Forms.View.Details;
@@ -100,7 +91,7 @@
             this.RequestList_groupbox.Controls.Add(this.RequestList_list);
             this.RequestList_groupbox.Location = new System.Drawing.Point(23, 84);
             this.RequestList_groupbox.Name = "RequestList_groupbox";
-            this.RequestList_groupbox.Size = new System.Drawing.Size(1041, 503);
+            this.RequestList_groupbox.Size = new System.Drawing.Size(1303, 503);
             this.RequestList_groupbox.TabIndex = 4;
             this.RequestList_groupbox.TabStop = false;
             this.RequestList_groupbox.Text = "요청사항목록";
@@ -108,7 +99,7 @@
             // 
             // RequestListBack_btn
             // 
-            this.RequestListBack_btn.Location = new System.Drawing.Point(652, 25);
+            this.RequestListBack_btn.Location = new System.Drawing.Point(1056, 25);
             this.RequestListBack_btn.Name = "RequestListBack_btn";
             this.RequestListBack_btn.Size = new System.Drawing.Size(125, 53);
             this.RequestListBack_btn.TabIndex = 5;
@@ -116,14 +107,18 @@
             this.RequestListBack_btn.UseVisualStyleBackColor = true;
             this.RequestListBack_btn.Click += new System.EventHandler(this.RequestListBack_btn_Click);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "답변내용";
+            this.columnHeader5.Width = 425;
+            // 
             // RequestList_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 651);
+            this.ClientSize = new System.Drawing.Size(1369, 651);
             this.Controls.Add(this.RequestListBack_btn);
             this.Controls.Add(this.RequestList_groupbox);
-            this.Controls.Add(this.RequestListToWrite_btn);
             this.Controls.Add(this.RequestListFAQ_btn);
             this.Name = "RequestList_Form";
             this.Text = "요청사항리스트";
@@ -136,7 +131,6 @@
         #endregion
 
         private System.Windows.Forms.Button RequestListFAQ_btn;
-        private System.Windows.Forms.Button RequestListToWrite_btn;
         private System.Windows.Forms.ListView RequestList_list;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -144,6 +138,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.GroupBox RequestList_groupbox;
         private System.Windows.Forms.Button RequestListBack_btn;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
 

@@ -36,7 +36,6 @@ namespace AmenityExpress
             {
                 cmd.Parameters.AddRange(parameters);
             }
-
             try
             {
                 conn.Open();
@@ -49,6 +48,7 @@ namespace AmenityExpress
             }
             finally
             {
+                cmd.Parameters.Clear();
                 conn.Close();
             }
         }

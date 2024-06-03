@@ -12,6 +12,7 @@ namespace AmenityExpress
 {
     public partial class FAQ_Form : Form
     {
+        //Button list = new Button(1
         public FAQ_Form()
         {
             InitializeComponent();
@@ -32,5 +33,9 @@ namespace AmenityExpress
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
