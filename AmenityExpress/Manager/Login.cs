@@ -16,5 +16,10 @@ namespace AmenityExpress
         {
             InitializeComponent();
         }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
