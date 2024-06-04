@@ -187,7 +187,7 @@ namespace AmenityExpress
                 ListViewItem selectedItem = Reservelist_listView.SelectedItems[0];
                 string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND KRNAME = '" + selectedItem.SubItems[0].Text.ToString() + "'";
                 DataSet dbconnector = DBConnector.DML_QUERY(sql);
-                Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, 1);
+                Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, "");
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
                 {
                     string CKIN = row[0].ToString();
@@ -199,6 +199,7 @@ namespace AmenityExpress
                     reserve.CKIN = DateTime.Parse(row[0].ToString());
                     reserve.CKOUT = DateTime.Parse(row[7].ToString());
                     reserve.RoomNum = Convert.ToInt32(row[1].ToString());
+                    reserve.PRE_REQUEST = row[8].ToString();
                 }
                 Reservcheck_Form form = new Reservcheck_Form(reserve);
                 this.Visible = false;

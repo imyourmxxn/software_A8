@@ -30,6 +30,10 @@ namespace AmenityExpress
             ENGname_txt.Text = reserve.Name_ENG;
             Email_txt.Text = reserve.Email;
             Tell_txt.Text = "-"+phoneNumberSplit[1] + "-" + phoneNumberSplit[2];
+            Request_txt.Text = reserve.PRE_REQUEST;
+
+            CKIN_lbl.Text = reserve.CKIN.ToString("MM월 dd일 (ddd)");
+            CKOUT_lbl.Text = reserve.CKOUT.ToString("MM월 dd일 (ddd)");
         }
         private void chart1_Click(object sender, EventArgs e)
         {

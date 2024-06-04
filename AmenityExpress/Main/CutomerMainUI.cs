@@ -42,9 +42,10 @@ namespace AmenityExpress
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Reserve reserve = new Reserve("", "", "", "", "", DateTime.Today, DateTime.Today, 810, 0);
+            Reserve reserve = new Reserve("", "", "", "", "", DateTime.Today, DateTime.Today, 810, "");
             reserve.CKIN = dateTimePicker1.Value;
             reserve.CKOUT = dateTimePicker2.Value;
+            if (reserve.CKIN.ToString("MM-dd") == reserve.CKOUT.ToString("MM-dd")) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
             RoomSearch_Form roomserch = new RoomSearch_Form(client, reserve);
             this.Visible = false;
             roomserch.Owner = this;
