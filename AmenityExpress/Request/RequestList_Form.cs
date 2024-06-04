@@ -32,12 +32,6 @@ namespace AmenityExpress
 
         }
 
-        private void RequestListToWrite_btn_Click(object sender, EventArgs e)
-        {
-            RequestWrite_Form requestwrite_form = new RequestWrite_Form(); //요청하기 폼으로 넘어가기
-            requestwrite_form.Show();
-        }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -45,7 +39,8 @@ namespace AmenityExpress
 
         private void RequestListBack_btn_Click(object sender, EventArgs e)
         {
-            //객실선택쪽으로 돌아가야하나..
+            CustomerMainUI customermainui = new CustomerMainUI();
+            customermainui.Show();
         }
 
         private void RequestList_Form_Load(object sender, EventArgs e)

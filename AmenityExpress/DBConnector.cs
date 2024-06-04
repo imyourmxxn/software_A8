@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace AmenityExpress
 {
@@ -25,11 +27,15 @@ namespace AmenityExpress
             conn = new OracleConnection(connstr);
         }
 
-        public static void DML_NON_QUERY(string sql) //insert, delete, update
+        public static void DML_NON_QUERY(string sql, OracleParameter[] parameters) //insert, delete, update
         {
             cmd.Connection = conn;
             cmd.CommandText = sql;
 
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
             try
             {
                 conn.Open();
@@ -38,38 +44,22 @@ namespace AmenityExpress
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                throw ex;
             }
             finally
             {
+                cmd.Parameters.Clear();
                 conn.Close();
             }
         }
-
-            public void DML_NON_QUERY(string sql, OracleParameter[] parameters)
-        {
-            using (var conn = new OracleConnection(connstr))
-            using (var cmd = new OracleCommand(sql, conn))
-            {
-                if (parameters != null)
-                {
-                    cmd.Parameters.AddRange(parameters);
-                }
-
-                try
-                {
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-                public static DataSet DML_QUERY(string sql)
+        public static DataSet DML_QUERY(string sql, OracleParameter[] parameters) //select문 쓸 때
         {
             cmd.Connection = conn;
             cmd.CommandText = sql;
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
             DataSet ds = new DataSet();
 
             try
@@ -81,11 +71,11 @@ namespace AmenityExpress
 
                 }
 
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                throw ex;
             }
             finally
             {

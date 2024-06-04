@@ -1,6 +1,6 @@
 ﻿namespace AmenityExpress
 {
-    partial class FAQList_Form
+    partial class FAQ_Manage_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FAQ_listview = new System.Windows.Forms.ListView();
+            this.FAQ_list = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FAQQuestion_lbl = new System.Windows.Forms.Label();
             this.FAQQuestionContent_txt = new System.Windows.Forms.TextBox();
             this.FAQAnswer_lbl = new System.Windows.Forms.Label();
@@ -38,15 +41,36 @@
             this.FAQDel_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // FAQ_listview
+            // FAQ_list
             // 
-            this.FAQ_listview.HideSelection = false;
-            this.FAQ_listview.Location = new System.Drawing.Point(385, 52);
-            this.FAQ_listview.Name = "FAQ_listview";
-            this.FAQ_listview.Size = new System.Drawing.Size(579, 489);
-            this.FAQ_listview.TabIndex = 0;
-            this.FAQ_listview.UseCompatibleStateImageBehavior = false;
-            this.FAQ_listview.View = System.Windows.Forms.View.Details;
+            this.FAQ_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.FAQ_list.FullRowSelect = true;
+            this.FAQ_list.HideSelection = false;
+            this.FAQ_list.Location = new System.Drawing.Point(385, 52);
+            this.FAQ_list.Name = "FAQ_list";
+            this.FAQ_list.Size = new System.Drawing.Size(579, 489);
+            this.FAQ_list.TabIndex = 0;
+            this.FAQ_list.UseCompatibleStateImageBehavior = false;
+            this.FAQ_list.View = System.Windows.Forms.View.Details;
+            this.FAQ_list.SelectedIndexChanged += new System.EventHandler(this.FAQ_list_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No";
+            this.columnHeader1.Width = 66;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "질문 내용";
+            this.columnHeader2.Width = 245;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "답변 내용";
+            this.columnHeader3.Width = 264;
             // 
             // FAQQuestion_lbl
             // 
@@ -114,7 +138,7 @@
             this.FAQDel_btn.UseVisualStyleBackColor = true;
             this.FAQDel_btn.Click += new System.EventHandler(this.FAQDel_btn_Click);
             // 
-            // FAQList_Form
+            // FAQ_Manage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,9 +150,10 @@
             this.Controls.Add(this.FAQAnswer_lbl);
             this.Controls.Add(this.FAQQuestionContent_txt);
             this.Controls.Add(this.FAQQuestion_lbl);
-            this.Controls.Add(this.FAQ_listview);
-            this.Name = "FAQList_Form";
-            this.Text = "FQAEnroll_Form";
+            this.Controls.Add(this.FAQ_list);
+            this.Name = "FAQ_Manage_Form";
+            this.Text = "관리자FAQ관리";
+            this.Load += new System.EventHandler(this.FAQ_Manage_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +161,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView FAQ_listview;
+        private System.Windows.Forms.ListView FAQ_list;
         private System.Windows.Forms.Label FAQQuestion_lbl;
         private System.Windows.Forms.TextBox FAQQuestionContent_txt;
         private System.Windows.Forms.Label FAQAnswer_lbl;
@@ -144,5 +169,8 @@
         private System.Windows.Forms.Button FAQEnroll_btn;
         private System.Windows.Forms.Button FAQFix_btn;
         private System.Windows.Forms.Button FAQDel_btn;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

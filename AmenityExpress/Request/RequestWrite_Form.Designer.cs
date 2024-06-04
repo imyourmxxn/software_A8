@@ -33,6 +33,7 @@
             this.RequestWrite_lbl = new System.Windows.Forms.Label();
             this.RequestContent_txt = new System.Windows.Forms.TextBox();
             this.RequestWriteEnroll_btn = new System.Windows.Forms.Button();
+            this.RequestWriteBack_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RequestKind_lbl
@@ -70,7 +71,7 @@
             this.RequestContent_txt.Name = "RequestContent_txt";
             this.RequestContent_txt.Size = new System.Drawing.Size(662, 305);
             this.RequestContent_txt.TabIndex = 3;
-            this.RequestContent_txt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.RequestContent_txt.TextChanged += new System.EventHandler(this.RequestContent_txt_TextChanged);
             // 
             // RequestWriteEnroll_btn
             // 
@@ -82,18 +83,29 @@
             this.RequestWriteEnroll_btn.UseVisualStyleBackColor = true;
             this.RequestWriteEnroll_btn.Click += new System.EventHandler(this.RequestWriteEnroll_btn_Click);
             // 
+            // RequestWriteBack_btn
+            // 
+            this.RequestWriteBack_btn.Location = new System.Drawing.Point(500, 513);
+            this.RequestWriteBack_btn.Name = "RequestWriteBack_btn";
+            this.RequestWriteBack_btn.Size = new System.Drawing.Size(95, 40);
+            this.RequestWriteBack_btn.TabIndex = 7;
+            this.RequestWriteBack_btn.Text = "뒤로가기";
+            this.RequestWriteBack_btn.UseVisualStyleBackColor = true;
+            this.RequestWriteBack_btn.Click += new System.EventHandler(this.RequestWriteBack_btn_Click);
+            // 
             // RequestWrite_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 578);
+            this.Controls.Add(this.RequestWriteBack_btn);
             this.Controls.Add(this.RequestWriteEnroll_btn);
             this.Controls.Add(this.RequestContent_txt);
             this.Controls.Add(this.RequestWrite_lbl);
             this.Controls.Add(this.RequestKind_CmBox);
             this.Controls.Add(this.RequestKind_lbl);
             this.Name = "RequestWrite_Form";
-            this.Text = "Form2";
+            this.Text = "요청사항작성";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,5 +119,6 @@
         private System.Windows.Forms.Label RequestWrite_lbl;
         private System.Windows.Forms.TextBox RequestContent_txt;
         private System.Windows.Forms.Button RequestWriteEnroll_btn;
+        private System.Windows.Forms.Button RequestWriteBack_btn;
     }
 }

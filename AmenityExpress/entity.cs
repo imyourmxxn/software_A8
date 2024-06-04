@@ -57,21 +57,20 @@ namespace AmenityExpress
     public class Request
     {
         public int SNum;
-        public string Client_Id;
-        public string Client_Name;
-        public string Manager_Id;
-        public string Manager_Name;
-        public string Detail;
+        public string RequestKind;
+        public string Content;
+        public string WriteDate;
         public string Answer;
-        public string Date;
-        public string Amenities;
-        public string RoomService;
+        public string AnswerDate;
+        public string Cid;
+        public string Mid;
+        public int RoomNum;
 
-        public Request(int SNum, string Client_Id, string Manager_Id, string Manager_Name, string Detail, string Answer, string Date,
-            string Amenities, string RoomService)
+        public Request(int SNum, string RequestKind, string Content, string Answer, string Cid,
+            string Mid, int RoomNum)
         {
-            this.SNum = SNum; this.Client_Id = Client_Id; this.Manager_Id = Manager_Id; this.Manager_Name = Manager_Name; this.Detail = Detail;
-            this.Answer = Answer; this.Date = Date; this.Amenities = Amenities; this.RoomService = RoomService;
+            this.SNum = SNum;   this.RequestKind = RequestKind; this.Content = Content;
+            this.Answer = Answer; this.Cid = Cid; this.Mid = Mid; this.RoomNum = RoomNum;
         }
     }
 
@@ -88,6 +87,17 @@ namespace AmenityExpress
         public Room(int Num, string Name, int MaxP, int Price, string Notice,string imagePath)
         {
             this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice; this.ImagePath = imagePath;
+        }
+    }
+    public class FAQ
+    {
+        public int FAQNum;
+        public string Question;
+        public string Answer;
+
+        public FAQ(int FAQNum, string Question, string Answer)
+        {
+            this.FAQNum = FAQNum; this.Question = Question; this.Answer = Answer;
         }
     }
 }
