@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FAQBack_btn = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_prev = new System.Windows.Forms.Button();
             this.btn_home = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.FAQBack_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "자주 묻는 질문";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // FAQBack_btn
+            // 
+            this.FAQBack_btn.Location = new System.Drawing.Point(786, 570);
+            this.FAQBack_btn.Name = "FAQBack_btn";
+            this.FAQBack_btn.Size = new System.Drawing.Size(104, 40);
+            this.FAQBack_btn.TabIndex = 8;
+            this.FAQBack_btn.Text = "뒤로가기";
+            this.FAQBack_btn.UseVisualStyleBackColor = true;
+            this.FAQBack_btn.Click += new System.EventHandler(this.FAQBack_btn_Click);
             // 
             // btn_next
             // 
@@ -135,15 +145,6 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // FAQBack_btn
-            // 
-            this.FAQBack_btn.Location = new System.Drawing.Point(786, 570);
-            this.FAQBack_btn.Name = "FAQBack_btn";
-            this.FAQBack_btn.Size = new System.Drawing.Size(104, 40);
-            this.FAQBack_btn.TabIndex = 8;
-            this.FAQBack_btn.Text = "뒤로가기";
-            this.FAQBack_btn.UseVisualStyleBackColor = true;
             // 
             // FAQ_Form
             // 

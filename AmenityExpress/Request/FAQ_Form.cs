@@ -65,7 +65,7 @@ namespace AmenityExpress
         }
 
 
-        private void btn_home_Click(object sender, EventArgs e)
+        private void btn_home_Click(object sender, EventArgs e) //홈버튼
         {
             Page_num = 1;
             for (int i = 0; i < 5; i++)
@@ -77,7 +77,7 @@ namespace AmenityExpress
             btn_next.Visible = true;
         }
 
-        private void btn_prev_Click(object sender, EventArgs e)
+        private void btn_prev_Click(object sender, EventArgs e) //이전 화면 버튼
         {
             Page_num--;
             btn_next.Visible = true;
@@ -90,9 +90,14 @@ namespace AmenityExpress
                 btn_list[i].Text = FAQ_Data.Tables[0].Rows[i+(Page_num-1)*5]["QUESTION"].ToString() + "\n" + FAQ_Data.Tables[0].Rows[i + (Page_num - 1) * 5]["ANSWER"].ToString();
                 btn_list[i].Visible = true;
             }
+        } 
+
+        private void FAQBack_btn_Click(object sender, EventArgs e)
+        {
+
         }
 
-        private void btn_next_Click(object sender, EventArgs e)
+        private void btn_next_Click(object sender, EventArgs e) //다음 화면 버튼
         {
             Page_num++;
             btn_prev.Visible = true;

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.FAQ_list = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FAQQuestion_lbl = new System.Windows.Forms.Label();
             this.FAQQuestionContent_txt = new System.Windows.Forms.TextBox();
             this.FAQAnswer_lbl = new System.Windows.Forms.Label();
@@ -36,9 +39,6 @@
             this.FAQEnroll_btn = new System.Windows.Forms.Button();
             this.FAQFix_btn = new System.Windows.Forms.Button();
             this.FAQDel_btn = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // FAQ_list
@@ -47,6 +47,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.FAQ_list.FullRowSelect = true;
             this.FAQ_list.HideSelection = false;
             this.FAQ_list.Location = new System.Drawing.Point(385, 52);
             this.FAQ_list.Name = "FAQ_list";
@@ -55,6 +56,21 @@
             this.FAQ_list.UseCompatibleStateImageBehavior = false;
             this.FAQ_list.View = System.Windows.Forms.View.Details;
             this.FAQ_list.SelectedIndexChanged += new System.EventHandler(this.FAQ_list_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No";
+            this.columnHeader1.Width = 66;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "질문 내용";
+            this.columnHeader2.Width = 245;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "답변 내용";
+            this.columnHeader3.Width = 264;
             // 
             // FAQQuestion_lbl
             // 
@@ -121,21 +137,6 @@
             this.FAQDel_btn.Text = "삭제";
             this.FAQDel_btn.UseVisualStyleBackColor = true;
             this.FAQDel_btn.Click += new System.EventHandler(this.FAQDel_btn_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No";
-            this.columnHeader1.Width = 66;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "질문 내용";
-            this.columnHeader2.Width = 245;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "답변 내용";
-            this.columnHeader3.Width = 264;
             // 
             // FAQ_Manage_Form
             // 

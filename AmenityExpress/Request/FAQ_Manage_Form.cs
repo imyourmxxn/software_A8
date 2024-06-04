@@ -25,7 +25,7 @@ namespace AmenityExpress
 
         private void FAQ_Manage_Form_Load(object sender, EventArgs e)
         {
-            FAQ_ListView();
+            FAQEnroll_ListView_Show();
         }
         private void FAQEnroll_btn_Click(object sender, EventArgs e)
         {
@@ -63,57 +63,98 @@ namespace AmenityExpress
                 return;
             }
             MessageBox.Show("FAQ가 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            FAQ_ListView();
+            FAQEnroll_ListView_Show();
         }
 
-        private void FAQ_ListView()
+        private void FAQEnroll_ListView_Show()
         {
             string sql = "SELECT * FROM FAQLIST ORDER BY FAQNUM";
             DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
 
-            FAQ_list.Items.Clear(); // 기존 항목을 지웁니다.
+            FAQ_list.Items.Clear(); // 기존 항목을 지우기
 
             foreach (DataRow row in dbconnector.Tables[0].Rows)
             {
                 ListViewItem item = new ListViewItem(row["FAQNUM"].ToString()); // 첫 번째 컬럼의 값을 사용합니다.
                 item.SubItems.Add(row["Question"].ToString());
                 item.SubItems.Add(row["ANSWER"].ToString());// 두 번째 컬럼의 값을 사용합니다.
-                                                             // 추가적인 컬럼이 있으면 여기에 추가합니다.
+                                                            
                 FAQ_list.Items.Add(item);
             }
         }
 
-        private void FAQFix_btn_Click(object sender, EventArgs e)
+        private void FAQFix_btn_Click(object sender, EventArgs e) //수정 버튼 클릭 시
         {
-            // 수정 버튼 클릭 로직
+                if (FAQ_list.SelectedItems.Count > 0)
+                {
+                int n = FAQ_list.SelectedItems.Count;
+                {
+                    FAQFix();
+                    FAQ_list.Items[n].SubItems[1].Text = FAQQuestionContent_txt.Text;
+                    FAQ_list.Items[n].SubItems[2].Text = FAQAnswerContent_txt.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("수정할 FAQ를 선택하세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FAQFix()
         {
+            string sql = "UPDATE FROM FAQLIST WHERE FAQLIST";
 
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql, null);
+                MessageBox.Show("선택하신 FAQ가 수정되었습니다!", "수정 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("FAQ가 수정되지 않았습니다!", "수정 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void FAQDel_btn_Click(object sender, EventArgs e)//FAQ 삭제 버튼
-        {
-            
-        }
-
-        private void FAQDel()
+        private void FAQDel_btn_Click(object sender, EventArgs e)//FAQ 삭제 버튼 클릭 시
         {
             if (FAQ_list.SelectedIndices.Count > 0)
             {
                 for (int i = FAQ_list.SelectedIndices.Count - 1; i >= 0; i--)
+                {
+                    FAQDel(FAQ_list.SelectedItems[i].SubItems[0].Text);  //DB 데이터 삭제하는 메소드 호출
                     FAQ_list.Items.RemoveAt(FAQ_list.SelectedIndices[i]);
+                }
             }
             else
             {
-                MessageBox.Show("삭제할 항목을 선택해주세요.");
+                MessageBox.Show("삭제할 FAQ를 선택하세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FAQDel(String num) //DB의 FAQLIST 삭제 메소드
+        {
+            string sql = "DELETE FROM FAQLIST WHERE FAQNUM="+num;
+
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql,null);
+                MessageBox.Show("선택하신 FAQ가 삭제되었습니다!", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("FAQ가 삭제되지 않았습니다!", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void FAQ_list_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                FAQQuestionContent_txt.Text = FAQ_list.FocusedItem.SubItems[1].Text;
+                FAQAnswerContent_txt.Text = FAQ_list.FocusedItem.SubItems[2].Text;
+            }
 
+            catch { }
         }
     }
 }

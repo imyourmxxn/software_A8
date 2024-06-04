@@ -34,9 +34,9 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox = new System.Windows.Forms.GroupBox();
             this.RequestListBack_btn = new System.Windows.Forms.Button();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,11 @@
             this.columnHeader4.Text = "요청내용";
             this.columnHeader4.Width = 456;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "답변내용";
+            this.columnHeader5.Width = 425;
+            // 
             // RequestList_groupbox
             // 
             this.RequestList_groupbox.Controls.Add(this.RequestList_list);
@@ -107,16 +112,11 @@
             this.RequestListBack_btn.UseVisualStyleBackColor = true;
             this.RequestListBack_btn.Click += new System.EventHandler(this.RequestListBack_btn_Click);
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "답변내용";
-            this.columnHeader5.Width = 425;
-            // 
             // RequestList_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1369, 651);
+            this.ClientSize = new System.Drawing.Size(1369, 599);
             this.Controls.Add(this.RequestListBack_btn);
             this.Controls.Add(this.RequestList_groupbox);
             this.Controls.Add(this.RequestListFAQ_btn);
