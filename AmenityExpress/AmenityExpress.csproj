@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBRoomConnect.cs" />
     <Compile Include="Manager\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,11 +198,11 @@
     <Compile Include="Reserve\Reserv_Form.Designer.cs">
       <DependentUpon>Reserv_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\DialogForm.cs">
+    <Compile Include="RoomManagement\RoomInFormAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\DialogForm.Designer.cs">
-      <DependentUpon>DialogForm.cs</DependentUpon>
+    <Compile Include="RoomManagement\RoomInFormAdd.Designer.cs">
+      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomManagement\Pay_Form.cs">
       <SubType>Form</SubType>
@@ -209,17 +210,23 @@
     <Compile Include="RoomManagement\Pay_Form.Designer.cs">
       <DependentUpon>Pay_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearchM_Form.cs">
+    <Compile Include="RoomManagement\ManagerRoomCheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearchM_Form.Designer.cs">
-      <DependentUpon>RoomSearchM_Form.cs</DependentUpon>
+    <Compile Include="RoomManagement\ManagerRoomCheck.Designer.cs">
+      <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearch_Form.cs">
+    <Compile Include="RoomManagement\RoomInformRetouching.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\RoomSearch_Form.Designer.cs">
-      <DependentUpon>RoomSearch_Form.cs</DependentUpon>
+    <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
+      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomManagement\RoomCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomManagement\RoomCheck.Designer.cs">
+      <DependentUpon>RoomCheck.cs</DependentUpon>
     </Compile>
     </EmbeddedResource>
       <DependentUpon>SignUp.cs</DependentUpon>
@@ -252,6 +259,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RoomManagement\ManagerRoomCheck.resx">
+      <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\RoomCheck.resx">
+      <DependentUpon>RoomCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\RoomInFormAdd.resx">
+      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\RoomInformRetouching.resx">
+      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reserve\Pay_Form.resx">
       <DependentUpon>Pay_Form.cs</DependentUpon>
     </EmbeddedResource>

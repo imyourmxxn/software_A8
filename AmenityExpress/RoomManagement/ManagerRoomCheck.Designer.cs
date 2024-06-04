@@ -1,7 +1,7 @@
 ﻿
 namespace AmenityExpress
 {
-    partial class RoomSearchM_Form
+    partial class ManagerRoomCheck
     {
         /// <summary>
         /// Required designer variable.
@@ -32,14 +32,16 @@ namespace AmenityExpress
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.delBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -48,10 +50,17 @@ namespace AmenityExpress
             this.listView1.Location = new System.Drawing.Point(66, 99);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(756, 353);
+            this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 68;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // radioButton4
             // 
@@ -93,26 +102,6 @@ namespace AmenityExpress
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(718, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 59);
-            this.button3.TabIndex = 63;
-            this.button3.Text = "객실 정보 삭제";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(371, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 59);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "객실 정보 수정";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(66, 12);
@@ -123,21 +112,41 @@ namespace AmenityExpress
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // RoomSearchM_Form
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(395, 12);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(104, 59);
+            this.updateBtn.TabIndex = 70;
+            this.updateBtn.Text = "객실 정보 수정";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
+            // delBtn
+            // 
+            this.delBtn.Location = new System.Drawing.Point(718, 12);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(104, 59);
+            this.delBtn.TabIndex = 71;
+            this.delBtn.Text = "객실 정보 삭제";
+            this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
+            // 
+            // ManagerRoomCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 500);
+            this.Controls.Add(this.delBtn);
+            this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Name = "RoomSearchM_Form";
-            this.Text = "RoomSearchM_Form";
+            this.Name = "ManagerRoomCheck";
+            this.Text = "ManagerRoomCheck";
             this.Load += new System.EventHandler(this.RoomSearchM_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,8 +160,9 @@ namespace AmenityExpress
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.Button delBtn;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

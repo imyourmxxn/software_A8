@@ -1,6 +1,6 @@
 ﻿namespace AmenityExpress
 {
-    partial class DialogForm
+    partial class RoomInFormAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.Cancelbtn = new System.Windows.Forms.Button();
             this.RoomPictureBox = new System.Windows.Forms.PictureBox();
+            this.ImageAddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,11 +158,22 @@
             this.RoomPictureBox.TabIndex = 12;
             this.RoomPictureBox.TabStop = false;
             // 
-            // DialogForm
+            // ImageAddBtn
+            // 
+            this.ImageAddBtn.Location = new System.Drawing.Point(24, 131);
+            this.ImageAddBtn.Name = "ImageAddBtn";
+            this.ImageAddBtn.Size = new System.Drawing.Size(131, 23);
+            this.ImageAddBtn.TabIndex = 13;
+            this.ImageAddBtn.Text = "객실 사진 등록";
+            this.ImageAddBtn.UseVisualStyleBackColor = true;
+            this.ImageAddBtn.Click += new System.EventHandler(this.ImageAddBtn_Click);
+            // 
+            // RoomInFormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 450);
+            this.Controls.Add(this.ImageAddBtn);
             this.Controls.Add(this.RoomPictureBox);
             this.Controls.Add(this.Cancelbtn);
             this.Controls.Add(this.AddBtn);
@@ -175,8 +187,9 @@
             this.Controls.Add(this.RoomNumTextBox);
             this.Controls.Add(this.RoomNameLable);
             this.Controls.Add(this.RoomNameTextBox);
-            this.Name = "DialogForm";
-            this.Text = "DialogForm";
+            this.Name = "RoomInFormAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "RoomInFormAdd";
             this.Load += new System.EventHandler(this.DialogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -199,5 +212,6 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button Cancelbtn;
         private System.Windows.Forms.PictureBox RoomPictureBox;
+        private System.Windows.Forms.Button ImageAddBtn;
     }
 }
