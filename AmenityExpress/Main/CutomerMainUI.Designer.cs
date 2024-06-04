@@ -49,7 +49,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.Notice_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -65,6 +65,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "예약조회";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // maskedTextBox1
             // 
@@ -83,8 +84,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 55);
             this.button2.TabIndex = 2;
-            this.button2.Text = "회원정보";
+            this.button2.Text = "회원정보수정";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -235,21 +237,22 @@
             this.textBox4.TabIndex = 19;
             this.textBox4.Text = "더블룸 입실 2024-05-05 최대인원 : 2";
             // 
-            // button6
+            // Notice_btn
             // 
-            this.button6.Location = new System.Drawing.Point(96, 527);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(970, 95);
-            this.button6.TabIndex = 20;
-            this.button6.Text = "공지사항";
-            this.button6.UseVisualStyleBackColor = true;
+            this.Notice_btn.Location = new System.Drawing.Point(96, 527);
+            this.Notice_btn.Name = "Notice_btn";
+            this.Notice_btn.Size = new System.Drawing.Size(970, 95);
+            this.Notice_btn.TabIndex = 20;
+            this.Notice_btn.Text = "공지사항";
+            this.Notice_btn.UseVisualStyleBackColor = true;
+            this.Notice_btn.Click += new System.EventHandler(this.Notice_btn_Click);
             // 
-            // CustomerUI
+            // CustomerMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 698);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.Notice_btn);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -270,8 +273,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button1);
-            this.Name = "CustomerUI";
+            this.Name = "CustomerMainUI";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.CustomerUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -305,6 +309,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Notice_btn;
     }
 }
