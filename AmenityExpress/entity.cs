@@ -15,9 +15,11 @@ namespace AmenityExpress
         public string Pwd;
         public string Email;
         public string Tel;
-        public Manager(string Name, string Id, string Pwd, string Email, string Tel)
+        public string Gender;
+        public string Birthday;
+        public Manager(string Id, string Name, string Pwd, string Email, string Tel, string Gender,string Birthday)
         {
-            this.Name = Name; this.Id = Id; this.Pwd = Pwd; this.Email = Email; this.Tel = Tel;
+            this.Name = Name; this.Id = Id; this.Pwd = Pwd; this.Email = Email; this.Tel = Tel; this.Gender = Gender; this.Birthday = Birthday;
         }
     }
     public class Client
@@ -30,7 +32,7 @@ namespace AmenityExpress
         public string Sex;
         public string Birth;
         public int Point;
-        public Client(string Name, string ID, string PW, string Email, string Tell, string Sex, string Birth, int Point)
+        public Client(string ID,string Name , string PW, string Email, string Tell, string Sex, string Birth, int Point)
         {
             this.Name = Name; this.ID = ID; this.PW = PW; this.Email = Email; this.Tell = Tell; this.Sex = Sex; this.Birth = Birth; this.Point = Point;
         }

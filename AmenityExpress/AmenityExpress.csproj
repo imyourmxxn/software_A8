@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -86,18 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBRoomConnect.cs" />
-    <Compile Include="Manager\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\CutomerMainUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main\CutomerMainUI.Designer.cs">
-      <DependentUpon>CutomerMainUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="DBConnector.cs" />
     <Compile Include="dbtest.cs">
       <SubType>Form</SubType>
@@ -106,6 +94,14 @@
       <DependentUpon>dbtest.cs</DependentUpon>
     </Compile>
     <Compile Include="entity.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main\CutomerMainUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\CutomerMainUI.Designer.cs">
+      <DependentUpon>CutomerMainUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\ManagerMainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +113,12 @@
     </Compile>
     <Compile Include="Main\MoneyUI.Designer.cs">
       <DependentUpon>MoneyUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\Member.cs">
       <SubType>Form</SubType>
@@ -136,20 +138,18 @@
     <Compile Include="Manager\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Request\FAQ_Manage_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Request\FAQ_Manage_Form.Designer.cs">
-      <DependentUpon>FAQ_Manage_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Request\FAQ_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Request\FAQ_Form.Designer.cs">
       <DependentUpon>FAQ_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\FAQ_Manage_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Request\FAQ_Manage_Form.Designer.cs">
+      <DependentUpon>FAQ_Manage_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Request\RequestAnswer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,11 +174,11 @@
     <Compile Include="Request\RequestWrite_Form.Designer.cs">
       <DependentUpon>RequestWrite_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserve\Pay_Form.cs">
+    <Compile Include="Reserve\Reserv_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserve\Pay_Form.Designer.cs">
-      <DependentUpon>Pay_Form.cs</DependentUpon>
+    <Compile Include="Reserve\Reserv_Form.Designer.cs">
+      <DependentUpon>Reserv_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Reserve\Reservcheck_Form.cs">
       <SubType>Form</SubType>
@@ -192,23 +192,11 @@
     <Compile Include="Reserve\Reservlist_Form.Designer.cs">
       <DependentUpon>Reservlist_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserve\Reserv_Form.cs">
+    <Compile Include="Review\Review.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserve\Reserv_Form.Designer.cs">
-      <DependentUpon>Reserv_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RoomManagement\RoomInFormAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomManagement\RoomInFormAdd.Designer.cs">
-      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RoomManagement\Pay_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomManagement\Pay_Form.Designer.cs">
-      <DependentUpon>Pay_Form.cs</DependentUpon>
+    <Compile Include="Review\Review.Designer.cs">
+      <DependentUpon>Review.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomManagement\ManagerRoomCheck.cs">
       <SubType>Form</SubType>
@@ -216,11 +204,11 @@
     <Compile Include="RoomManagement\ManagerRoomCheck.Designer.cs">
       <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomManagement\RoomInformRetouching.cs">
+    <Compile Include="RoomManagement\Pay_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
-      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
+    <Compile Include="RoomManagement\Pay_Form.Designer.cs">
+      <DependentUpon>Pay_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomManagement\RoomCheck.cs">
       <SubType>Form</SubType>
@@ -228,37 +216,36 @@
     <Compile Include="RoomManagement\RoomCheck.Designer.cs">
       <DependentUpon>RoomCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoomManagement\RoomInFormAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomManagement\RoomInFormAdd.Designer.cs">
+      <DependentUpon>RoomInFormAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomManagement\RoomInformRetouching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
+      <DependentUpon>RoomInformRetouching.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Main\CutomerMainUI.resx">
+      <DependentUpon>CutomerMainUI.cs</DependentUpon>
     </EmbeddedResource>
-      <DependentUpon>SignUp.cs</DependentUpon>
-    <EmbeddedResource Include="Manager\SignUp.resx">
-    </EmbeddedResource>
-      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
-    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
-    </EmbeddedResource>
-      <DependentUpon>Login.cs</DependentUpon>
-    <EmbeddedResource Include="Manager\Login.resx">
-    </EmbeddedResource>
-      <DependentUpon>Member.cs</DependentUpon>
-    <EmbeddedResource Include="Manager\Member.resx">
-    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ManagerMainUI.resx">
       <DependentUpon>ManagerMainUI.cs</DependentUpon>
     </EmbeddedResource>
-      <DependentUpon>dbtest.cs</DependentUpon>
-    <EmbeddedResource Include="dbtest.resx">
-    <EmbeddedResource Include="Main\ManagerMainUI.resx">
+    <EmbeddedResource Include="Manager\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-      <DependentUpon>CutomerMainUI.cs</DependentUpon>
-    <EmbeddedResource Include="Main\CutomerMainUI.resx">
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Manager\Member.resx">
+      <DependentUpon>Member.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
+      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Request\FAQ_Form.resx">
       <DependentUpon>FAQ_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,8 +264,23 @@
     <EmbeddedResource Include="Request\RequestWrite_Form.resx">
       <DependentUpon>RequestWrite_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reserv_Form.resx">
+      <DependentUpon>Reserv_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reservcheck_Form.resx">
+      <DependentUpon>Reservcheck_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reservlist_Form.resx">
+      <DependentUpon>Reservlist_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Review\Review.resx">
+      <DependentUpon>Review.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomManagement\ManagerRoomCheck.resx">
       <DependentUpon>ManagerRoomCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\Pay_Form.resx">
+      <DependentUpon>Pay_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomManagement\RoomCheck.resx">
       <DependentUpon>RoomCheck.cs</DependentUpon>
@@ -289,24 +291,19 @@
     <EmbeddedResource Include="RoomManagement\RoomInformRetouching.resx">
       <DependentUpon>RoomInformRetouching.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserve\Pay_Form.resx">
-      <DependentUpon>Pay_Form.cs</DependentUpon>
+    <EmbeddedResource Include="dbtest.resx">
+      <DependentUpon>dbtest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserve\Reservcheck_Form.resx">
-      <DependentUpon>Reservcheck_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserve\Reservlist_Form.resx">
-      <DependentUpon>Reservlist_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reserve\Reserv_Form.resx">
-      <DependentUpon>Reserv_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RoomManagement\Pay_Form.resx">
-      <DependentUpon>Pay_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RoomManagement\RoomSearch_Form.resx">
-      <DependentUpon>RoomSearch_Form.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -339,8 +336,6 @@
   <ItemGroup>
     <None Include="Resources\캡처4.PNG" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Review\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

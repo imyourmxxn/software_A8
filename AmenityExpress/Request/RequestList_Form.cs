@@ -39,8 +39,7 @@ namespace AmenityExpress
 
         private void RequestListBack_btn_Click(object sender, EventArgs e)
         {
-            CustomerMainUI customermainui = new CustomerMainUI();
-            customermainui.Show();
+            Close();
         }
 
         private void RequestList_Form_Load(object sender, EventArgs e)

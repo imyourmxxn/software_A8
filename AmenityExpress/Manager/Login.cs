@@ -13,6 +13,9 @@ namespace AmenityExpress
 {
     public partial class LogIn : Form
     {
+        Manager manager;
+        Client client;
+        
         public LogIn()
         {
             InitializeComponent();
@@ -34,7 +37,7 @@ namespace AmenityExpress
             {
                 sql = "SELECT * FROM MEMBER_MANAGER";
             }
-            DataSet dbconnector = DBConnector.DML_QUERY(sql);
+            DataSet dbconnector = DBConnector.DML_QUERY(sql,null);
 
 
             foreach (DataRow row in dbconnector.Tables[0].Rows)
@@ -48,7 +51,8 @@ namespace AmenityExpress
                     {
                         if (radioButton1.Checked) 
                         {
-                            ManagerMainUI managerMainUI = new ManagerMainUI(row);
+                            manager = new Manager(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString());
+                            ManagerMainUI managerMainUI = new ManagerMainUI(manager);
                             this.Visible = false;
                             managerMainUI.Owner = this;
                             managerMainUI.ShowDialog();
@@ -59,7 +63,8 @@ namespace AmenityExpress
                         }
                         else
                         {
-                            CustomerMainUI customerMainUI = new CustomerMainUI(row);
+                            client = new Client(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), int.Parse(row[7].ToString()));
+                            CustomerMainUI customerMainUI = new CustomerMainUI(client);
                             this.Visible = false;
                             customerMainUI.Owner = this;
                             customerMainUI.ShowDialog();

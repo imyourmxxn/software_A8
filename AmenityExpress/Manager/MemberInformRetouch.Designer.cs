@@ -1,4 +1,4 @@
-﻿namespace AmenityExpress.Manager
+﻿namespace AmenityExpress
 {
     partial class MemberInformRetouch
     {

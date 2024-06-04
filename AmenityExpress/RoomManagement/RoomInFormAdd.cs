@@ -95,8 +95,7 @@ namespace AmenityExpress
                 new OracleParameter("NOTICE", room.Notice),
                 new OracleParameter("PHOTOPATH", room.ImagePath) // PHOTOPATH로 수정
             };
-            DBConnector dbConnector = new DBConnector(); // DB 연결을 위한 객체 생성
-            dbConnector.DML_NON_QUERY(sql, parameters); // DB 객체 내에 있는 메소드 사용해서 삽입 실행
+            DBConnector.DML_NON_QUERY(sql, parameters); // DB 객체 내에 있는 메소드 사용해서 삽입 실행
         }
 
         private void ImageAddBtn_Click(object sender, EventArgs e)

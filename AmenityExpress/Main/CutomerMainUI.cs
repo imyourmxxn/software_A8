@@ -12,11 +12,11 @@ namespace AmenityExpress
 {
     public partial class CustomerMainUI : Form
     {
-        Client client = new Client("", "", "", "", "", "", "", 0);
-        public CustomerMainUI(DataRow row)
+        Client client;
+        public CustomerMainUI(Client client)
         {
             InitializeComponent();
-            clientset(row);
+            this.client = client;
             maskedTextBox1.Text = "어서오세요 " + client.Name + "님 잔여 마일리지 : " + client.Point + "p ";
         }
 

@@ -24,11 +24,9 @@ namespace AmenityExpress
         Client client = null;
         Reserve reserve = null;
 
-        public Reserv_Form(Client client, Reserve reserve)
+        public Reserv_Form()
         {
             InitializeComponent();
-            this.client = client;
-            this.reserve = reserve;
 
             Tell_cbb.SelectedIndex = 0;
 
@@ -167,8 +165,7 @@ namespace AmenityExpress
                 new OracleParameter("CKOUT", reserve.CKOUT),
                 new OracleParameter("SNUM", null)
             };
-            DBConnector dbConnector = new DBConnector();
-            dbConnector.DML_NON_QUERY(query, parameters);
+            DBConnector.DML_NON_QUERY(query, parameters);
         }
 
         private void button2_Click(object sender, EventArgs e)

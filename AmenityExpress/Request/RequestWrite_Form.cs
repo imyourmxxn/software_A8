@@ -113,8 +113,7 @@ namespace AmenityExpress
 
         private void RequestWriteBack_btn_Click(object sender, EventArgs e) //뒤로가기 버튼 클릭하면 상세 예약 조회 화면으로 돌아감
         {
-            Reservcheck_Form reservcheck_form = new Reservcheck_Form();
-            reservcheck_form.Show();
+            Close();
         }
     }
 }

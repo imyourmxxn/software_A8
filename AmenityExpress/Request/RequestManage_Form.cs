@@ -39,8 +39,7 @@ namespace AmenityExpress
 
         private void RequestManagetoMainRequestUI_btn_Click(object sender, EventArgs e) //클릭시, 관리자 메인화면 폼으로 넘어감
         {
-            ManagerMainUI managermainui = new ManagerMainUI();
-            managermainui.Show();
+            Close();
         }
 
         private void RequestManage_list_SelectedIndexChanged(object sender, EventArgs e)

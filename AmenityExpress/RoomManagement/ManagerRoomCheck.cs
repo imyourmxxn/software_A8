@@ -96,7 +96,7 @@ namespace AmenityExpress
 
             try
             {
-                DBConnector.DML_NON_QUERY(sql);
+                DBConnector.DML_NON_QUERY(sql,null);
                 MessageBox.Show("객실 정보가 삭제되었습니다.");
             }
             catch (Exception ex)

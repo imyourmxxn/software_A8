@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AmenityExpress.Manager
+namespace AmenityExpress
 {
     public partial class MemberInformRetouch : Form
     {

@@ -33,7 +33,7 @@ namespace AmenityExpress
             if (check)
             {
                 string sql = "SELECT * FROM RESERV_MANAGE";
-                DataSet dbconnector = DBConnector.DML_QUERY(sql);
+                DataSet dbconnector = DBConnector.DML_QUERY(sql,null);
                 string[] rows = new string[6];
                 int i = 1;
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
@@ -52,7 +52,7 @@ namespace AmenityExpress
             else 
             {
                 string sql = "SELECT * FROM RESERV_MANAGE WHERE ID = '" + client.ID + "'";
-                DataSet dbconnector = DBConnector.DML_QUERY(sql);
+                DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
                 string[] rows = new string[6];
                 int i = 1;
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
@@ -145,7 +145,7 @@ namespace AmenityExpress
 
                 }
             }
-            DataSet dbconnector = DBConnector.DML_QUERY(sql);
+            DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
             string[] rows = new string[6];
             int i = 1;
             foreach (DataRow row in dbconnector.Tables[0].Rows) { i++; }
@@ -186,7 +186,7 @@ namespace AmenityExpress
             {
                 ListViewItem selectedItem = Reservelist_listView.SelectedItems[0];
                 string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND KRNAME = '" + selectedItem.SubItems[0].Text.ToString() + "'";
-                DataSet dbconnector = DBConnector.DML_QUERY(sql);
+                DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
                 Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, 1);
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
                 {

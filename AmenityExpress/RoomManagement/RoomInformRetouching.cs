@@ -136,8 +136,7 @@ namespace AmenityExpress.RoomManagement
 
             try
             {
-                DBConnector dbConnector = new DBConnector();
-                dbConnector.DML_NON_QUERY(sql, parameters);
+                DBConnector.DML_NON_QUERY(sql, parameters);
                 MessageBox.Show("객실 정보가 업데이트되었습니다.");
             }
             catch (Exception ex)

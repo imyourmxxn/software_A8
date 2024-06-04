@@ -12,9 +12,11 @@ namespace AmenityExpress
 {
     public partial class ManagerMainUI : Form
     {
-        public ManagerMainUI(DataRow row)
+        Manager manager;
+        public ManagerMainUI(Manager manager)
         {
             InitializeComponent();
+            this.manager = manager;
         }
 
         private void ManagerUI_Load(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace AmenityExpress
 
         private void reserv_btn_Click(object sender, EventArgs e)
         {
-            Reserv_Form reserv_form = new Reserv_Form();
+            Reservlist_Form reserv_form = new Reservlist_Form(null,true);
             reserv_form.Show();
         }
 
@@ -61,8 +63,6 @@ namespace AmenityExpress
 
         private void room_btn_Click(object sender, EventArgs e)
         {
-            RoomSearchM_Form roomSearchM_Form = new RoomSearchM_Form();
-            roomSearchM_Form.Show();
         }
 
         private void request_btn_Click(object sender, EventArgs e)

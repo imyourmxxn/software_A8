@@ -14,7 +14,7 @@ namespace AmenityExpress
         public static void LoadRoomData(ListView listView)
         {
             string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE, PHOTOPATH FROM ROOM_MANAGE";
-            DataSet ds = DBConnector.DML_QUERY(sql);
+            DataSet ds = DBConnector.DML_QUERY(sql,null);
 
             listView.Items.Clear();
 
