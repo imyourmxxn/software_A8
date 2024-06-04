@@ -67,6 +67,7 @@ namespace AmenityExpress
             this.button6.TabIndex = 60;
             this.button6.Text = "결제 취소";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 

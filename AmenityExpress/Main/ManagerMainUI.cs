@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,7 @@ namespace AmenityExpress
 {
     public partial class ManagerMainUI : Form
     {
-        public ManagerMainUI()
+        public ManagerMainUI(DataRow row)
         {
             InitializeComponent();
         }

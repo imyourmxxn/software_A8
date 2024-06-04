@@ -29,51 +29,59 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.Reservelist_listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Reservelist_lbl = new System.Windows.Forms.Label();
+            this.Cancel_btn = new System.Windows.Forms.Button();
+            this.Check_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Room_lbl = new System.Windows.Forms.Label();
+            this.Room_cbb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Date_lbl = new System.Windows.Forms.Label();
+            this.CKOUT_dtp = new System.Windows.Forms.DateTimePicker();
+            this.Search_btn = new System.Windows.Forms.Button();
+            this.CKIN_dtp = new System.Windows.Forms.DateTimePicker();
+            this.Search_txt = new System.Windows.Forms.TextBox();
+            this.Search_lbl = new System.Windows.Forms.Label();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.listView1);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.Reservelist_listView);
+            this.panel2.Controls.Add(this.Reservelist_lbl);
             this.panel2.Location = new System.Drawing.Point(24, 133);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1070, 439);
             this.panel2.TabIndex = 23;
             // 
-            // listView1
+            // Reservelist_listView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Reservelist_listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader5,
+            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 55);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1070, 343);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.Reservelist_listView.FullRowSelect = true;
+            this.Reservelist_listView.GridLines = true;
+            this.Reservelist_listView.HideSelection = false;
+            this.Reservelist_listView.Location = new System.Drawing.Point(0, 42);
+            this.Reservelist_listView.MultiSelect = false;
+            this.Reservelist_listView.Name = "Reservelist_listView";
+            this.Reservelist_listView.Size = new System.Drawing.Size(1070, 343);
+            this.Reservelist_listView.TabIndex = 16;
+            this.Reservelist_listView.UseCompatibleStateImageBehavior = false;
+            this.Reservelist_listView.View = System.Windows.Forms.View.Details;
+            this.Reservelist_listView.SelectedIndexChanged += new System.EventHandler(this.Reservelist_listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -82,83 +90,89 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "연락처";
-            this.columnHeader2.Width = 882;
+            this.columnHeader2.Width = 570;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "객실번호";
-            this.columnHeader3.Width = 82;
+            this.columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "No.";
-            this.columnHeader4.Width = 42;
+            this.columnHeader4.Width = 50;
             // 
-            // label5
+            // Reservelist_lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 15F);
-            this.label5.Location = new System.Drawing.Point(3, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 28);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "예약자 리스트";
+            this.Reservelist_lbl.AutoSize = true;
+            this.Reservelist_lbl.Font = new System.Drawing.Font("맑은 고딕", 15F);
+            this.Reservelist_lbl.Location = new System.Drawing.Point(3, 11);
+            this.Reservelist_lbl.Name = "Reservelist_lbl";
+            this.Reservelist_lbl.Size = new System.Drawing.Size(139, 28);
+            this.Reservelist_lbl.TabIndex = 15;
+            this.Reservelist_lbl.Text = "예약자 리스트";
             // 
-            // button3
+            // Cancel_btn
             // 
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button3.Location = new System.Drawing.Point(24, 595);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 45);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "이전";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Cancel_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Cancel_btn.Location = new System.Drawing.Point(24, 595);
+            this.Cancel_btn.Name = "Cancel_btn";
+            this.Cancel_btn.Size = new System.Drawing.Size(130, 45);
+            this.Cancel_btn.TabIndex = 22;
+            this.Cancel_btn.Text = "이전";
+            this.Cancel_btn.UseVisualStyleBackColor = true;
+            this.Cancel_btn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // Check_btn
             // 
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button2.Location = new System.Drawing.Point(981, 595);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 45);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "확인";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Check_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Check_btn.Location = new System.Drawing.Point(981, 595);
+            this.Check_btn.Name = "Check_btn";
+            this.Check_btn.Size = new System.Drawing.Size(130, 45);
+            this.Check_btn.TabIndex = 21;
+            this.Check_btn.Text = "확인";
+            this.Check_btn.UseVisualStyleBackColor = true;
+            this.Check_btn.Click += new System.EventHandler(this.Check_btn_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.Room_lbl);
+            this.panel1.Controls.Add(this.Room_cbb);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Date_lbl);
+            this.panel1.Controls.Add(this.CKOUT_dtp);
+            this.panel1.Controls.Add(this.Search_btn);
+            this.panel1.Controls.Add(this.CKIN_dtp);
+            this.panel1.Controls.Add(this.Search_txt);
+            this.panel1.Controls.Add(this.Search_lbl);
             this.panel1.Location = new System.Drawing.Point(24, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(856, 77);
             this.panel1.TabIndex = 20;
             // 
-            // label4
+            // Room_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 15F);
-            this.label4.Location = new System.Drawing.Point(489, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 28);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "객실번호";
+            this.Room_lbl.AutoSize = true;
+            this.Room_lbl.Font = new System.Drawing.Font("맑은 고딕", 15F);
+            this.Room_lbl.Location = new System.Drawing.Point(489, 49);
+            this.Room_lbl.Name = "Room_lbl";
+            this.Room_lbl.Size = new System.Drawing.Size(92, 28);
+            this.Room_lbl.TabIndex = 14;
+            this.Room_lbl.Text = "객실번호";
             // 
-            // comboBox1
+            // Room_cbb
             // 
-            this.comboBox1.Font = new System.Drawing.Font("굴림", 11F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(587, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 13;
+            this.Room_cbb.DisplayMember = "선택안함";
+            this.Room_cbb.Font = new System.Drawing.Font("굴림", 11F);
+            this.Room_cbb.FormattingEnabled = true;
+            this.Room_cbb.Items.AddRange(new object[] {
+            "선택안함",
+            "101"});
+            this.Room_cbb.Location = new System.Drawing.Point(587, 53);
+            this.Room_cbb.Name = "Room_cbb";
+            this.Room_cbb.Size = new System.Drawing.Size(121, 23);
+            this.Room_cbb.TabIndex = 13;
+            this.Room_cbb.SelectedIndexChanged += new System.EventHandler(this.Room_cbb_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -170,57 +184,70 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "~";
             // 
-            // label2
+            // Date_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 15F);
-            this.label2.Location = new System.Drawing.Point(19, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 28);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "기간";
+            this.Date_lbl.AutoSize = true;
+            this.Date_lbl.Font = new System.Drawing.Font("맑은 고딕", 15F);
+            this.Date_lbl.Location = new System.Drawing.Point(19, 46);
+            this.Date_lbl.Name = "Date_lbl";
+            this.Date_lbl.Size = new System.Drawing.Size(52, 28);
+            this.Date_lbl.TabIndex = 11;
+            this.Date_lbl.Text = "기간";
             // 
-            // dateTimePicker2
+            // CKOUT_dtp
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(296, 53);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(178, 21);
-            this.dateTimePicker2.TabIndex = 10;
+            this.CKOUT_dtp.Location = new System.Drawing.Point(296, 53);
+            this.CKOUT_dtp.Name = "CKOUT_dtp";
+            this.CKOUT_dtp.Size = new System.Drawing.Size(178, 21);
+            this.CKOUT_dtp.TabIndex = 10;
             // 
-            // button1
+            // Search_btn
             // 
-            this.button1.Location = new System.Drawing.Point(409, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 35);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "검색";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Search_btn.Location = new System.Drawing.Point(409, 0);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(82, 35);
+            this.Search_btn.TabIndex = 8;
+            this.Search_btn.Text = "검색";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // CKIN_dtp
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(80, 53);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(178, 21);
-            this.dateTimePicker1.TabIndex = 9;
+            this.CKIN_dtp.Location = new System.Drawing.Point(80, 53);
+            this.CKIN_dtp.Name = "CKIN_dtp";
+            this.CKIN_dtp.Size = new System.Drawing.Size(178, 21);
+            this.CKIN_dtp.TabIndex = 9;
             // 
-            // textBox2
+            // Search_txt
             // 
-            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(77, 0);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 35);
-            this.textBox2.TabIndex = 7;
+            this.Search_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Search_txt.Location = new System.Drawing.Point(77, 0);
+            this.Search_txt.Name = "Search_txt";
+            this.Search_txt.Size = new System.Drawing.Size(336, 38);
+            this.Search_txt.TabIndex = 7;
+            this.Search_txt.TextChanged += new System.EventHandler(this.Search_txt_TextChanged);
             // 
-            // label1
+            // Search_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 37);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "이름";
+            this.Search_lbl.AutoSize = true;
+            this.Search_lbl.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Search_lbl.Location = new System.Drawing.Point(0, 0);
+            this.Search_lbl.Name = "Search_lbl";
+            this.Search_lbl.Size = new System.Drawing.Size(71, 37);
+            this.Search_lbl.TabIndex = 3;
+            this.Search_lbl.Text = "이름";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "체크인";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 150;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "체크아웃";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 150;
             // 
             // Reservlist_Form
             // 
@@ -228,9 +255,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 661);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Cancel_btn);
+            this.Controls.Add(this.Check_btn);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reservlist_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservlist_Form";
@@ -246,23 +274,25 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView Reservelist_listView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label Reservelist_lbl;
+        private System.Windows.Forms.Button Cancel_btn;
+        private System.Windows.Forms.Button Check_btn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label Room_lbl;
+        private System.Windows.Forms.ComboBox Room_cbb;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Date_lbl;
+        private System.Windows.Forms.DateTimePicker CKOUT_dtp;
+        private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.DateTimePicker CKIN_dtp;
+        private System.Windows.Forms.TextBox Search_txt;
+        private System.Windows.Forms.Label Search_lbl;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

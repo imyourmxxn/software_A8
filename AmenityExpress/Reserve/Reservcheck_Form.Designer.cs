@@ -28,20 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservcheck_Form));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.KRname_txt = new System.Windows.Forms.TextBox();
+            this.ENGname_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Email_txt = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Tell_txt = new System.Windows.Forms.TextBox();
+            this.Tell_cbb = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -52,9 +50,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,20 +62,20 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.KRname_txt);
+            this.panel2.Controls.Add(this.ENGname_txt);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.Email_txt);
             this.panel2.Controls.Add(this.textBox6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.Tell_txt);
+            this.panel2.Controls.Add(this.Tell_cbb);
             this.panel2.Location = new System.Drawing.Point(551, 32);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(560, 510);
             this.panel2.TabIndex = 67;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -99,32 +97,21 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "성명(영문)";
             // 
-            // textBox2
+            // KRname_txt
             // 
-            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(186, 10);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 35);
-            this.textBox2.TabIndex = 18;
+            this.KRname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.KRname_txt.Location = new System.Drawing.Point(186, 10);
+            this.KRname_txt.Name = "KRname_txt";
+            this.KRname_txt.Size = new System.Drawing.Size(336, 38);
+            this.KRname_txt.TabIndex = 18;
             // 
-            // textBox1
+            // ENGname_txt
             // 
-            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(186, 65);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 35);
-            this.textBox1.TabIndex = 19;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(358, 65);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 35);
-            this.textBox3.TabIndex = 20;
+            this.ENGname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ENGname_txt.Location = new System.Drawing.Point(186, 65);
+            this.ENGname_txt.Name = "ENGname_txt";
+            this.ENGname_txt.Size = new System.Drawing.Size(336, 38);
+            this.ENGname_txt.TabIndex = 19;
             // 
             // label3
             // 
@@ -136,14 +123,13 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "E-mail";
             // 
-            // textBox4
+            // Email_txt
             // 
-            this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(186, 117);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(336, 35);
-            this.textBox4.TabIndex = 22;
+            this.Email_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Email_txt.Location = new System.Drawing.Point(186, 117);
+            this.Email_txt.Name = "Email_txt";
+            this.Email_txt.Size = new System.Drawing.Size(336, 38);
+            this.Email_txt.TabIndex = 22;
             // 
             // textBox6
             // 
@@ -174,27 +160,26 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "추가 요청사항";
             // 
-            // textBox5
+            // Tell_txt
             // 
-            this.textBox5.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(312, 171);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(210, 35);
-            this.textBox5.TabIndex = 24;
+            this.Tell_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Tell_txt.Location = new System.Drawing.Point(312, 171);
+            this.Tell_txt.Name = "Tell_txt";
+            this.Tell_txt.Size = new System.Drawing.Size(210, 38);
+            this.Tell_txt.TabIndex = 24;
             // 
-            // comboBox1
+            // Tell_cbb
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("맑은 고딕", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Tell_cbb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Tell_cbb.Font = new System.Drawing.Font("맑은 고딕", 15F);
+            this.Tell_cbb.FormattingEnabled = true;
+            this.Tell_cbb.Items.AddRange(new object[] {
             "010",
             "011"});
-            this.comboBox1.Location = new System.Drawing.Point(185, 171);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 36);
-            this.comboBox1.TabIndex = 25;
+            this.Tell_cbb.Location = new System.Drawing.Point(185, 171);
+            this.Tell_cbb.Name = "Tell_cbb";
+            this.Tell_cbb.Size = new System.Drawing.Size(121, 36);
+            this.Tell_cbb.TabIndex = 25;
             // 
             // panel1
             // 
@@ -308,16 +293,6 @@
             this.button1.Text = "요청 사항";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(89, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 237);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 63;
-            this.pictureBox1.TabStop = false;
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
@@ -338,6 +313,16 @@
             this.button2.TabIndex = 61;
             this.button2.Text = "확인";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(89, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(423, 237);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 63;
+            this.pictureBox1.TabStop = false;
             // 
             // Reservcheck_Form
             // 
@@ -351,9 +336,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reservcheck_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservcheck_Form";
+            this.Load += new System.EventHandler(this.Reservcheck_Form_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -368,16 +355,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox KRname_txt;
+        private System.Windows.Forms.TextBox ENGname_txt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Email_txt;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox Tell_txt;
+        private System.Windows.Forms.ComboBox Tell_cbb;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +12,12 @@ namespace AmenityExpress
 {
     public partial class CustomerMainUI : Form
     {
-        public CustomerMainUI()
+        Client client = new Client("", "", "", "", "", "", "", 0);
+        public CustomerMainUI(DataRow row)
         {
             InitializeComponent();
+            clientset(row);
+            maskedTextBox1.Text = "어서오세요 " + client.Name + "님 잔여 마일리지 : " + client.Point + "p ";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

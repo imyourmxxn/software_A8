@@ -43,12 +43,12 @@ namespace AmenityExpress
         public string Tell;
         public string Email;
         public string ID;
-        public string CKIN;
-        public string CKOUT;
+        public DateTime CKIN;
+        public DateTime CKOUT;
         public int RoomNum;
         public int SNUM;
 
-        public Reserve(string Name_KR, string Name_ENG, string Tell, string Email, string ID, string CKIN, string CKOUT, int RoomNum, int SNUM)
+        public Reserve(string Name_KR, string Name_ENG, string Tell, string Email, string ID, DateTime CKIN, DateTime CKOUT, int RoomNum, int SNUM)
         {
             this.Name_KR = Name_KR; this.Name_ENG = Name_ENG; this.Tell = Tell; this.Email = Email; this.ID = ID; this.CKIN = CKIN; this.CKOUT = CKOUT; this.RoomNum = RoomNum; this.SNUM = SNUM;
         }

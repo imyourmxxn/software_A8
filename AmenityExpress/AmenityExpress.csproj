@@ -221,18 +221,27 @@
     <Compile Include="RoomManagement\RoomSearch_Form.Designer.cs">
       <DependentUpon>RoomSearch_Form.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main\CutomerMainUI.resx">
-      <DependentUpon>CutomerMainUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\ManagerMainUI.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\SignUp.resx">
+    </EmbeddedResource>
+      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
+    </EmbeddedResource>
+      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\Login.resx">
+    </EmbeddedResource>
+      <DependentUpon>Member.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\Member.resx">
+    </EmbeddedResource>
       <DependentUpon>ManagerMainUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\Member.resx">
-      <DependentUpon>Member.cs</DependentUpon>
+      <DependentUpon>dbtest.cs</DependentUpon>
+    <EmbeddedResource Include="dbtest.resx">
+    <EmbeddedResource Include="Main\ManagerMainUI.resx">
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
-      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
-    </EmbeddedResource>
+      <DependentUpon>CutomerMainUI.cs</DependentUpon>
+    <EmbeddedResource Include="Main\CutomerMainUI.resx">
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -243,6 +252,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reserve\Pay_Form.resx">
+      <DependentUpon>Pay_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reservcheck_Form.resx">
+      <DependentUpon>Reservcheck_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reservlist_Form.resx">
+      <DependentUpon>Reservlist_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserve\Reserv_Form.resx">
+      <DependentUpon>Reserv_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\Pay_Form.resx">
+      <DependentUpon>Pay_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomManagement\RoomSearch_Form.resx">
+      <DependentUpon>RoomSearch_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
