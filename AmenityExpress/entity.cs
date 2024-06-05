@@ -67,12 +67,20 @@ namespace AmenityExpress
         public string AnswerDate;
         public string Cid;
         public string Mid;
+        public int Roomnum;
 
-        public Request(int SNum, string RequestKind, string Content, string Answer, string Cid,
-            string Mid, int RoomNum)
+        public Request(int SNum, string Statue, string Cid,int Roomnum,string WriteDate,string RequestKind, string Content, string Mid, string AnswerDate, string Answer)
         {
-            this.SNum = SNum;   this.RequestKind = RequestKind; this.Content = Content;
-            this.Answer = Answer; this.Cid = Cid; this.Mid = Mid;
+            this.SNum = SNum;
+            this.Statue = Statue;
+            this.RequestKind = RequestKind;
+            this.Content = Content;
+            this.Answer = Answer;
+            this.Cid = Cid;
+            this.Mid = Mid;
+            this.Roomnum = Roomnum;
+            this.WriteDate = WriteDate;
+            this.AnswerDate = AnswerDate;
         }
     }
 
