@@ -94,7 +94,7 @@ namespace AmenityExpress
 
         private void FAQBack_btn_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void btn_next_Click(object sender, EventArgs e) //다음 화면 버튼

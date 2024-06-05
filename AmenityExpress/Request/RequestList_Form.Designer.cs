@@ -30,13 +30,18 @@
         {
             this.RequestListFAQ_btn = new System.Windows.Forms.Button();
             this.RequestList_list = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox = new System.Windows.Forms.GroupBox();
             this.RequestListBack_btn = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestList_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,11 +58,16 @@
             // RequestList_list
             // 
             this.RequestList_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
             this.RequestList_list.HideSelection = false;
             this.RequestList_list.Location = new System.Drawing.Point(40, 47);
             this.RequestList_list.Name = "RequestList_list";
@@ -65,31 +75,6 @@
             this.RequestList_list.TabIndex = 3;
             this.RequestList_list.UseCompatibleStateImageBehavior = false;
             this.RequestList_list.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "답변상태";
-            this.columnHeader1.Width = 125;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "작성시간";
-            this.columnHeader2.Width = 137;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "요청 종류";
-            this.columnHeader3.Width = 192;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "요청내용";
-            this.columnHeader4.Width = 456;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "답변내용";
-            this.columnHeader5.Width = 425;
             // 
             // RequestList_groupbox
             // 
@@ -112,6 +97,46 @@
             this.RequestListBack_btn.UseVisualStyleBackColor = true;
             this.RequestListBack_btn.Click += new System.EventHandler(this.RequestListBack_btn_Click);
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "No";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "답변상태";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "고객아이디";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "객실번호";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "작성일자";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "요청종류";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "요청내용";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "관리자아이디";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "답변일자";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "답변내용";
+            // 
             // RequestList_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -132,13 +157,18 @@
 
         private System.Windows.Forms.Button RequestListFAQ_btn;
         private System.Windows.Forms.ListView RequestList_list;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.GroupBox RequestList_groupbox;
         private System.Windows.Forms.Button RequestListBack_btn;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
     }
 }
 

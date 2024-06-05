@@ -14,16 +14,21 @@ namespace AmenityExpress
 {
     public partial class RequestWrite_Form : Form
     {
-        private string Cid;
-        private int RoomNum;
+        Manager manager;
+        Client client;
+        Room room;
+        Request request;
+
         private void InitailizeComboBox()
         {
             //RequestKind_CmBox.Items.AddRange(new string[] { "객실 상품 교체 요청", "어매니티 요청", "룸 서비스 요청", "기타사항 요청" });
             //RequestKind_CmBox.SelectedIndex = 0;
         }
-        public RequestWrite_Form()
+        public RequestWrite_Form(Manager manager, Client client, Room room, Request request)
         {
             InitializeComponent();
+            this.client = client;
+            this.room = room;
             InitailizeComboBox();
 
             //this.Load += new EventHandler(Form2_Load);
@@ -88,15 +93,22 @@ namespace AmenityExpress
             string RequestKind = RequestKind_CmBox.SelectedItem.ToString();
             string Content = RequestContent_txt.Text;
             DateTime WriteDate = DateTime.Now;
+            DateTime AnswerDate = DateTime.Now;
 
-            string sql = "INSERT INTO Request_Manage (REQUESTKIND, CONTENT, WRITEDATE, CID, ROOMNUM) VALUES (:REQUESTKIND, :CONTENT, :WRITEDATE, :CID, :ROOMNUM)";
+            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT, MID, ANSWERDATE, ANSWER) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT, :MID, :ANSWERDATE, :ANSWER)";
             OracleParameter[] parameters = new OracleParameter[]
             {
+                new OracleParameter("STATUE", OracleDbType.Varchar2, request.Statue, ParameterDirection.Input),
+                new OracleParameter("CID", OracleDbType.Varchar2, reserve.ID, ParameterDirection.Input),
+                new OracleParameter("ROOMNUM", OracleDbType.Int32,room.Num, ParameterDirection.Input),
+                new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
                 new OracleParameter("REQUESTKIND", OracleDbType.Varchar2, RequestKind, ParameterDirection.Input),
                 new OracleParameter("CONTENT", OracleDbType.Varchar2, Content, ParameterDirection.Input),
-                new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
-                new OracleParameter("CID", OracleDbType.Varchar2, Cid, ParameterDirection.Input),
-                new OracleParameter("ROOMNUM", OracleDbType.Int32, RoomNum, ParameterDirection.Input)
+                new OracleParameter("MID", OracleDbType.Varchar2,manager.Id, ParameterDirection.Input),
+                new OracleParameter("ANSWERDATE", OracleDbType.Date, AnswerDate, ParameterDirection.Input),
+                new OracleParameter("ANSWER", OracleDbType.Date, request.Answer, ParameterDirection.Input)
+
+
             };
             try
             {
