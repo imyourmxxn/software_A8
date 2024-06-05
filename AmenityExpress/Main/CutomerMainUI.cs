@@ -42,6 +42,8 @@ namespace AmenityExpress
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Reservlist_Form reservlist_form = new Reservlist_Form(client,false);
+            reservlist_form.Show(); ///////////////////////////////////////////////////여기고쳤더염(경민)
 
         }
 

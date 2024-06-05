@@ -106,6 +106,7 @@
             this.Controls.Add(this.RequestAnswer_txt);
             this.Name = "RequestAnswer_Form";
             this.Text = "관리자요청사항답변등록";
+            this.Load += new System.EventHandler(this.RequestAnswer_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,28 +14,20 @@ namespace AmenityExpress
 {
     public partial class RequestWrite_Form : Form
     {
-        Manager manager;
-        Client client;
-        Room room;
-        Request request;
+        //Manager manager;
+        Reserve reserve;
 
         private void InitailizeComboBox()
         {
             //RequestKind_CmBox.Items.AddRange(new string[] { "객실 상품 교체 요청", "어매니티 요청", "룸 서비스 요청", "기타사항 요청" });
             //RequestKind_CmBox.SelectedIndex = 0;
         }
-        public RequestWrite_Form(Manager manager, Client client, Room room, Request request)
+        public RequestWrite_Form(/*Manager manager, */Reserve reserve)
         {
             InitializeComponent();
-            this.client = client;
-            this.room = room;
+            //this.manager = manager;
+            this.reserve = reserve;
             InitailizeComboBox();
-
-            //this.Load += new EventHandler(Form2_Load);
-            // 콤보박스 선택 변경 이벤트 핸들러 연결
-            //this.RequestKind_CmBox.SelectedIndexChanged += new EventHandler(RequestKind_CmBox_SelectedIndexChanged);
-            //// 버튼 클릭 이벤트 핸들러 연결
-            this.RequestWriteEnroll_btn.Click += new EventHandler(RequestWriteEnroll_btn_Click);
         }
 
         private void Form2_Load(object sender, EventArgs e) //요청사항 종류 콤보박스 4가지 내용
@@ -93,22 +85,16 @@ namespace AmenityExpress
             string RequestKind = RequestKind_CmBox.SelectedItem.ToString();
             string Content = RequestContent_txt.Text;
             DateTime WriteDate = DateTime.Now;
-            DateTime AnswerDate = DateTime.Now;
 
-            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT, MID, ANSWERDATE, ANSWER) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT, :MID, :ANSWERDATE, :ANSWER)";
+            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("STATUE", OracleDbType.Varchar2, request.Statue, ParameterDirection.Input),
+                new OracleParameter("STATUE", OracleDbType.Varchar2, "답변 전", ParameterDirection.Input),
                 new OracleParameter("CID", OracleDbType.Varchar2, reserve.ID, ParameterDirection.Input),
-                new OracleParameter("ROOMNUM", OracleDbType.Int32,room.Num, ParameterDirection.Input),
+                new OracleParameter("ROOMNUM", OracleDbType.Int32,reserve.RoomNum, ParameterDirection.Input),
                 new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
                 new OracleParameter("REQUESTKIND", OracleDbType.Varchar2, RequestKind, ParameterDirection.Input),
-                new OracleParameter("CONTENT", OracleDbType.Varchar2, Content, ParameterDirection.Input),
-                new OracleParameter("MID", OracleDbType.Varchar2,manager.Id, ParameterDirection.Input),
-                new OracleParameter("ANSWERDATE", OracleDbType.Date, AnswerDate, ParameterDirection.Input),
-                new OracleParameter("ANSWER", OracleDbType.Date, request.Answer, ParameterDirection.Input)
-
-
+                new OracleParameter("CONTENT", OracleDbType.Varchar2, Content, ParameterDirection.Input)
             };
             try
             {
@@ -119,8 +105,17 @@ namespace AmenityExpress
                 MessageBox.Show("요청사항이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
+            DialogResult enrollok = MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (enrollok == DialogResult.OK) //메세지박스의 ok버튼 클릭시 요청사항 목록 폼으로 넘어감
+            {
+                // 새로운 폼을 생성하고 표시
+                RequestList_Form requestlist_form = new RequestList_Form();
+                requestlist_form.Show();
+
+                // 기존 폼을 숨김
+                this.Hide();
+            }
+
         }
 
         private void RequestWriteBack_btn_Click(object sender, EventArgs e) //뒤로가기 버튼 클릭하면 상세 예약 조회 화면으로 돌아감

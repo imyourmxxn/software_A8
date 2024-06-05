@@ -15,9 +15,6 @@ namespace AmenityExpress
 {
     public partial class FAQ_Manage_Form : Form
     {
-        //string connectionString = "User Id=<admin>;Password=<1562>;DataSource=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=gyeongmin2022.kro.kr)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))";
-        //OracleConnection conn;
-        //OracleCommand cmd;
         public FAQ_Manage_Form()
         {
             InitializeComponent();

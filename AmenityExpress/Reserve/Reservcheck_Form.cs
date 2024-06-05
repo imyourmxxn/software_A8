@@ -26,6 +26,7 @@ namespace AmenityExpress
             if (phoneNumberSplit[0] == "010") { Tell_cbb.SelectedIndex = 0; }
             else { Tell_cbb.SelectedIndex=1; }
 
+            
             KRname_txt.Text = reserve.Name_KR;
             ENGname_txt.Text = reserve.Name_ENG;
             Email_txt.Text = reserve.Email;
@@ -53,6 +54,12 @@ namespace AmenityExpress
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)//여기도 내가 임의로 추가함(경민)
+        {
+            RequestWrite_Form requestwrite_form = new RequestWrite_Form(reserve);
+            requestwrite_form.Show();
         }
     }
 }
