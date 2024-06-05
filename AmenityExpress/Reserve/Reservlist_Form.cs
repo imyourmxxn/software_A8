@@ -199,6 +199,7 @@ namespace AmenityExpress
                     reserve.CKIN = DateTime.Parse(row[0].ToString());
                     reserve.CKOUT = DateTime.Parse(row[7].ToString());
                     reserve.RoomNum = Convert.ToInt32(row[1].ToString());
+                    reserve.PRE_REQUEST = row[8].ToString();
                 }
                 Reservcheck_Form form = new Reservcheck_Form(reserve);
                 this.Visible = false;

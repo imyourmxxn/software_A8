@@ -35,7 +35,7 @@
             this.ENGname_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Email_txt = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.Request_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Tell_txt = new System.Windows.Forms.TextBox();
@@ -44,8 +44,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.CKOUT_lbl = new System.Windows.Forms.Label();
+            this.CKIN_lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.panel2.Controls.Add(this.ENGname_txt);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.Email_txt);
-            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.Request_txt);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.Tell_txt);
@@ -131,14 +131,14 @@
             this.Email_txt.Size = new System.Drawing.Size(336, 38);
             this.Email_txt.TabIndex = 22;
             // 
-            // textBox6
+            // Request_txt
             // 
-            this.textBox6.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox6.Location = new System.Drawing.Point(46, 275);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(476, 205);
-            this.textBox6.TabIndex = 27;
+            this.Request_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Request_txt.Location = new System.Drawing.Point(46, 275);
+            this.Request_txt.Multiline = true;
+            this.Request_txt.Name = "Request_txt";
+            this.Request_txt.Size = new System.Drawing.Size(476, 205);
+            this.Request_txt.TabIndex = 27;
             // 
             // label4
             // 
@@ -186,8 +186,8 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.CKOUT_lbl);
+            this.panel1.Controls.Add(this.CKIN_lbl);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(74, 299);
@@ -227,27 +227,27 @@
             this.label7.Text = "체크인";
             this.label7.UseWaitCursor = true;
             // 
-            // label11
+            // CKOUT_lbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 13F);
-            this.label11.Location = new System.Drawing.Point(216, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(116, 18);
-            this.label11.TabIndex = 57;
-            this.label11.Text = "2월 17일 (토)";
-            this.label11.UseWaitCursor = true;
+            this.CKOUT_lbl.AutoSize = true;
+            this.CKOUT_lbl.Font = new System.Drawing.Font("굴림", 13F);
+            this.CKOUT_lbl.Location = new System.Drawing.Point(216, 38);
+            this.CKOUT_lbl.Name = "CKOUT_lbl";
+            this.CKOUT_lbl.Size = new System.Drawing.Size(116, 18);
+            this.CKOUT_lbl.TabIndex = 57;
+            this.CKOUT_lbl.Text = "2월 17일 (토)";
+            this.CKOUT_lbl.UseWaitCursor = true;
             // 
-            // label8
+            // CKIN_lbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 13F);
-            this.label8.Location = new System.Drawing.Point(12, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 18);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "2월 14일 (수)";
-            this.label8.UseWaitCursor = true;
+            this.CKIN_lbl.AutoSize = true;
+            this.CKIN_lbl.Font = new System.Drawing.Font("굴림", 13F);
+            this.CKIN_lbl.Location = new System.Drawing.Point(12, 38);
+            this.CKIN_lbl.Name = "CKIN_lbl";
+            this.CKIN_lbl.Size = new System.Drawing.Size(116, 18);
+            this.CKIN_lbl.TabIndex = 54;
+            this.CKIN_lbl.Text = "2월 14일 (수)";
+            this.CKIN_lbl.UseWaitCursor = true;
             // 
             // label10
             // 
@@ -359,7 +359,7 @@
         private System.Windows.Forms.TextBox ENGname_txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Email_txt;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Request_txt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Tell_txt;
@@ -368,8 +368,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label CKOUT_lbl;
+        private System.Windows.Forms.Label CKIN_lbl;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button4;

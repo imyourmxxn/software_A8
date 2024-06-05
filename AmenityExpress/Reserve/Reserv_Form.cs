@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Oracle.ManagedDataAccess.Client;
+using System.Text.RegularExpressions;
 
 namespace AmenityExpress
 {
@@ -134,12 +135,17 @@ namespace AmenityExpress
             }
             else if (FirstName_txt.Text == FirstName || LastName_txt.Text == LastName) { MessageBox.Show("올바른 입력정보를 입력하세요"); } 
             else
-            { 
+            {
                 reserve.Name_KR = KRname_txt.Text.ToString();
                 reserve.Name_ENG = FirstName_txt.Text.ToString() + LastName_txt.Text.ToString();
                 reserve.Email = Email_txt.Text.ToString();
                 reserve.Tell = Tell_cbb.Text.ToString() + Tell_txt.Text.ToString();
                 reserve.ID = client.ID.ToString();
+                reserve.PRE_REQUEST = Request_txt.Text.ToString();
+
+                if (!IsValidEmail(reserve.Email)) { MessageBox.Show("E-mail 형식이 다릅니다."); return; }
+                if (TellNumCkeck(reserve.Tell.ToString()) == 1){ MessageBox.Show("전화번호 형식이 다릅니다."); return; }
+                else if (TellNumCkeck(reserve.Tell.ToString()) == 2) { MessageBox.Show("전화번호 자릿수가 맞지 않습니다."); return; }    
 
                 reserve_dbset();
 
@@ -151,11 +157,13 @@ namespace AmenityExpress
             }
         }
 
+
+
         public void reserve_dbset() 
         {
-            string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KR, ENG, ID, TEL, EMAIL, CKIN, CKOUT, SNUM) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :SNUM)";
+            string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
             OracleParameter[] parameters = new OracleParameter[] {
-                new OracleParameter("ROOMNUM", 103),
+                new OracleParameter("ROOMNUM", 18),
                 new OracleParameter("KR", reserve.Name_KR),
                 new OracleParameter("ENG", reserve.Name_ENG),
                 new OracleParameter("ID", reserve.ID),
@@ -163,9 +171,28 @@ namespace AmenityExpress
                 new OracleParameter("EMAIL", reserve.Email),
                 new OracleParameter("CKIN", reserve.CKIN),
                 new OracleParameter("CKOUT", reserve.CKOUT),
-                new OracleParameter("SNUM", null)
+                new OracleParameter("PRE_REQUEST", reserve.PRE_REQUEST)
             };
             DBConnector.DML_NON_QUERY(query, parameters);
+        }
+
+        public int TellNumCkeck(string Tell) 
+        {
+            if (Tell.Length == 12 || Tell.Length == 13)
+            {
+                Regex regex = new Regex(@"01{1}[01]{1}-[0-9]{3,4}-[0-9]{4}");
+
+                Match m = regex.Match(Tell);
+                if (m.Success) { return 0; }
+                else { return 1; }
+            }
+            else { return 2; }
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
+            return valid;
         }
 
         private void button2_Click(object sender, EventArgs e)
