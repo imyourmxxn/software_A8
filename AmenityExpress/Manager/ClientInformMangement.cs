@@ -13,6 +13,7 @@ namespace AmenityExpress
 {
     public partial class ClientInformMangement : Form
     {
+        DataSet ds;
         public ClientInformMangement()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace AmenityExpress
         }
         private void LoadData()
         {
-            ds = DBConnector.DML_QUERY("SELECT * FROM ADMIN.MEMBER_CLIENT");
+            ds = DBConnector.DML_QUERY("SELECT * FROM ADMIN.MEMBER_CLIENT",null);
             Profile_view.DataSource = ds.Tables[0];
         }
         private void button1_Click(object sender, EventArgs e)//추가버튼
@@ -36,7 +37,7 @@ namespace AmenityExpress
             int point = 0; 
 
             string sql = $"INSERT INTO ADMIN.MEMBER_CLIENT (ID, NAME, PW, EMAIL, TEL, GENDER, BIRTH, POINT) VALUES ('{id}', '{name}', '{pw}', '{email}', '{tel}', '{gender}', TO_DATE('{birth.ToString("yyyy-MM-dd")}', 'YYYY-MM-DD'), {point})";
-            DBConnector.DML_NON_QUERY(sql);
+            DBConnector.DML_NON_QUERY(sql,null);
             LoadData();
         } 
 
@@ -53,7 +54,7 @@ namespace AmenityExpress
 
 
             string sql = $"UPDATE ADMIN.MEMBER_CLIENT SET NAME='{name}', PW='{pw}', EMAIL='{email}', TEL='{tel}', GENDER='{gender}', BIRTH=TO_DATE('{birth.ToString("yyyy-MM-dd")}', 'YYYY-MM-DD'), POINT={point} WHERE ID='{id}'";
-            DBConnector.DML_NON_QUERY(sql);
+            DBConnector.DML_NON_QUERY(sql, null);
             LoadData();
         }
         private void button3_Click(object sender, EventArgs e)//삭제버튼
@@ -74,7 +75,7 @@ namespace AmenityExpress
 
                 // 데이터베이스에서 선택된 행을 삭제합니다.
                 string sql = $"DELETE FROM ADMIN.MEMBER_CLIENT WHERE ID='{id}'";
-                DBConnector.DML_NON_QUERY(sql);
+                DBConnector.DML_NON_QUERY(sql, null);
             }
         }
 
@@ -91,7 +92,7 @@ namespace AmenityExpress
             string searchValue = Search_txt.Text;
             string sql = $"SELECT * FROM ADMIN.MEMBER_CLIENT WHERE ID LIKE '%{searchValue}%' OR NAME LIKE '%{searchValue}%' OR PW LIKE '%{searchValue}%' OR EMAIL LIKE '%{searchValue}%' OR TEL LIKE '%{searchValue}%' OR GENDER LIKE '%{searchValue}%' OR BIRTH LIKE '%{searchValue}%'";
 
-            ds = DBConnector.DML_QUERY(sql);
+            ds = DBConnector.DML_QUERY(sql, null);
             Profile_view.DataSource = ds.Tables[0];
         }
         private void Profile_view_SelectionChanged(object sender, EventArgs e)

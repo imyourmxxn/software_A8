@@ -12,20 +12,14 @@ using System.Security.Cryptography;
 
 namespace AmenityExpress
 {
-    internal class DBConnector
+    internal static class DBConnector
     {
+        static Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-        private static string connstr;
-        private static OracleConnection conn;
+        private static KeyValueConfigurationCollection settings = config.AppSettings.Settings;
+        private static string connstr= connstr = "data source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = " + settings["host"].Value + ")(PORT = " + settings["port"].Value + ")))(CONNECT_DATA =(SERVICE_NAME = " + settings["sid"].Value + ")));USER ID=" + settings["id"].Value + ";PASSWORD=" + settings["pwd"].Value + ";";
+        private static OracleConnection conn = new OracleConnection(connstr);
         private static OracleCommand cmd = new OracleCommand();
-        public DBConnector()
-        {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            var settings = config.AppSettings.Settings;
-            connstr = "data source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = " + settings["host"].Value + ")(PORT = " + settings["port"].Value + ")))(CONNECT_DATA =(SERVICE_NAME = " + settings["sid"].Value + ")));USER ID=" + settings["id"].Value + ";PASSWORD=" + settings["pwd"].Value + ";";
-            conn = new OracleConnection(connstr);
-        }
 
         public static void DML_NON_QUERY(string sql, OracleParameter[] parameters) //insert, delete, update
         {

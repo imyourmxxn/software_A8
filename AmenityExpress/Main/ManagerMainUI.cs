@@ -73,8 +73,8 @@ namespace AmenityExpress
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            Member member = new Member();
-            member.Show();
+            ClientInformMangement clientInformManagetmentUI = new ClientInformMangement();
+            clientInformManagetmentUI.Show();
         }
     }
 }

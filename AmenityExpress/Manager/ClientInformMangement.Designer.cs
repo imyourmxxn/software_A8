@@ -24,8 +24,6 @@ namespace AmenityExpress
         }
 
         #region Windows Form Designer generated code
-        private DBConnector dbConnector = new DBConnector();
-        private DataSet ds = new DataSet();
       
 
         /// <summary>

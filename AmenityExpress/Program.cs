@@ -15,7 +15,6 @@ namespace AmenityExpress
         [STAThread]
         static void Main()
         {
-            DBConnector dBConnector = new DBConnector();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn());
