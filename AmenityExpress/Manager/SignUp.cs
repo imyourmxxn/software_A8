@@ -36,5 +36,10 @@ namespace AmenityExpress
         {
 
         }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

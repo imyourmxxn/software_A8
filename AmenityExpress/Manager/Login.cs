@@ -118,5 +118,5 @@ namespace AmenityExpress
         {
 
         }
-    }   
+    }
 }

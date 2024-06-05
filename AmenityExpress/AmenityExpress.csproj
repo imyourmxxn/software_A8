@@ -114,23 +114,8 @@
     <Compile Include="Main\MoneyUI.Designer.cs">
       <DependentUpon>MoneyUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\Member.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\Member.Designer.cs">
-      <DependentUpon>Member.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\MemberInformRetouch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\MemberInformRetouch.Designer.cs">
-      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    <Compile Include="Manager\ClientInformMangement.Designer.cs">
+      <DependentUpon>ClientInformMangement.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\SignUp.cs">
       <SubType>Form</SubType>
@@ -228,20 +213,11 @@
     <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
       <DependentUpon>RoomInformRetouching.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main\CutomerMainUI.resx">
-      <DependentUpon>CutomerMainUI.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\ClientInformMangement.resx">
+      <DependentUpon>ClientInformMangement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\ManagerMainUI.resx">
-      <DependentUpon>ManagerMainUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\Member.resx">
-      <DependentUpon>Member.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MemberInformRetouch.resx">
-      <DependentUpon>MemberInformRetouch.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>

@@ -265,6 +265,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SignUp";
             this.Text = "회원가입";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
