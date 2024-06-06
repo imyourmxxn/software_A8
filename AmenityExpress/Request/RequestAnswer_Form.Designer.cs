@@ -44,7 +44,6 @@
             this.RequestAnswer_txt.Name = "RequestAnswer_txt";
             this.RequestAnswer_txt.Size = new System.Drawing.Size(543, 159);
             this.RequestAnswer_txt.TabIndex = 0;
-            this.RequestAnswer_txt.TextChanged += new System.EventHandler(this.RequestAnswer_txt_TextChanged);
             // 
             // Answer_lbl
             // 

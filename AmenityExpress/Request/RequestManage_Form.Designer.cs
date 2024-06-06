@@ -190,6 +190,7 @@
             this.StatueGroup.TabIndex = 10;
             this.StatueGroup.TabStop = false;
             this.StatueGroup.Text = "답변상태";
+
             // 
             // ToFAQ_btn
             // 

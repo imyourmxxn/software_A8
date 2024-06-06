@@ -15,28 +15,30 @@ namespace AmenityExpress
 {
     public partial class FAQ_Manage_Form : Form
     {
-        public FAQ_Manage_Form()
+        FAQ faq;
+        public FAQ_Manage_Form(FAQ faq)
         {
             InitializeComponent();
+            this.faq = faq;
         }
 
-        private void FAQ_Manage_Form_Load(object sender, EventArgs e)
+        private void FAQ_Manage_Form_Load(object sender, EventArgs e) //FAQ 리스트뷰 출력
         {
             FAQEnroll_ListView_Show();
         }
-        private void FAQEnroll_btn_Click(object sender, EventArgs e)
+        private void FAQEnroll_btn_Click(object sender, EventArgs e) //등록버튼 클릭 시,
         {
-            if (string.IsNullOrWhiteSpace(FAQQuestionContent_txt.Text))
+            if (string.IsNullOrWhiteSpace(FAQQuestionContent_txt.Text)) //FAQ 질문 칸이 공백일 시, 오류메세지 출력
             {
                 MessageBox.Show("자주 묻는 질문을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (string.IsNullOrWhiteSpace(FAQAnswerContent_txt.Text))
+            else if (string.IsNullOrWhiteSpace(FAQAnswerContent_txt.Text)) //답변 칸이 공백일 시, 오류메세지 출력
             {
                 MessageBox.Show("자주 묻는 질문에 대한 답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else //질문, 답변 칸이 공백이 아닐 시,
             {
-                FAQEnroll();
+                FAQEnroll(); //DB에 질문, 답변 삽입하는 함수 적용
             }
         }
         private void FAQEnroll()  //FAQ DB에 등록하는 함수
@@ -44,7 +46,7 @@ namespace AmenityExpress
             string Question = FAQQuestionContent_txt.Text;
             string Answer = FAQAnswerContent_txt.Text;
 
-            string sql = "INSERT INTO FAQLIST (QUESTION, ANSWER) VALUES (:QUESTION,:ANSWER)";
+            string sql = "INSERT INTO FAQLIST (QUESTION, ANSWER) VALUES (:QUESTION,:ANSWER)"; //DB INSERT문
             OracleParameter[] parameters = new OracleParameter[]
             {
                 new OracleParameter("QUESTION", OracleDbType.Varchar2, Question, ParameterDirection.Input),
@@ -52,15 +54,15 @@ namespace AmenityExpress
             };
             try
             {
-                DBConnector.DML_NON_QUERY(sql, parameters);
+                DBConnector.DML_NON_QUERY(sql, parameters); //INSERT, DELETE, UPDATE문 사용 시 쓰는 메소드
             }
-            catch (Exception)
+            catch (Exception) //메소드가 제대로 작동되지 않으면 오류 메세지 출력
             {
                 MessageBox.Show("FAQ가 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return; //RETRUN문을 써서 등록 실패 메세지 출력에서 마침
             }
             MessageBox.Show("FAQ가 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            FAQEnroll_ListView_Show();
+            FAQEnroll_ListView_Show(); 
         }
 
         private void FAQEnroll_ListView_Show()
@@ -99,8 +101,13 @@ namespace AmenityExpress
 
         private void FAQFix()
         {
-            string sql = "UPDATE FROM FAQLIST WHERE FAQLIST";
-
+            string sql = "UPDATE FROM FAQLIST SET QUESTION=:QUESTION, ANSWER=:ANSWER WHERE FAQNUM=:FAQNUM";
+            OracleParameter[] parameters = new OracleParameter[]
+           {
+                new OracleParameter("QUESTION", faq.Question),
+                new OracleParameter("ANSWER",faq.Answer),
+                new OracleParameter("FAQNUM", faq.FAQNum)
+           };
             try
             {
                 DBConnector.DML_NON_QUERY(sql, null);

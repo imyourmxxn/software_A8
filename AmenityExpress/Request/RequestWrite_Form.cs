@@ -14,20 +14,11 @@ namespace AmenityExpress
 {
     public partial class RequestWrite_Form : Form
     {
-        //Manager manager;
         Reserve reserve;
-
-        private void InitailizeComboBox()
-        {
-            //RequestKind_CmBox.Items.AddRange(new string[] { "객실 상품 교체 요청", "어매니티 요청", "룸 서비스 요청", "기타사항 요청" });
-            //RequestKind_CmBox.SelectedIndex = 0;
-        }
-        public RequestWrite_Form(/*Manager manager, */Reserve reserve)
+        public RequestWrite_Form(Reserve reserve)
         {
             InitializeComponent();
-            //this.manager = manager;
             this.reserve = reserve;
-            InitailizeComboBox();
         }
 
         private void Form2_Load(object sender, EventArgs e) //요청사항 종류 콤보박스 4가지 내용
@@ -59,12 +50,8 @@ namespace AmenityExpress
                     break;
             }
         }
-        private void RequestContent_txt_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
+        private void CheckRequest()//요청사항 작성 완료했는 지 체크하는 메소드
         {
             if (string.IsNullOrWhiteSpace(RequestKind_CmBox.Text)) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
             {
@@ -76,11 +63,15 @@ namespace AmenityExpress
             }
             else
             {
-                RequestWriteEnroll();//요청사항 등록 메소드(DB에 저장)
+                RequestInfoEnroll();//요청사항 등록 메소드 사용하여 받은 요청사항을 DB에 삽입함
             }
         }
+        private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
+        {
+            CheckRequest();
+        }
 
-        private void RequestWriteEnroll() //요청사항 등록 메소드(DB에 데아터 삽입됨)
+        private void RequestInfoEnroll() //요청사항 등록 메소드(DB에 데아터 삽입됨) + 여기 시퀀스 들어가는 부분
         {
             string RequestKind = RequestKind_CmBox.SelectedItem.ToString();
             string Content = RequestContent_txt.Text;
