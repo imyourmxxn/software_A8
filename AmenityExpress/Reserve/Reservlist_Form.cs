@@ -59,8 +59,8 @@ namespace AmenityExpress
                 {
                     rows[0] = row[2].ToString();
                     rows[1] = row[5].ToString();
-                    rows[2] = row[0].ToString();
-                    rows[3] = row[7].ToString();
+                    rows[2] = DateTime.Parse(row[0].ToString()).ToString("yyyy-MM-dd") + " 오후 15:00";
+                    rows[3] = DateTime.Parse(row[7].ToString()).ToString("yyyy-MM-dd") + " 오전 10:00";
                     rows[4] = row[1].ToString();
                     rows[5] = i.ToString();
                     i++;
@@ -185,7 +185,7 @@ namespace AmenityExpress
             if (Reservelist_listView.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = Reservelist_listView.SelectedItems[0];
-                string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND KRNAME = '" + selectedItem.SubItems[0].Text.ToString() + "'";
+                string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND ROOMNUM = " + Convert.ToInt32(selectedItem.SubItems[4].Text);
                 DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
                 Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, "");
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
@@ -201,10 +201,23 @@ namespace AmenityExpress
                     reserve.RoomNum = Convert.ToInt32(row[1].ToString());
                     reserve.PRE_REQUEST = row[8].ToString();
                 }
-                Reservcheck_Form form = new Reservcheck_Form(reserve);
-                this.Visible = false;
-                form.Owner = this;
-                form.ShowDialog();
+
+                if (check)
+                {
+                    Reservcheck_Form form = new Reservcheck_Form(null, reserve);
+                    this.Visible = false;
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
+                else
+                {
+                    Reservcheck_Form form = new Reservcheck_Form(client, reserve);
+                    this.Visible = false;
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
+
+
                 this.Visible = true;
                 Reservelist_listView.Items.Clear();
                 reservelist_view(check);

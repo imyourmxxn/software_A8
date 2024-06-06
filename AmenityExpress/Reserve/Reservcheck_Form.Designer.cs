@@ -281,6 +281,7 @@
             this.button4.TabIndex = 65;
             this.button4.Text = "삭제";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -303,6 +304,7 @@
             this.button3.TabIndex = 62;
             this.button3.Text = "수정";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
