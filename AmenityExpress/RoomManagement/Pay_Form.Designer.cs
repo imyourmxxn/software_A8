@@ -32,8 +32,6 @@ namespace AmenityExpress
             this.label9 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,30 +69,13 @@ namespace AmenityExpress
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(740, 410);
+            this.button5.Location = new System.Drawing.Point(729, 410);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 38);
+            this.button5.Size = new System.Drawing.Size(108, 38);
             this.button5.TabIndex = 59;
-            this.button5.Text = "계좌 이체";
+            this.button5.Text = "결제 및 예약완료";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(740, 322);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 38);
-            this.button4.TabIndex = 58;
-            this.button4.Text = "카드 결제";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(740, 366);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 38);
-            this.button3.TabIndex = 57;
-            this.button3.Text = "현장 결제";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label8
             // 
@@ -161,6 +142,7 @@ namespace AmenityExpress
             this.button1.TabIndex = 50;
             this.button1.Text = "마일리지 전액 사용";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -171,6 +153,7 @@ namespace AmenityExpress
             this.label3.Size = new System.Drawing.Size(137, 26);
             this.label3.TabIndex = 49;
             this.label3.Text = "150,000원";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -227,8 +210,6 @@ namespace AmenityExpress
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -256,8 +237,6 @@ namespace AmenityExpress
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

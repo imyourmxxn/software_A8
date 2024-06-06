@@ -57,7 +57,7 @@ namespace AmenityExpress
                 int.TryParse(RoomPricetextBox.Text, out price))
             {
                 RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
-                InsertRoom(RoomData);  // DB에 값을 넣는 함수 실행
+                Room_Insert(RoomData);  // DB에 값을 넣는 함수 실행
 
                 // 부모 폼의 ListView를 업데이트
                 DBRoomConnect.LoadRoomData(parentListView);
@@ -82,7 +82,7 @@ namespace AmenityExpress
             this.Close();
         }
 
-        private void InsertRoom(Room room) // 객체 정보를 받아와서 DB에 삽입하는 함수
+        private void Room_Insert(Room room) // 객체 정보를 받아와서 DB에 삽입하는 함수
         {
             string sql = "INSERT INTO ROOM_MANAGE (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE, PHOTOPATH) VALUES (:ROOMNUM, :NAME, :MAX_CLIENT, :PRICE, :NOTICE, :PHOTOPATH)";
             // INSERT INTO 테이블명 (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE)는 컬럼 이름과 일치해야 함
