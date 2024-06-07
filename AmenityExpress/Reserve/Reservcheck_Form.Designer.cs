@@ -101,6 +101,7 @@
             // 
             this.KRname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.KRname_txt.Location = new System.Drawing.Point(186, 10);
+            this.KRname_txt.MaxLength = 10;
             this.KRname_txt.Name = "KRname_txt";
             this.KRname_txt.Size = new System.Drawing.Size(336, 38);
             this.KRname_txt.TabIndex = 18;
@@ -109,6 +110,7 @@
             // 
             this.ENGname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ENGname_txt.Location = new System.Drawing.Point(186, 65);
+            this.ENGname_txt.MaxLength = 30;
             this.ENGname_txt.Name = "ENGname_txt";
             this.ENGname_txt.Size = new System.Drawing.Size(336, 38);
             this.ENGname_txt.TabIndex = 19;
