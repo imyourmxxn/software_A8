@@ -17,7 +17,7 @@ namespace AmenityExpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new ClientInformMangement());
         }
     }
 }
