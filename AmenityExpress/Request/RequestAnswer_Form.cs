@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace AmenityExpress
 {
@@ -17,6 +17,8 @@ namespace AmenityExpress
     {
         Manager manager;
         Request request;
+        public event EventHandler AnswerSubmitted; // 이벤트 선언
+
         public RequestAnswer_Form(Manager manager, Request request)
         {
             InitializeComponent();
@@ -58,18 +60,18 @@ namespace AmenityExpress
             try
             {
                 DBConnector.DML_NON_QUERY(sql, parameters);
+                MessageBox.Show("답변이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AnswerSubmitted?.Invoke(this, EventArgs.Empty); // 이벤트 발생
+                Close();
             }
             catch
             {
                 MessageBox.Show("요청사항에 대한 답변이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("답변이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void RequestAnswerBack_btn_Click(object sender, EventArgs e) //관리자 요청사항 답변 폼에서 뒤로가기 버튼 클릭하면,
-                                                                             //요청사항 메인화면으로 넘어감
         {
             Close();//폼 닫기
         }
