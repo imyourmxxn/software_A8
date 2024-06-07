@@ -15,14 +15,14 @@ namespace AmenityExpress
     public partial class FAQ_Manage_Form : Form
     {
         FAQ faq;
-        public FAQ_Manage_Form(FAQ faq)
+        public FAQ_Manage_Form()
         {
             InitializeComponent();
-            this.faq = faq;
         }
 
         private void FAQ_Manage_Form_Load(object sender, EventArgs e) //FAQ 리스트뷰 출력
         {
+            faq = new FAQ(0,"","");
             FAQEnroll_ListView_Show();
         }
 
@@ -164,6 +164,11 @@ namespace AmenityExpress
                 FAQAnswerContent_txt.Text = FAQ_list.FocusedItem.SubItems[2].Text;
             }
             catch { }
+        }
+
+        private void FAQManageBack_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

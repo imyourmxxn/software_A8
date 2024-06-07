@@ -80,12 +80,12 @@ namespace AmenityExpress
             string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("STATUE", OracleDbType.Varchar2, "답변 전", ParameterDirection.Input),
-                new OracleParameter("CID", OracleDbType.Varchar2, reserve.ID, ParameterDirection.Input),
-                new OracleParameter("ROOMNUM", OracleDbType.Int32,reserve.RoomNum, ParameterDirection.Input),
-                new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
-                new OracleParameter("REQUESTKIND", OracleDbType.Varchar2, RequestKind, ParameterDirection.Input),
-                new OracleParameter("CONTENT", OracleDbType.Varchar2, Content, ParameterDirection.Input)
+                new OracleParameter("STATUE","답변 전"),
+                new OracleParameter("CID", reserve.ID),
+                new OracleParameter("ROOMNUM",reserve.RoomNum),
+                new OracleParameter("WRITEDATE", WriteDate),
+                new OracleParameter("REQUESTKIND", RequestKind),
+                new OracleParameter("CONTENT", Content)
             };
             try
             {

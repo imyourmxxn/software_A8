@@ -14,7 +14,6 @@ namespace AmenityExpress
     {
         Manager manager;
         Request request;
-        FAQ faq;
         public RequestManage_Form(Manager manager)
         {
             this.manager = manager;
@@ -146,7 +145,7 @@ namespace AmenityExpress
 
         private void ToFAQ_btn_Click(object sender, EventArgs e) //FAQ 관리 창으로 넘어감
         {
-            FAQ_Manage_Form faq_manage_form = new FAQ_Manage_Form(faq);
+            FAQ_Manage_Form faq_manage_form = new FAQ_Manage_Form();
             faq_manage_form.Show();
         }
 

@@ -150,7 +150,6 @@
             this.Answered_radio.Name = "Answered_radio";
             this.Answered_radio.Size = new System.Drawing.Size(105, 22);
             this.Answered_radio.TabIndex = 7;
-            this.Answered_radio.TabStop = true;
             this.Answered_radio.Text = "답변완료";
             this.Answered_radio.UseVisualStyleBackColor = true;
             this.Answered_radio.CheckedChanged += new System.EventHandler(this.Answered_radio_CheckedChanged);
@@ -158,6 +157,7 @@
             // TotalAnswer_radio
             // 
             this.TotalAnswer_radio.AutoSize = true;
+            this.TotalAnswer_radio.Checked = true;
             this.TotalAnswer_radio.Location = new System.Drawing.Point(149, 18);
             this.TotalAnswer_radio.Name = "TotalAnswer_radio";
             this.TotalAnswer_radio.Size = new System.Drawing.Size(105, 22);
@@ -174,7 +174,6 @@
             this.UnAnswered_radio.Name = "UnAnswered_radio";
             this.UnAnswered_radio.Size = new System.Drawing.Size(87, 22);
             this.UnAnswered_radio.TabIndex = 9;
-            this.UnAnswered_radio.TabStop = true;
             this.UnAnswered_radio.Text = "답변전";
             this.UnAnswered_radio.UseVisualStyleBackColor = true;
             this.UnAnswered_radio.CheckedChanged += new System.EventHandler(this.UnAnswered_radio_CheckedChanged);
@@ -190,7 +189,6 @@
             this.StatueGroup.TabIndex = 10;
             this.StatueGroup.TabStop = false;
             this.StatueGroup.Text = "답변상태";
-
             // 
             // ToFAQ_btn
             // 
