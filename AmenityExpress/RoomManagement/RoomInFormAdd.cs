@@ -1,4 +1,5 @@
 ﻿using AmenityExpress;
+using AmenityExpress.RoomManagement;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -51,24 +52,10 @@ namespace AmenityExpress
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            int roomNum, maxP, price;
-            if (int.TryParse(RoomNumTextBox.Text, out roomNum) &&
-                int.TryParse(RoomMaxTextBox.Text, out maxP) &&
-                int.TryParse(RoomPricetextBox.Text, out price))
-            {
-                RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
-                Room_Insert(RoomData);  // DB에 값을 넣는 함수 실행
+            RoomInformationadd.Add_Room(RoomNumTextBox, RoomMaxTextBox, RoomPricetextBox, RoomNameTextBox, RoomNoticeTextBox, selectedImagePath, parentListView);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
 
-                // 부모 폼의 ListView를 업데이트
-                DBRoomConnect.LoadRoomData(parentListView);
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("유효한 값을 입력하세요.");
-            }
         }
 
         private void RoomPriceLable_Click(object sender, EventArgs e)
@@ -82,21 +69,7 @@ namespace AmenityExpress
             this.Close();
         }
 
-        private void Room_Insert(Room room) // 객체 정보를 받아와서 DB에 삽입하는 함수
-        {
-            string sql = "INSERT INTO ROOM_MANAGE (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE, PHOTOPATH) VALUES (:ROOMNUM, :NAME, :MAX_CLIENT, :PRICE, :NOTICE, :PHOTOPATH)";
-            // INSERT INTO 테이블명 (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE)는 컬럼 이름과 일치해야 함
-            // :ROOMNUM, :NAME 등은 매개변수 이름
-            OracleParameter[] parameters = new OracleParameter[]{
-                new OracleParameter("ROOMNUM", room.Num), // 매개변수 이름에 객체 인스턴스 값을 넣는다.
-                new OracleParameter("NAME", room.Name),
-                new OracleParameter("MAX_CLIENT", room.MaxP),
-                new OracleParameter("PRICE", room.Price),
-                new OracleParameter("NOTICE", room.Notice),
-                new OracleParameter("PHOTOPATH", room.ImagePath) // PHOTOPATH로 수정
-            };
-            DBConnector.DML_NON_QUERY(sql, parameters); // DB 객체 내에 있는 메소드 사용해서 삽입 실행
-        }
+        
 
         private void ImageAddBtn_Click(object sender, EventArgs e)
         {

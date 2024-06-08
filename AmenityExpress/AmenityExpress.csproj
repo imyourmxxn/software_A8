@@ -85,7 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBRoomConnect.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="dbtest.cs">
       <SubType>Form</SubType>
@@ -216,12 +215,20 @@
     <Compile Include="RoomManagement\RoomInFormAdd.Designer.cs">
       <DependentUpon>RoomInFormAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoomManagement\RoomInformationadd.cs" />
+    <Compile Include="RoomManagement\RoomInformation_Del.cs" />
     <Compile Include="RoomManagement\RoomInformRetouching.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoomManagement\RoomInformRetouching.Designer.cs">
       <DependentUpon>RoomInformRetouching.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Main\CutomerMainUI.resx">
+      <DependentUpon>CutomerMainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ManagerMainUI.resx">
+      <DependentUpon>ManagerMainUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\ClientInformMangement.resx">
       <DependentUpon>ClientInformMangement.cs</DependentUpon>
     </EmbeddedResource>

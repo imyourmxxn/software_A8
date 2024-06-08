@@ -12,7 +12,9 @@ namespace AmenityExpress
 {
     public partial class RoomCheck : Form
     {
-        public RoomCheck()
+        Client client;
+        Reserve reserve;
+        public RoomCheck(Client client,Reserve reserve)
         {
             InitializeComponent();
             Room_list.Columns.Add("Room Name", 200, HorizontalAlignment.Left);
@@ -23,6 +25,8 @@ namespace AmenityExpress
 
             Room_list.View = View.Details;
             Room_list.FullRowSelect = true;
+            this.client = client;
+            this.reserve = reserve;
         }
 
         private void Room_list_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,7 +42,11 @@ namespace AmenityExpress
                 int roomNum = int.Parse(selectedItem.SubItems[1].Text);
 
                 // 예약 로직을 여기에 추가합니다.
-                MessageBox.Show($"Room {roomNum} 예약 완료");
+                //this.Visible = false;
+                //Reserv_Form reserv_form = new Reserv_Form(reserve, client);
+                //reserv_form.Owner = this;
+                //reserv_form.ShowDialog();
+                //Close();
             }
             else
             {
@@ -49,7 +57,7 @@ namespace AmenityExpress
 
         private void RoomCheck_Load(object sender, EventArgs e)
         {
-            DBRoomConnect.LoadRoomData(Room_list);
+            Room.LoadRoomData(Room_list);
         }
     }
 }

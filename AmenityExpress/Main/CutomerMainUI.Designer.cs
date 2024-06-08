@@ -34,8 +34,6 @@ namespace AmenityExpress
             this.button3 = new System.Windows.Forms.Button();
             this.체크인 = new System.Windows.Forms.ListBox();
             this.체크아웃 = new System.Windows.Forms.ListBox();
-            this.최대인원수 = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -46,6 +44,8 @@ namespace AmenityExpress
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.Notice_btn = new System.Windows.Forms.Button();
+            this.RequestCheck = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // button1
             // 
@@ -73,7 +73,7 @@ namespace AmenityExpress
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(734, 23);
+            this.button2.Location = new System.Drawing.Point(883, 23);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 44);
@@ -84,7 +84,7 @@ namespace AmenityExpress
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(900, 23);
+            this.button3.Location = new System.Drawing.Point(1034, 23);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 44);
@@ -96,7 +96,7 @@ namespace AmenityExpress
             // 
             this.체크인.FormattingEnabled = true;
             this.체크인.ItemHeight = 12;
-            this.체크인.Location = new System.Drawing.Point(23, 113);
+            this.체크인.Location = new System.Drawing.Point(304, 113);
             this.체크인.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.체크인.Name = "체크인";
             this.체크인.Size = new System.Drawing.Size(180, 76);
@@ -106,48 +106,26 @@ namespace AmenityExpress
             // 
             this.체크아웃.FormattingEnabled = true;
             this.체크아웃.ItemHeight = 12;
-            this.체크아웃.Location = new System.Drawing.Point(354, 113);
+            this.체크아웃.Location = new System.Drawing.Point(569, 113);
             this.체크아웃.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.체크아웃.Name = "체크아웃";
             this.체크아웃.Size = new System.Drawing.Size(176, 76);
             this.체크아웃.TabIndex = 5;
             // 
-            // 최대인원수
-            // 
-            this.최대인원수.FormattingEnabled = true;
-            this.최대인원수.ItemHeight = 12;
-            this.최대인원수.Location = new System.Drawing.Point(675, 113);
-            this.최대인원수.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.최대인원수.Name = "최대인원수";
-            this.최대인원수.Size = new System.Drawing.Size(130, 76);
-            this.최대인원수.TabIndex = 6;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(676, 147);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(130, 21);
-            this.numericUpDown1.TabIndex = 7;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(892, 128);
+            this.button4.Location = new System.Drawing.Point(892, 129);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 39);
             this.button4.TabIndex = 8;
             this.button4.Text = "검색";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(23, 147);
+            this.dateTimePicker1.Location = new System.Drawing.Point(308, 147);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(176, 21);
@@ -155,7 +133,7 @@ namespace AmenityExpress
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(354, 143);
+            this.dateTimePicker2.Location = new System.Drawing.Point(569, 147);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(176, 21);
@@ -218,11 +196,23 @@ namespace AmenityExpress
             this.Notice_btn.UseVisualStyleBackColor = true;
             this.Notice_btn.Click += new System.EventHandler(this.Notice_btn_Click);
             // 
+            // RequestCheck
+            // 
+            this.RequestCheck.Location = new System.Drawing.Point(12, 81);
+            this.RequestCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RequestCheck.Name = "RequestCheck";
+            this.RequestCheck.Size = new System.Drawing.Size(100, 39);
+            this.RequestCheck.TabIndex = 21;
+            this.RequestCheck.Text = "요청사항 조회";
+            this.RequestCheck.UseVisualStyleBackColor = true;
+            this.RequestCheck.Click += new System.EventHandler(this.RequestCheck_Click);
+            // 
             // CustomerMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 698);
+            this.Controls.Add(this.RequestCheck);
             this.Controls.Add(this.Notice_btn);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -232,8 +222,6 @@ namespace AmenityExpress
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.최대인원수);
             this.Controls.Add(this.체크아웃);
             this.Controls.Add(this.체크인);
             this.Controls.Add(this.button3);
@@ -245,6 +233,7 @@ namespace AmenityExpress
             this.Load += new System.EventHandler(this.CustomerUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -255,8 +244,6 @@ namespace AmenityExpress
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox 체크인;
         private System.Windows.Forms.ListBox 체크아웃;
-        private System.Windows.Forms.ListBox 최대인원수;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button button4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -267,5 +254,6 @@ namespace AmenityExpress
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button Notice_btn;
+        private System.Windows.Forms.Button RequestCheck;
     }
 }

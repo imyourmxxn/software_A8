@@ -16,20 +16,14 @@ namespace AmenityExpress
 {
     public partial class Pay_Form : Form
     {
+        Client client;
+
         public Room RoomData { get; private set; }
         public Pay_Form(Client client, Reserve reserve)
         {
             InitializeComponent();
-            int Point_Payment(int point, int price)
-            {
-                
-                point = client.Point;
-                price = RoomData.Price;
-                int total = price - point;
-                return total;
+            this.client = client;
 
-            }
-            
             label9.Text = reserve.CKIN + "~" + reserve.CKOUT;
             label10.Text = reserve.RoomNum.ToString();
             textBox1.Text = client.Point.ToString();
@@ -40,6 +34,16 @@ namespace AmenityExpress
             int Total = Point_Payment(client.Point,RoomData.Price);
             label8.Text = Total.ToString();
 
+
+        }
+            
+            public int Point_Payment(int point, int price)
+        {
+             
+            point = client.Point;
+            price = RoomData.Price;
+            int total = price - point;
+            return total;
 
         }
         public void DBPrice(int roomNum)

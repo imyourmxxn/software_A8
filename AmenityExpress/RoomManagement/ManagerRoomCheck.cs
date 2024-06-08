@@ -22,7 +22,7 @@ namespace AmenityExpress
 
         private void RoomSearchM_Form_Load(object sender, EventArgs e)
         {
-            DBRoomConnect.LoadRoomData(listView1);
+            Room.LoadRoomData(listView1);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace AmenityExpress
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    DBRoomConnect.LoadRoomData(listView1); // 폼이 닫힌 후에도 데이터를 다시 로드
+                    Room.LoadRoomData(listView1); // 폼이 닫힌 후에도 데이터를 다시 로드
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace AmenityExpress
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        DBRoomConnect.LoadRoomData(listView1);
+                        Room.LoadRoomData(listView1);
                     }
                 }
             }
@@ -70,19 +70,7 @@ namespace AmenityExpress
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                ListViewItem selectedItem = listView1.SelectedItems[0];
-                int roomNum = int.Parse(selectedItem.SubItems[1].Text);
-
-                DeleteRoom(roomNum);
-
-                listView1.Items.Remove(selectedItem);
-            }
-            else
-            {
-                MessageBox.Show("삭제할 항목을 선택하세요.");
-            }
+            RoomInformation_Del.Del_Room(listView1);
         }
 
         private void RoomRenewal_btn_Click(object sender, EventArgs e)
@@ -90,19 +78,7 @@ namespace AmenityExpress
             
         }
 
-        private void DeleteRoom(int roomNum)
-        {
-            string sql = $"DELETE FROM ROOM_MANAGE WHERE ROOMNUM = {roomNum}";
-
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql,null);
-                MessageBox.Show("객실 정보가 삭제되었습니다.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다: " + ex.Message);
-            }
-        }
+        
+        
     }
 }
