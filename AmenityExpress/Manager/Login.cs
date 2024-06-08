@@ -76,12 +76,11 @@ namespace AmenityExpress
                     }
                     else
                     {
-                        MessageBox.Show("비밀번호 오류");
+                        MessageBox.Show("비밀번호 오류");  return;
                     }
                 }
-                else { MessageBox.Show("아이디 오류"); }
-                
             }
+            MessageBox.Show("아이디 오류");
         }
 
         private string RemoveHiddenChars(string input)
