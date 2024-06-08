@@ -15,6 +15,8 @@ namespace AmenityExpress
     public partial class RequestWrite_Form : Form
     {
         Reserve reserve;
+        Request request;
+        RequestWriteControl writeControl = new RequestWriteControl();
         public RequestWrite_Form(Reserve reserve)
         {
             InitializeComponent();
@@ -51,62 +53,15 @@ namespace AmenityExpress
             }
         }
 
-        private void CheckRequest()//요청사항 작성 완료했는 지 체크하는 메소드
-        {
-            if (string.IsNullOrWhiteSpace(RequestKind_CmBox.Text)) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
-            {
-                MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RequestContent_txt.Text)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
-            {
-                MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                RequestInfoEnroll();//요청사항 등록 메소드 사용하여 받은 요청사항을 DB에 삽입함
-            }
-        }
+        
         private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
         {
-            CheckRequest();
-        }
-
-        private void RequestInfoEnroll() //요청사항 등록 메소드(DB에 데아터 삽입됨) + 여기 시퀀스 들어가는 부분
-        {
-            string RequestKind = RequestKind_CmBox.SelectedItem.ToString();
-            string Content = RequestContent_txt.Text;
-            DateTime WriteDate = DateTime.Now;
-
-            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";
-            OracleParameter[] parameters = new OracleParameter[]
+            request = new Request(0,"답변 전",reserve.ID,reserve.RoomNum,DateTime.Now,RequestKind_CmBox.SelectedItem.ToString(),RequestContent_txt.Text,null,null,null);
+            bool result = request.CheckRequest();
+            if (result)
             {
-                new OracleParameter("STATUE","답변 전"),
-                new OracleParameter("CID", reserve.ID),
-                new OracleParameter("ROOMNUM",reserve.RoomNum),
-                new OracleParameter("WRITEDATE", WriteDate),
-                new OracleParameter("REQUESTKIND", RequestKind),
-                new OracleParameter("CONTENT", Content)
-            };
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql, parameters);
+                writeControl.RequestWriteEnroll(this, reserve, request);
             }
-            catch
-            {
-                MessageBox.Show("요청사항이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult enrollok = MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (enrollok == DialogResult.OK) //메세지박스의 ok버튼 클릭시 요청사항 목록 폼으로 넘어감
-            {
-                // 새로운 폼을 생성하고 표시
-                RequestList_Form requestlist_form = new RequestList_Form();
-                requestlist_form.Show();
-
-                // 기존 폼을 숨김
-                this.Hide();
-            }
-
         }
 
         private void RequestWriteBack_btn_Click(object sender, EventArgs e) //뒤로가기 버튼 클릭하면 상세 예약 조회 화면으로 돌아감

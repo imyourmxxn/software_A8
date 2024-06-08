@@ -155,17 +155,21 @@ namespace AmenityExpress
             {
                 ListViewItem selectedItem = RequestManage_list.SelectedItems[0];
                 request = new Request(
-                    int.Parse(selectedItem.SubItems[0].Text), // SNum
-                    selectedItem.SubItems[1].Text, // Statue
-                    selectedItem.SubItems[2].Text, // CID
-                    int.Parse(selectedItem.SubItems[3].Text), // Roomnum
-                    selectedItem.SubItems[4].Text, // WriteDate
-                    selectedItem.SubItems[5].Text, // RequestKind
-                    selectedItem.SubItems[6].Text, // Content
-                    selectedItem.SubItems[7].Text, // Mid
-                    selectedItem.SubItems[8].Text, // AnswerDate
-                    selectedItem.SubItems[9].Text // Answer
-                );
+                        int.Parse(selectedItem.SubItems[0].Text), // SNum
+                        selectedItem.SubItems[1].Text, // Statue
+                        selectedItem.SubItems[2].Text, // CID
+                        int.Parse(selectedItem.SubItems[3].Text), // Roomnum
+                        DateTime.Parse(selectedItem.SubItems[4].Text), // WriteDate
+                        selectedItem.SubItems[5].Text, // RequestKind
+                        selectedItem.SubItems[6].Text, // Content
+                        selectedItem.SubItems[7].Text, // Mid
+                        null, // AnswerDate
+                        selectedItem.SubItems[9].Text // Answer
+                    );
+                if (selectedItem.SubItems[8].Text != "")
+                {
+                    request.AnswerDate = DateTime.Parse(selectedItem.SubItems[8].Text);
+                }
             }
         }
     }

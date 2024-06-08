@@ -17,7 +17,9 @@ namespace AmenityExpress
     {
         Manager manager;
         Request request;
+        RequestAnswerControl answerControl = new RequestAnswerControl();
         public event EventHandler AnswerSubmitted; // 이벤트 선언
+        
 
         public RequestAnswer_Form(Manager manager, Request request)
         {
@@ -28,46 +30,12 @@ namespace AmenityExpress
 
         private void RequestAnswerEnroll_btn_Click(object sender, EventArgs e)
         {
-            CheckAnswer();
-        }
-
-        private void CheckAnswer()
-        {
-            if (string.IsNullOrWhiteSpace(RequestAnswer_txt.Text))  //요청사항에 대한 답변을 적지 않고 답변등록 버튼 클릭시,
+            request.Answer = RequestAnswer_txt.Text;
+            request.AnswerDate = DateTime.Now;
+            bool result = request.CheckAnswer();
+            if (result)
             {
-                MessageBox.Show("답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error); //오류메세지 박스 출력
-            }
-            else //답변을 작성하고 답변 등록 버튼 클릭했을 경우,
-            {
-                RequestAnswerEnroll();//DB에 요청사항에 대한 답변 삽입
-            }
-        }
-
-        private void RequestAnswerEnroll() //DB에 요청사항에 대한 답변 등록하는 메소드
-        {
-            DateTime AnswerDate = DateTime.Now;
-            string Answer = RequestAnswer_txt.Text;
-
-            string sql = "UPDATE REQUEST_MANAGE SET STATUE=:STATUE, MID=:MID, ANSWERDATE=:ANSWERDATE, ANSWER=:ANSWER WHERE SNUM = :SNUM";
-            OracleParameter[] parameters = new OracleParameter[]
-            {
-               new OracleParameter("STATUE","답변 완료"),
-               new OracleParameter("MID",manager.Id),
-                new OracleParameter("ANSWERDATE", AnswerDate),
-                new OracleParameter("ANSWER", Answer),
-                new OracleParameter("SNUM",request.SNum)
-            };
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql, parameters);
-                MessageBox.Show("답변이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AnswerSubmitted?.Invoke(this, EventArgs.Empty); // 이벤트 발생
-                Close();
-            }
-            catch
-            {
-                MessageBox.Show("요청사항에 대한 답변이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                answerControl.RequestAnswerEnroll(this,manager,request,AnswerSubmitted);
             }
         }
 

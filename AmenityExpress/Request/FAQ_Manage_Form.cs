@@ -115,7 +115,7 @@ namespace AmenityExpress
                 MessageBox.Show("선택하신 FAQ가 수정되었습니다!", "수정 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FAQEnroll_ListView_Show(); // 리스트뷰 새로고침
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("FAQ가 수정되지 않았습니다!", "수정 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -150,7 +150,7 @@ namespace AmenityExpress
                 DBConnector.DML_NON_QUERY(sql, parameters);
                 MessageBox.Show("선택하신 FAQ가 삭제되었습니다!", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("FAQ가 삭제되지 않았습니다!", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
