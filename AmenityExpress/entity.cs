@@ -74,7 +74,7 @@ namespace AmenityExpress
             this.SNum = SNum; this.Statue = Statue; this.RequestKind = RequestKind;  this.Content = Content; this.Answer = Answer; this.Cid = Cid;
             this.Mid = Mid; this.Roomnum = Roomnum;  this.WriteDate = WriteDate;  this.AnswerDate = AnswerDate;
         }
-        public bool CheckAnswer()
+        public bool CheckAnswer()  //요청사항에 대한 답변을 작성 완료했는 지 체크하는 메소드
         {
             if (string.IsNullOrWhiteSpace(Answer))  //요청사항에 대한 답변을 적지 않고 답변등록 버튼 클릭시,
             {
@@ -83,7 +83,7 @@ namespace AmenityExpress
             }
             else //답변을 작성하고 답변 등록 버튼 클릭했을 경우,
             {
-                return true;
+                return true; //요청사항에 대한 답변이 작성됨을 확인
             }
         }
 
@@ -101,7 +101,7 @@ namespace AmenityExpress
             }
             else
             {
-                return true;//요청사항 등록 메소드 사용하여 받은 요청사항을 DB에 삽입함
+                return true;//요청사항이 작성됨을 확인
             }
         }
     }

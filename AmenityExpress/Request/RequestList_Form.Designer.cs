@@ -75,7 +75,6 @@
             this.RequestList_list.TabIndex = 3;
             this.RequestList_list.UseCompatibleStateImageBehavior = false;
             this.RequestList_list.View = System.Windows.Forms.View.Details;
-            this.RequestList_list.SelectedIndexChanged += new System.EventHandler(this.RequestList_list_SelectedIndexChanged);
             // 
             // columnHeader6
             // 

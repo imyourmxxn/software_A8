@@ -32,10 +32,10 @@ namespace AmenityExpress
         {
             request.Answer = RequestAnswer_txt.Text;
             request.AnswerDate = DateTime.Now;
-            bool result = request.CheckAnswer();
+            bool result = request.CheckAnswer(); //ENTITY 클래스 함수
             if (result)
             {
-                answerControl.RequestAnswerEnroll(this,manager,request,AnswerSubmitted);
+                answerControl.RequestAnswerEnroll(this,manager,request,AnswerSubmitted); //CONTROL 클래스 함수
             }
         }
 

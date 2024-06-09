@@ -21,7 +21,7 @@ namespace AmenityExpress
         }
 
         private void RequestEnroll_ListView_Show()
-        {
+        {//얘도 쑤셔넣어야하나?
             string sql = "SELECT * FROM REQUEST_MANAGE ORDER BY SNUM";
             DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
 
@@ -50,7 +50,7 @@ namespace AmenityExpress
         }
 
 
-        private void RequestListBack_btn_Click(object sender, EventArgs e)
+        private void RequestListBack_btn_Click(object sender, EventArgs e) //폼 닫아서 고객 메인ui가 뜸
         {
             Close();
         }
@@ -61,9 +61,5 @@ namespace AmenityExpress
             faq_form.Show();
         }
 
-        private void RequestList_list_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

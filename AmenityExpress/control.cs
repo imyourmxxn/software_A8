@@ -10,7 +10,7 @@ namespace AmenityExpress
 {
     class RequestAnswerControl
     {
-        public RequestAnswerControl() {}
+        public RequestAnswerControl() {} //요청사항에 대한 답변 등록
         public void RequestAnswerEnroll(RequestAnswer_Form UI,Manager manager,Request request, EventHandler e)
         {
             string sql = "UPDATE REQUEST_MANAGE SET STATUE=:STATUE, MID=:MID, ANSWERDATE=:ANSWERDATE, ANSWER=:ANSWER WHERE SNUM = :SNUM";
@@ -40,7 +40,7 @@ namespace AmenityExpress
 
     class RequestWriteControl
     {
-        public RequestWriteControl() { }
+        public RequestWriteControl() { } //요청사항 등록
         public void RequestWriteEnroll(RequestWrite_Form UI, Reserve reserve, Request request) //요청사항 등록 메소드(DB에 데아터 삽입됨) + 여기 시퀀스 들어가는 부분
         {
                 string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";

@@ -113,7 +113,7 @@ namespace AmenityExpress
         }
 
         private void RequestManageAnswer_btn_Click(object sender, EventArgs e) //리스트 중 하나를 선택하고 답변 버튼 클릭시, 답변 등록 창으로 넘어감
-        {
+        { //얘네도 컨트롤 클래스에 쑤셔넣어야할듯
             if (RequestManage_list.SelectedItems.Count == 0)
             {
                 MessageBox.Show("답변할 요청사항 목록을 선택하세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -172,5 +172,6 @@ namespace AmenityExpress
                 }
             }
         }
+
     }
 }
