@@ -47,20 +47,11 @@ namespace AmenityExpress
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            reserve_set();
-        }
         private void reserve_set()
         {
             if (string.IsNullOrWhiteSpace(KRname_txt.Text) || string.IsNullOrWhiteSpace(ENGname_txt.Text) || string.IsNullOrWhiteSpace(Email_txt.Text) || string.IsNullOrWhiteSpace(Tell_txt.Text))
@@ -91,6 +82,28 @@ namespace AmenityExpress
         {
             reserve.reserve_del();
             MessageBox.Show("삭제 완료");
+            Close();
+        }
+
+        private void Reequest_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Retouch_btn_Click(object sender, EventArgs e)
+        {
+            reserve_set();
+        }
+
+        private void Del_btn_Click(object sender, EventArgs e)
+        {
+            reserve.reserve_del();
+            MessageBox.Show("삭제 완료");
+            Close();
+        }
+
+        private void Check_btn_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

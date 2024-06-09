@@ -211,6 +211,7 @@
             this.Cancel_btn.TabIndex = 37;
             this.Cancel_btn.Text = "이전";
             this.Cancel_btn.UseVisualStyleBackColor = true;
+            this.Cancel_btn.Click += new System.EventHandler(this.Cancel_btn_Click);
             // 
             // Notice_lbl
             // 
@@ -221,6 +222,7 @@
             this.Notice_lbl.Size = new System.Drawing.Size(125, 37);
             this.Notice_lbl.TabIndex = 38;
             this.Notice_lbl.Text = "유의사항";
+            this.Notice_lbl.Click += new System.EventHandler(this.Notice_lbl_Click);
             // 
             // Reserv_Form
             // 

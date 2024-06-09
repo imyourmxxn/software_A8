@@ -223,5 +223,15 @@ namespace AmenityExpress
         {
 
         }
+
+        private void Notice_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancel_btn_Click(object sender, EventArgs e)
+        {
+            Close() ;
+        }
     }
 }

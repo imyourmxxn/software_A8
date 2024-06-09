@@ -110,7 +110,7 @@ namespace AmenityExpress
             else { return 2; }
         }
 
-        public bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)  
         {
             bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
             return valid;

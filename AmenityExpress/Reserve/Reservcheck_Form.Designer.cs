@@ -48,11 +48,11 @@
             this.CKIN_lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Reequest_btn1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Retouch_btn = new System.Windows.Forms.Button();
+            this.Del_btn = new System.Windows.Forms.Button();
+            this.Check_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -273,51 +273,17 @@
             this.label9.Text = "오후 15:00";
             this.label9.UseWaitCursor = true;
             // 
-            // button4
+            // Reequest_btn1
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button4.Location = new System.Drawing.Point(169, 584);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 45);
-            this.button4.TabIndex = 65;
-            this.button4.Text = "삭제";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button1.Location = new System.Drawing.Point(314, 584);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 45);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "요청 사항";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button3.Location = new System.Drawing.Point(24, 584);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 45);
-            this.button3.TabIndex = 62;
-            this.button3.Text = "수정";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button2.Location = new System.Drawing.Point(981, 583);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 45);
-            this.button2.TabIndex = 61;
-            this.button2.Text = "확인";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Reequest_btn1.BackColor = System.Drawing.Color.White;
+            this.Reequest_btn1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Reequest_btn1.Location = new System.Drawing.Point(314, 584);
+            this.Reequest_btn1.Name = "Reequest_btn1";
+            this.Reequest_btn1.Size = new System.Drawing.Size(130, 45);
+            this.Reequest_btn1.TabIndex = 64;
+            this.Reequest_btn1.Text = "요청 사항";
+            this.Reequest_btn1.UseVisualStyleBackColor = false;
+            this.Reequest_btn1.Click += new System.EventHandler(this.Reequest_btn_Click);
             // 
             // pictureBox1
             // 
@@ -328,18 +294,53 @@
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
             // 
+            // Retouch_btn
+            // 
+            this.Retouch_btn.BackColor = System.Drawing.Color.White;
+            this.Retouch_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Retouch_btn.Location = new System.Drawing.Point(25, 584);
+            this.Retouch_btn.Name = "Retouch_btn";
+            this.Retouch_btn.Size = new System.Drawing.Size(130, 45);
+            this.Retouch_btn.TabIndex = 68;
+            this.Retouch_btn.Text = "수정";
+            this.Retouch_btn.UseVisualStyleBackColor = false;
+            this.Retouch_btn.Click += new System.EventHandler(this.Retouch_btn_Click);
+            // 
+            // Del_btn
+            // 
+            this.Del_btn.BackColor = System.Drawing.Color.White;
+            this.Del_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Del_btn.Location = new System.Drawing.Point(169, 584);
+            this.Del_btn.Name = "Del_btn";
+            this.Del_btn.Size = new System.Drawing.Size(130, 45);
+            this.Del_btn.TabIndex = 69;
+            this.Del_btn.Text = "삭제";
+            this.Del_btn.UseVisualStyleBackColor = false;
+            this.Del_btn.Click += new System.EventHandler(this.Del_btn_Click);
+            // 
+            // Check_btn
+            // 
+            this.Check_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Check_btn.Location = new System.Drawing.Point(981, 584);
+            this.Check_btn.Name = "Check_btn";
+            this.Check_btn.Size = new System.Drawing.Size(130, 45);
+            this.Check_btn.TabIndex = 70;
+            this.Check_btn.Text = "확인";
+            this.Check_btn.UseVisualStyleBackColor = true;
+            this.Check_btn.Click += new System.EventHandler(this.Check_btn_Click);
+            // 
             // Reservcheck_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 661);
+            this.Controls.Add(this.Check_btn);
+            this.Controls.Add(this.Del_btn);
+            this.Controls.Add(this.Retouch_btn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Reequest_btn1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reservcheck_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -376,10 +377,10 @@
         private System.Windows.Forms.Label CKIN_lbl;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Reequest_btn1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Retouch_btn;
+        private System.Windows.Forms.Button Del_btn;
+        private System.Windows.Forms.Button Check_btn;
     }
 }
