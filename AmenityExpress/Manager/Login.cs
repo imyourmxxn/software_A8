@@ -59,6 +59,7 @@ namespace AmenityExpress
                             textBox1.Text = "";
                             textBox2.Text = "";
                             this.Visible = true;
+                            manager = null;
                             return;
                         }
                         else
@@ -71,6 +72,7 @@ namespace AmenityExpress
                             textBox1.Text = "";
                             textBox2.Text = "";
                             this.Visible = true;
+                            client = null;
                             return;
                         }
                     }

@@ -14,11 +14,13 @@ namespace AmenityExpress
     {
         Reserve reserve;
         Client client;
-        public Reservcheck_Form(Client client, Reserve reserve)
+        Room room;
+        public Reservcheck_Form(Client client, Reserve reserve, Room room)
         {
             InitializeComponent();
             this.reserve = reserve;
             this.client = client;
+            this.room = room;
             Reserve_set(reserve);
         }
 
@@ -36,6 +38,7 @@ namespace AmenityExpress
 
             CKIN_lbl.Text = reserve.CKIN.ToString("MM월 dd일 (ddd)");
             CKOUT_lbl.Text = reserve.CKOUT.ToString("MM월 dd일 (ddd)");
+            label6.Text = "객실정보 " + reserve.RoomNum.ToString() + "호" + room.Name.ToString();
         }
         private void chart1_Click(object sender, EventArgs e)
         {

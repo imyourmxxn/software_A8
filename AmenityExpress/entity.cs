@@ -63,7 +63,7 @@ namespace AmenityExpress
         {
             string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
             OracleParameter[] parameters = new OracleParameter[] {
-                new OracleParameter("ROOMNUM", 18),
+                new OracleParameter("ROOMNUM", RoomNum),
                 new OracleParameter("KR", Name_KR),
                 new OracleParameter("ENG", Name_ENG),
                 new OracleParameter("ID", ID),
