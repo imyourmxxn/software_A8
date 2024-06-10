@@ -2,15 +2,59 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
 
 namespace AmenityExpress
 {
+    class memberControl
+    {
+        public static void Client_Add(Client client)
+        {
+            try
+            {
+                client.AddInform(); // Client 클래스의 AddInform() 메서드 호출
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("클라이언트 정보를 추가하는 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+
+        public static void Client_Fix(Client client)
+        {
+            try
+            {
+                client.FixInform(); // Client 클래스의 FixInform() 메서드 호출
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("클라이언트 정보를 수정하는 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+
+        public static void Client_Del(string id)
+        {
+            try
+            {
+                Client client = new Client(id, "", "", "", "", "", "", 0);
+                client.ID = id; // 삭제할 클라이언트의 ID 설정
+                client.DelInform(); // Client 클래스의 DelInform() 메서드 호출
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("클라이언트 정보를 삭제하는 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+    }
     class RequestAnswerControl
     {
+        
         public RequestAnswerControl() {} //요청사항에 대한 답변 등록
         public void RequestAnswerEnroll(RequestAnswer_Form UI,Manager manager,Request request, EventHandler e)
         {
