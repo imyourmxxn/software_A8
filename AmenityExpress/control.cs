@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,6 +74,123 @@ namespace AmenityExpress
                 UI.Hide();
             }
 
+        }
+    }
+
+    internal class RoomInformation_Del
+    {
+        public static void Del_Room(ListView listView)
+        {
+            if (listView.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listView.SelectedItems[0];
+                int roomNum = int.Parse(selectedItem.SubItems[1].Text);
+
+                Room.Delete_Room(roomNum);
+
+                listView.Items.Remove(selectedItem);
+            }
+            else
+            {
+                MessageBox.Show("삭제할 항목을 선택하세요.");
+            }
+        }
+    }
+    internal class RoomInformationadd
+    {
+        public static void Add_Room(TextBox RoomNumTextBox, TextBox RoomMaxTextBox, TextBox RoomPricetextBox, TextBox RoomNameTextBox, TextBox RoomNoticeTextBox, string selectedImagePath, ListView parentListView)
+        {
+            int roomNum, maxP, price;
+            if (int.TryParse(RoomNumTextBox.Text, out roomNum) &&
+                int.TryParse(RoomMaxTextBox.Text, out maxP) &&
+                int.TryParse(RoomPricetextBox.Text, out price))
+            {
+                Room RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
+                RoomData.Room_Insert(RoomData);  // DB에 값을 넣는 함수 실행 
+
+                // 부모 폼의 ListView를 업데이트
+                Room.LoadRoomData(parentListView);
+            }
+            else
+            {
+                MessageBox.Show("유효한 값을 입력하세요.");
+            }
+        }
+    }
+
+    internal class RoomInformationRetouch
+    {
+        public static void RetouchRoom(int roomNum, string name, int maxP, int price, string notice, string imagePath)
+        {
+            Room roomData = new Room(roomNum, name, maxP, price, notice, imagePath);
+            roomData.Update_Room(roomData);
+        }
+    }
+
+    internal class ReserveSearch_system
+    {
+        public static void reservelist(ListView Reservelist_listView, Client client, bool check)
+        {
+            if (check)
+            {
+                string sql = "SELECT * FROM RESERV_MANAGE";
+                DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
+                string[] rows = new string[6];
+                int i = 1;
+                foreach (DataRow row in dbconnector.Tables[0].Rows)
+                {
+                    rows[0] = row[2].ToString();
+                    rows[1] = row[5].ToString();
+                    rows[2] = row[0].ToString();
+                    rows[3] = row[7].ToString();
+                    rows[4] = row[1].ToString();
+                    rows[5] = i.ToString();
+                    i++;
+                    var listViewItem = new ListViewItem(rows);
+                    Reservelist_listView.Items.Add(listViewItem);
+                }
+            }
+            else
+            {
+                string sql = "SELECT * FROM RESERV_MANAGE WHERE ID = '" + client.ID + "'";
+                DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
+                string[] rows = new string[6];
+                int i = 1;
+                foreach (DataRow row in dbconnector.Tables[0].Rows)
+                {
+                    rows[0] = row[2].ToString();
+                    rows[1] = row[5].ToString();
+                    rows[2] = DateTime.Parse(row[0].ToString()).ToString("yyyy-MM-dd") + " 오후 15:00";
+                    rows[3] = DateTime.Parse(row[7].ToString()).ToString("yyyy-MM-dd") + " 오전 10:00";
+                    rows[4] = row[1].ToString();
+                    rows[5] = i.ToString();
+                    i++;
+                    var listViewItem = new ListViewItem(rows);
+                    Reservelist_listView.Items.Add(listViewItem);
+                }
+            }
+        }
+
+        public static void search_sys(string sql, ListView Reservelist_listView, TextBox Search_txt)
+        {
+            DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
+            string[] rows = new string[6];
+            int i = 1;
+            foreach (DataRow row in dbconnector.Tables[0].Rows) { i++; }
+            if (i == 1) { MessageBox.Show("검색 결과 없음"); Search_txt.Text = ""; return; }
+            i = 1;
+            foreach (DataRow row in dbconnector.Tables[0].Rows)
+            {
+                rows[0] = row[2].ToString();
+                rows[1] = row[5].ToString();
+                rows[2] = row[0].ToString();
+                rows[3] = row[7].ToString();
+                rows[4] = row[1].ToString();
+                rows[5] = i.ToString();
+                i++;
+                var listViewItem = new ListViewItem(rows);
+                Reservelist_listView.Items.Add(listViewItem);
+            }
         }
     }
 }
