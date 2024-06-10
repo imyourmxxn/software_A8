@@ -39,6 +39,8 @@ namespace AmenityExpress
             else //질문, 답변 칸이 공백이 아닐 시,
             {
                 FAQEnroll(); //DB에 질문, 답변 삽입하는 함수 적용
+                FAQQuestionContent_txt.Clear();
+                FAQAnswerContent_txt.Clear();
             }
         }
 
@@ -93,6 +95,8 @@ namespace AmenityExpress
                 faq.Answer = FAQAnswerContent_txt.Text;
 
                 FAQFix();
+                FAQQuestionContent_txt.Clear();
+                FAQAnswerContent_txt.Clear();
             }
             else
             {
@@ -129,6 +133,9 @@ namespace AmenityExpress
                 {
                     FAQDel(FAQ_list.SelectedItems[i].SubItems[0].Text);  //DB 데이터 삭제하는 메소드 호출
                     FAQ_list.Items.RemoveAt(FAQ_list.SelectedIndices[i]);
+                    FAQQuestionContent_txt.Clear();
+                    FAQAnswerContent_txt.Clear();
+
                 }
             }
             else
