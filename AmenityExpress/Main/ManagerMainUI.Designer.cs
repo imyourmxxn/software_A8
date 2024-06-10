@@ -42,29 +42,30 @@ namespace AmenityExpress
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(197, 38);
+            this.button2.Location = new System.Drawing.Point(172, 30);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 41);
+            this.button2.Size = new System.Drawing.Size(84, 33);
             this.button2.TabIndex = 1;
             this.button2.Text = "리뷰관리";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(361, 38);
+            this.button3.Location = new System.Drawing.Point(316, 30);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 41);
+            this.button3.Size = new System.Drawing.Size(84, 33);
             this.button3.TabIndex = 2;
             this.button3.Text = "공지관리";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // reserv_btn
             // 
-            this.reserv_btn.Location = new System.Drawing.Point(31, 151);
+            this.reserv_btn.Location = new System.Drawing.Point(27, 121);
+            this.reserv_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reserv_btn.Name = "reserv_btn";
-            this.reserv_btn.Size = new System.Drawing.Size(110, 51);
+            this.reserv_btn.Size = new System.Drawing.Size(96, 41);
             this.reserv_btn.TabIndex = 3;
             this.reserv_btn.Text = "예약관리";
             this.reserv_btn.UseVisualStyleBackColor = true;
@@ -72,39 +73,40 @@ namespace AmenityExpress
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(197, 201);
+            this.button8.Location = new System.Drawing.Point(197, 205);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(96, 41);
+            this.button8.Size = new System.Drawing.Size(84, 33);
             this.button8.TabIndex = 7;
             this.button8.Text = "카테고리관리";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(593, 10);
+            this.button10.Location = new System.Drawing.Point(519, 8);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(96, 24);
+            this.button10.Size = new System.Drawing.Size(84, 19);
             this.button10.TabIndex = 9;
             this.button10.Text = "로그아웃";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(454, 13);
+            this.textBox1.Location = new System.Drawing.Point(397, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(131, 21);
+            this.textBox1.Size = new System.Drawing.Size(115, 21);
             this.textBox1.TabIndex = 10;
             this.textBox1.Text = "안녕하세요 홍길동님";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // money_btn
             // 
-            this.money_btn.Location = new System.Drawing.Point(225, 151);
+            this.money_btn.Location = new System.Drawing.Point(197, 121);
+            this.money_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.money_btn.Name = "money_btn";
-            this.money_btn.Size = new System.Drawing.Size(110, 51);
+            this.money_btn.Size = new System.Drawing.Size(96, 41);
             this.money_btn.TabIndex = 11;
             this.money_btn.Text = "매출관리";
             this.money_btn.UseVisualStyleBackColor = true;
@@ -112,9 +114,10 @@ namespace AmenityExpress
             // 
             // room_btn
             // 
-            this.room_btn.Location = new System.Drawing.Point(413, 151);
+            this.room_btn.Location = new System.Drawing.Point(361, 121);
+            this.room_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.room_btn.Name = "room_btn";
-            this.room_btn.Size = new System.Drawing.Size(110, 51);
+            this.room_btn.Size = new System.Drawing.Size(96, 41);
             this.room_btn.TabIndex = 12;
             this.room_btn.Text = "객실관리";
             this.room_btn.UseVisualStyleBackColor = true;
@@ -122,9 +125,10 @@ namespace AmenityExpress
             // 
             // request_btn
             // 
-            this.request_btn.Location = new System.Drawing.Point(31, 251);
+            this.request_btn.Location = new System.Drawing.Point(27, 201);
+            this.request_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.request_btn.Name = "request_btn";
-            this.request_btn.Size = new System.Drawing.Size(110, 51);
+            this.request_btn.Size = new System.Drawing.Size(96, 41);
             this.request_btn.TabIndex = 13;
             this.request_btn.Text = "요청사항관리";
             this.request_btn.UseVisualStyleBackColor = true;
@@ -132,9 +136,10 @@ namespace AmenityExpress
             // 
             // login_btn
             // 
-            this.login_btn.Location = new System.Drawing.Point(31, 47);
+            this.login_btn.Location = new System.Drawing.Point(27, 38);
+            this.login_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.login_btn.Name = "login_btn";
-            this.login_btn.Size = new System.Drawing.Size(110, 51);
+            this.login_btn.Size = new System.Drawing.Size(96, 41);
             this.login_btn.TabIndex = 14;
             this.login_btn.Text = "회원관리";
             this.login_btn.UseVisualStyleBackColor = true;
@@ -142,9 +147,9 @@ namespace AmenityExpress
             // 
             // ManagerMainUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 360);
             this.Controls.Add(this.login_btn);
             this.Controls.Add(this.request_btn);
             this.Controls.Add(this.room_btn);
@@ -155,6 +160,7 @@ namespace AmenityExpress
             this.Controls.Add(this.reserv_btn);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManagerMainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

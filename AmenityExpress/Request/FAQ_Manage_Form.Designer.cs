@@ -39,6 +39,7 @@
             this.FAQEnroll_btn = new System.Windows.Forms.Button();
             this.FAQFix_btn = new System.Windows.Forms.Button();
             this.FAQDel_btn = new System.Windows.Forms.Button();
+            this.FAQManageBack_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FAQ_list
@@ -49,7 +50,7 @@
             this.columnHeader3});
             this.FAQ_list.FullRowSelect = true;
             this.FAQ_list.HideSelection = false;
-            this.FAQ_list.Location = new System.Drawing.Point(385, 52);
+            this.FAQ_list.Location = new System.Drawing.Point(414, 31);
             this.FAQ_list.Name = "FAQ_list";
             this.FAQ_list.Size = new System.Drawing.Size(579, 489);
             this.FAQ_list.TabIndex = 0;
@@ -87,7 +88,7 @@
             this.FAQQuestionContent_txt.Location = new System.Drawing.Point(28, 82);
             this.FAQQuestionContent_txt.Multiline = true;
             this.FAQQuestionContent_txt.Name = "FAQQuestionContent_txt";
-            this.FAQQuestionContent_txt.Size = new System.Drawing.Size(277, 90);
+            this.FAQQuestionContent_txt.Size = new System.Drawing.Size(312, 90);
             this.FAQQuestionContent_txt.TabIndex = 2;
             // 
             // FAQAnswer_lbl
@@ -105,12 +106,12 @@
             this.FAQAnswerContent_txt.Location = new System.Drawing.Point(28, 232);
             this.FAQAnswerContent_txt.Multiline = true;
             this.FAQAnswerContent_txt.Name = "FAQAnswerContent_txt";
-            this.FAQAnswerContent_txt.Size = new System.Drawing.Size(277, 208);
+            this.FAQAnswerContent_txt.Size = new System.Drawing.Size(312, 208);
             this.FAQAnswerContent_txt.TabIndex = 4;
             // 
             // FAQEnroll_btn
             // 
-            this.FAQEnroll_btn.Location = new System.Drawing.Point(36, 473);
+            this.FAQEnroll_btn.Location = new System.Drawing.Point(28, 471);
             this.FAQEnroll_btn.Name = "FAQEnroll_btn";
             this.FAQEnroll_btn.Size = new System.Drawing.Size(75, 49);
             this.FAQEnroll_btn.TabIndex = 5;
@@ -120,7 +121,7 @@
             // 
             // FAQFix_btn
             // 
-            this.FAQFix_btn.Location = new System.Drawing.Point(130, 473);
+            this.FAQFix_btn.Location = new System.Drawing.Point(123, 471);
             this.FAQFix_btn.Name = "FAQFix_btn";
             this.FAQFix_btn.Size = new System.Drawing.Size(75, 49);
             this.FAQFix_btn.TabIndex = 6;
@@ -130,7 +131,7 @@
             // 
             // FAQDel_btn
             // 
-            this.FAQDel_btn.Location = new System.Drawing.Point(230, 473);
+            this.FAQDel_btn.Location = new System.Drawing.Point(219, 471);
             this.FAQDel_btn.Name = "FAQDel_btn";
             this.FAQDel_btn.Size = new System.Drawing.Size(75, 49);
             this.FAQDel_btn.TabIndex = 7;
@@ -138,11 +139,22 @@
             this.FAQDel_btn.UseVisualStyleBackColor = true;
             this.FAQDel_btn.Click += new System.EventHandler(this.FAQDel_btn_Click);
             // 
+            // FAQManageBack_btn
+            // 
+            this.FAQManageBack_btn.Location = new System.Drawing.Point(881, 538);
+            this.FAQManageBack_btn.Name = "FAQManageBack_btn";
+            this.FAQManageBack_btn.Size = new System.Drawing.Size(112, 42);
+            this.FAQManageBack_btn.TabIndex = 8;
+            this.FAQManageBack_btn.Text = "뒤로가기";
+            this.FAQManageBack_btn.UseVisualStyleBackColor = true;
+            this.FAQManageBack_btn.Click += new System.EventHandler(this.FAQManageBack_btn_Click);
+            // 
             // FAQ_Manage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 587);
+            this.ClientSize = new System.Drawing.Size(1058, 601);
+            this.Controls.Add(this.FAQManageBack_btn);
             this.Controls.Add(this.FAQDel_btn);
             this.Controls.Add(this.FAQFix_btn);
             this.Controls.Add(this.FAQEnroll_btn);
@@ -172,5 +184,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button FAQManageBack_btn;
     }
 }

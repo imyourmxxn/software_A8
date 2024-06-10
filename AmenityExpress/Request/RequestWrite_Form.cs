@@ -14,28 +14,13 @@ namespace AmenityExpress
 {
     public partial class RequestWrite_Form : Form
     {
-        Manager manager;
-        Client client;
-        Room room;
+        Reserve reserve;
         Request request;
-
-        private void InitailizeComboBox()
-        {
-            //RequestKind_CmBox.Items.AddRange(new string[] { "객실 상품 교체 요청", "어매니티 요청", "룸 서비스 요청", "기타사항 요청" });
-            //RequestKind_CmBox.SelectedIndex = 0;
-        }
-        public RequestWrite_Form(Manager manager, Client client, Room room, Request request)
+        RequestWriteControl writeControl = new RequestWriteControl();
+        public RequestWrite_Form(Reserve reserve)
         {
             InitializeComponent();
-            this.client = client;
-            this.room = room;
-            InitailizeComboBox();
-
-            //this.Load += new EventHandler(Form2_Load);
-            // 콤보박스 선택 변경 이벤트 핸들러 연결
-            //this.RequestKind_CmBox.SelectedIndexChanged += new EventHandler(RequestKind_CmBox_SelectedIndexChanged);
-            //// 버튼 클릭 이벤트 핸들러 연결
-            this.RequestWriteEnroll_btn.Click += new EventHandler(RequestWriteEnroll_btn_Click);
+            this.reserve = reserve;
         }
 
         private void Form2_Load(object sender, EventArgs e) //요청사항 종류 콤보박스 4가지 내용
@@ -67,60 +52,15 @@ namespace AmenityExpress
                     break;
             }
         }
-        private void RequestContent_txt_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
         {
-            if (string.IsNullOrWhiteSpace(RequestKind_CmBox.Text)) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
+            request = new Request(0, "답변 전", reserve.ID, reserve.RoomNum, DateTime.Now, RequestKind_CmBox.SelectedItem == null ? "":RequestKind_CmBox.SelectedItem.ToString(), RequestContent_txt.Text, null, null, null);
+            if (request.CheckRequest())
             {
-                MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                writeControl.RequestWriteEnroll(this, reserve, request);
             }
-            else if (string.IsNullOrWhiteSpace(RequestContent_txt.Text)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
-            {
-                MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                RequestWriteEnroll();//요청사항 등록 메소드(DB에 저장)
-            }
-        }
-
-        private void RequestWriteEnroll() //요청사항 등록 메소드(DB에 데아터 삽입됨)
-        {
-            string RequestKind = RequestKind_CmBox.SelectedItem.ToString();
-            string Content = RequestContent_txt.Text;
-            DateTime WriteDate = DateTime.Now;
-            DateTime AnswerDate = DateTime.Now;
-
-            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT, MID, ANSWERDATE, ANSWER) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT, :MID, :ANSWERDATE, :ANSWER)";
-            OracleParameter[] parameters = new OracleParameter[]
-            {
-                new OracleParameter("STATUE", OracleDbType.Varchar2, request.Statue, ParameterDirection.Input),
-                new OracleParameter("CID", OracleDbType.Varchar2, reserve.ID, ParameterDirection.Input),
-                new OracleParameter("ROOMNUM", OracleDbType.Int32,room.Num, ParameterDirection.Input),
-                new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
-                new OracleParameter("REQUESTKIND", OracleDbType.Varchar2, RequestKind, ParameterDirection.Input),
-                new OracleParameter("CONTENT", OracleDbType.Varchar2, Content, ParameterDirection.Input),
-                new OracleParameter("MID", OracleDbType.Varchar2,manager.Id, ParameterDirection.Input),
-                new OracleParameter("ANSWERDATE", OracleDbType.Date, AnswerDate, ParameterDirection.Input),
-                new OracleParameter("ANSWER", OracleDbType.Date, request.Answer, ParameterDirection.Input)
-
-
-            };
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql, parameters);
-            }
-            catch
-            {
-                MessageBox.Show("요청사항이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
         }
 
         private void RequestWriteBack_btn_Click(object sender, EventArgs e) //뒤로가기 버튼 클릭하면 상세 예약 조회 화면으로 돌아감

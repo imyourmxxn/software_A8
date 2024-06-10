@@ -31,11 +31,6 @@
             this.RequestManageAnswer_btn = new System.Windows.Forms.Button();
             this.RequestManagetoMainRequestUI_btn = new System.Windows.Forms.Button();
             this.RequestManage_list = new System.Windows.Forms.ListView();
-            this.Answered_radio = new System.Windows.Forms.RadioButton();
-            this.TotalAnswer_radio = new System.Windows.Forms.RadioButton();
-            this.UnAnswered_radio = new System.Windows.Forms.RadioButton();
-            this.StatueGroup = new System.Windows.Forms.GroupBox();
-            this.ToFAQ_btn = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,6 +41,11 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Answered_radio = new System.Windows.Forms.RadioButton();
+            this.TotalAnswer_radio = new System.Windows.Forms.RadioButton();
+            this.UnAnswered_radio = new System.Windows.Forms.RadioButton();
+            this.StatueGroup = new System.Windows.Forms.GroupBox();
+            this.ToFAQ_btn = new System.Windows.Forms.Button();
             this.StatueGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,14 +82,66 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader18});
+            this.RequestManage_list.FullRowSelect = true;
             this.RequestManage_list.HideSelection = false;
-            this.RequestManage_list.Location = new System.Drawing.Point(24, 85);
+            this.RequestManage_list.Location = new System.Drawing.Point(12, 92);
+            this.RequestManage_list.MultiSelect = false;
             this.RequestManage_list.Name = "RequestManage_list";
             this.RequestManage_list.Size = new System.Drawing.Size(1489, 412);
             this.RequestManage_list.TabIndex = 5;
             this.RequestManage_list.UseCompatibleStateImageBehavior = false;
             this.RequestManage_list.View = System.Windows.Forms.View.Details;
-            this.RequestManage_list.SelectedIndexChanged += new System.EventHandler(this.RequestManage_list_SelectedIndexChanged);
+            this.RequestManage_list.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.RequestManage_list_ItemSelectionChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No";
+            this.columnHeader1.Width = 89;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "답변상태";
+            this.columnHeader2.Width = 91;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "고객아이디";
+            this.columnHeader3.Width = 111;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "객실번호";
+            this.columnHeader4.Width = 94;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "요청일자";
+            this.columnHeader5.Width = 112;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "요청종류";
+            this.columnHeader6.Width = 103;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "요청사항";
+            this.columnHeader7.Width = 95;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "관리자아이디";
+            this.columnHeader8.Width = 149;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "답변일자";
+            this.columnHeader9.Width = 120;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "답변내용";
+            this.columnHeader18.Width = 344;
             // 
             // Answered_radio
             // 
@@ -98,7 +150,6 @@
             this.Answered_radio.Name = "Answered_radio";
             this.Answered_radio.Size = new System.Drawing.Size(105, 22);
             this.Answered_radio.TabIndex = 7;
-            this.Answered_radio.TabStop = true;
             this.Answered_radio.Text = "답변완료";
             this.Answered_radio.UseVisualStyleBackColor = true;
             this.Answered_radio.CheckedChanged += new System.EventHandler(this.Answered_radio_CheckedChanged);
@@ -106,6 +157,7 @@
             // TotalAnswer_radio
             // 
             this.TotalAnswer_radio.AutoSize = true;
+            this.TotalAnswer_radio.Checked = true;
             this.TotalAnswer_radio.Location = new System.Drawing.Point(149, 18);
             this.TotalAnswer_radio.Name = "TotalAnswer_radio";
             this.TotalAnswer_radio.Size = new System.Drawing.Size(105, 22);
@@ -122,7 +174,6 @@
             this.UnAnswered_radio.Name = "UnAnswered_radio";
             this.UnAnswered_radio.Size = new System.Drawing.Size(87, 22);
             this.UnAnswered_radio.TabIndex = 9;
-            this.UnAnswered_radio.TabStop = true;
             this.UnAnswered_radio.Text = "답변전";
             this.UnAnswered_radio.UseVisualStyleBackColor = true;
             this.UnAnswered_radio.CheckedChanged += new System.EventHandler(this.UnAnswered_radio_CheckedChanged);
@@ -149,51 +200,11 @@
             this.ToFAQ_btn.UseVisualStyleBackColor = true;
             this.ToFAQ_btn.Click += new System.EventHandler(this.ToFAQ_btn_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "답변상태";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "고객아이디";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "객실번호";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "요청일자";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "요청종류";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "요청사항";
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "관리자아이디";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "답변일자";
-            // 
-            // columnHeader18
-            // 
-            this.columnHeader18.Text = "답변내용";
-            // 
             // RequestManage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1612, 587);
+            this.ClientSize = new System.Drawing.Size(1534, 587);
             this.Controls.Add(this.ToFAQ_btn);
             this.Controls.Add(this.StatueGroup);
             this.Controls.Add(this.RequestManage_list);
@@ -201,6 +212,7 @@
             this.Controls.Add(this.RequestManageAnswer_btn);
             this.Name = "RequestManage_Form";
             this.Text = "요청사항리스트";
+            this.Load += new System.EventHandler(this.RequestManage_Form_Load);
             this.StatueGroup.ResumeLayout(false);
             this.StatueGroup.PerformLayout();
             this.ResumeLayout(false);

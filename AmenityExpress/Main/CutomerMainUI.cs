@@ -13,6 +13,7 @@ namespace AmenityExpress
     public partial class CustomerMainUI : Form
     {
         Client client;
+        Reserve reserve;
         public CustomerMainUI(Client client)
         {
             InitializeComponent();
@@ -40,9 +41,11 @@ namespace AmenityExpress
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //예약 조회 넘어가는 버튼임
         {
-
+            Reservlist_Form reservlist_form = new Reservlist_Form(client,false); //고객이기 때문에 false 관리자면 true
+            reservlist_form.Owner = this;
+            reservlist_form.ShowDialog();
         }
 
         private void Notice_btn_Click(object sender, EventArgs e)
@@ -52,7 +55,33 @@ namespace AmenityExpress
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //MemberInformFix memberInformFix = new MemberInformFix(client.ID); 
+            //memberInformFix.Owner = this;
+            //memberInformFix.ShowDialog();
+        }
 
+        private void button4_Click(object sender, EventArgs e) // 예약 버튼 누를시 이동
+        {
+            reserve.CKIN = dateTimePicker1.Value;
+            reserve.CKOUT = dateTimePicker2.Value;
+            if (reserve.CKIN.ToString("MM-dd") == reserve.CKOUT.ToString("MM-dd")) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
+            RoomCheck roomcheck = new RoomCheck(client, reserve);
+            this.Visible = false;
+            roomcheck.Owner = this;
+            roomcheck.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RequestCheck_Click(object sender, EventArgs e) //요청사항 조회 버튼 클릭시 이동
+        {
+            RequestList_Form requestlist_form = new RequestList_Form();
+            requestlist_form.Owner = this;
+            requestlist_form.ShowDialog();
         }
     }
 }

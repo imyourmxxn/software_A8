@@ -143,11 +143,11 @@ namespace AmenityExpress
                 reserve.ID = client.ID.ToString();
                 reserve.PRE_REQUEST = Request_txt.Text.ToString();
 
-                if (!IsValidEmail(reserve.Email)) { MessageBox.Show("E-mail 형식이 다릅니다."); return; }
-                if (TellNumCkeck(reserve.Tell.ToString()) == 1){ MessageBox.Show("전화번호 형식이 다릅니다."); return; }
-                else if (TellNumCkeck(reserve.Tell.ToString()) == 2) { MessageBox.Show("전화번호 자릿수가 맞지 않습니다."); return; }    
+                if (!reserve.IsValidEmail(reserve.Email)) { MessageBox.Show("E-mail 형식이 다릅니다."); return; }
+                if (reserve.TellNumCkeck(reserve.Tell.ToString()) == 1){ MessageBox.Show("전화번호 형식이 다릅니다."); return; }
+                else if (reserve.TellNumCkeck(reserve.Tell.ToString()) == 2) { MessageBox.Show("전화번호 자릿수가 맞지 않습니다."); return; }
 
-                reserve_dbset();
+                reserve.reserve_dbset();
 
                 this.Visible = false;
                 Pay_Form pay_form = new Pay_Form(client, reserve);
@@ -158,42 +158,6 @@ namespace AmenityExpress
         }
 
 
-
-        public void reserve_dbset() 
-        {
-            string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
-            OracleParameter[] parameters = new OracleParameter[] {
-                new OracleParameter("ROOMNUM", 18),
-                new OracleParameter("KR", reserve.Name_KR),
-                new OracleParameter("ENG", reserve.Name_ENG),
-                new OracleParameter("ID", reserve.ID),
-                new OracleParameter("TEL", reserve.Tell),
-                new OracleParameter("EMAIL", reserve.Email),
-                new OracleParameter("CKIN", reserve.CKIN),
-                new OracleParameter("CKOUT", reserve.CKOUT),
-                new OracleParameter("PRE_REQUEST", reserve.PRE_REQUEST)
-            };
-            DBConnector.DML_NON_QUERY(query, parameters);
-        }
-
-        public int TellNumCkeck(string Tell) 
-        {
-            if (Tell.Length == 12 || Tell.Length == 13)
-            {
-                Regex regex = new Regex(@"01{1}[01]{1}-[0-9]{3,4}-[0-9]{4}");
-
-                Match m = regex.Match(Tell);
-                if (m.Success) { return 0; }
-                else { return 1; }
-            }
-            else { return 2; }
-        }
-
-        public bool IsValidEmail(string email)
-        {
-            bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
-            return valid;
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -258,6 +222,16 @@ namespace AmenityExpress
         private void Reserv_Form_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Notice_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancel_btn_Click(object sender, EventArgs e)
+        {
+            Close() ;
         }
     }
 }

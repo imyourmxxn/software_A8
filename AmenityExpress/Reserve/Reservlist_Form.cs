@@ -30,44 +30,7 @@ namespace AmenityExpress
 
         public void reservelist_view(bool check) 
         {
-            if (check)
-            {
-                string sql = "SELECT * FROM RESERV_MANAGE";
-                DataSet dbconnector = DBConnector.DML_QUERY(sql,null);
-                string[] rows = new string[6];
-                int i = 1;
-                foreach (DataRow row in dbconnector.Tables[0].Rows)
-                {
-                    rows[0] = row[2].ToString();
-                    rows[1] = row[5].ToString();
-                    rows[2] = row[0].ToString();
-                    rows[3] = row[7].ToString();
-                    rows[4] = row[1].ToString();
-                    rows[5] = i.ToString();
-                    i++;
-                    var listViewItem = new ListViewItem(rows);
-                    Reservelist_listView.Items.Add(listViewItem);
-                }
-            }
-            else 
-            {
-                string sql = "SELECT * FROM RESERV_MANAGE WHERE ID = '" + client.ID + "'";
-                DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
-                string[] rows = new string[6];
-                int i = 1;
-                foreach (DataRow row in dbconnector.Tables[0].Rows)
-                {
-                    rows[0] = row[2].ToString();
-                    rows[1] = row[5].ToString();
-                    rows[2] = row[0].ToString();
-                    rows[3] = row[7].ToString();
-                    rows[4] = row[1].ToString();
-                    rows[5] = i.ToString();
-                    i++;
-                    var listViewItem = new ListViewItem(rows);
-                    Reservelist_listView.Items.Add(listViewItem);
-                }
-            }
+            ReserveSearch_system.reservelist(Reservelist_listView, client, check);
         }
 
         private void Reservlist_Form_Load(object sender, EventArgs e)
@@ -75,12 +38,11 @@ namespace AmenityExpress
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Cancel_btn_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Search_btn_Click(object sender, EventArgs e)
         {
             search_sys(check);
         }
@@ -117,7 +79,7 @@ namespace AmenityExpress
 
                 }
             }
-            else 
+            else
             {
                 if (DateTime.Compare(CKOUT_dtp.Value.Date, CKIN_dtp.Value.Date) < 0)
                 {
@@ -145,24 +107,7 @@ namespace AmenityExpress
 
                 }
             }
-            DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
-            string[] rows = new string[6];
-            int i = 1;
-            foreach (DataRow row in dbconnector.Tables[0].Rows) { i++; }
-            if (i == 1) { MessageBox.Show("검색 결과 없음"); Search_txt.Text = ""; return; }
-            i = 1;
-            foreach (DataRow row in dbconnector.Tables[0].Rows)
-            {
-                rows[0] = row[2].ToString();
-                rows[1] = row[5].ToString();
-                rows[2] = row[0].ToString();
-                rows[3] = row[7].ToString();
-                rows[4] = row[1].ToString();
-                rows[5] = i.ToString();
-                i++;
-                var listViewItem = new ListViewItem(rows);
-                Reservelist_listView.Items.Add(listViewItem);
-            }
+            ReserveSearch_system.search_sys(sql, Reservelist_listView, Search_txt);
         }
 
         private void Room_cbb_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,7 +130,7 @@ namespace AmenityExpress
             if (Reservelist_listView.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = Reservelist_listView.SelectedItems[0];
-                string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND KRNAME = '" + selectedItem.SubItems[0].Text.ToString() + "'";
+                string sql = "SELECT * FROM RESERV_MANAGE WHERE CKIN BETWEEN TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(selectedItem.SubItems[2].Text.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999 AND ROOMNUM = " + Convert.ToInt32(selectedItem.SubItems[4].Text);
                 DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
                 Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, "");
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
@@ -194,24 +139,38 @@ namespace AmenityExpress
                     DateTime myDate = DateTime.Parse(CKIN);
                     reserve.Name_KR = row[2].ToString();
                     reserve.Name_ENG = row[3].ToString();
+                    reserve.ID = row[4].ToString();
                     reserve.Email = row[6].ToString();
-                    reserve.Tell = row[5].ToString(); 
+                    reserve.Tell = row[5].ToString();
                     reserve.CKIN = DateTime.Parse(row[0].ToString());
                     reserve.CKOUT = DateTime.Parse(row[7].ToString());
                     reserve.RoomNum = Convert.ToInt32(row[1].ToString());
                     reserve.PRE_REQUEST = row[8].ToString();
                 }
-                Reservcheck_Form form = new Reservcheck_Form(reserve);
-                this.Visible = false;
-                form.Owner = this;
-                form.ShowDialog();
+
+                if (check)
+                {
+                    Reservcheck_Form form = new Reservcheck_Form(null, reserve);
+                    this.Visible = false;
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
+                else
+                {
+                    Reservcheck_Form form = new Reservcheck_Form(client, reserve);
+                    this.Visible = false;
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
+
+
                 this.Visible = true;
                 Reservelist_listView.Items.Clear();
                 reservelist_view(check);
             }
             else
             {
-                MessageBox.Show("수정할 항목을 선택하세요.");
+                MessageBox.Show("항목을 선택하세요.");
             }
         }
     }
