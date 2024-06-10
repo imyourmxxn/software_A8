@@ -99,7 +99,7 @@ namespace AmenityExpress
             OracleParameter[] parameters = new OracleParameter[]
             {
                 new OracleParameter("STATUE", OracleDbType.Varchar2, request.Statue, ParameterDirection.Input),
-                new OracleParameter("CID", OracleDbType.Varchar2, reserve.ID, ParameterDirection.Input),
+                new OracleParameter("CID", OracleDbType.Varchar2, client.ID, ParameterDirection.Input),
                 new OracleParameter("ROOMNUM", OracleDbType.Int32,room.Num, ParameterDirection.Input),
                 new OracleParameter("WRITEDATE", OracleDbType.Date, WriteDate, ParameterDirection.Input),
                 new OracleParameter("REQUESTKIND", OracleDbType.Varchar2, RequestKind, ParameterDirection.Input),

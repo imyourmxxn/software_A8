@@ -110,8 +110,7 @@ namespace AmenityExpress.RoomManagement
                 int.TryParse(RoomMaxTextBox.Text, out maxP) &&
                 int.TryParse(RoomPricetextBox.Text, out price))
             {
-                RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
-                UpdateRoomInDatabase(RoomData);
+                RoomInformationRetouch.RetouchRoom(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -120,30 +119,7 @@ namespace AmenityExpress.RoomManagement
                 MessageBox.Show("유효한 값을 입력하세요.");
             }
         }
-        private void UpdateRoomInDatabase(Room room)
-        {
-            string sql = "UPDATE ROOM_MANAGE SET NAME = :NAME, PRICE = :PRICE, MAX_CLIENT = :MAX_CLIENT, NOTICE = :NOTICE, PHOTOPATH = :PHOTOPATH WHERE ROOMNUM = :ROOMNUM";
-
-            OracleParameter[] parameters = new OracleParameter[]
-            {
-                new OracleParameter("NAME", room.Name),
-                new OracleParameter("PRICE", room.Price),
-                new OracleParameter("MAX_CLIENT", room.MaxP),
-                new OracleParameter("NOTICE", room.Notice),
-                new OracleParameter("PHOTOPATH", room.ImagePath),
-                new OracleParameter("ROOMNUM", room.Num)
-            };
-
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql, parameters);
-                MessageBox.Show("객실 정보가 업데이트되었습니다.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("객실 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
-            }
-        }
+        
             private void RoomInformRetouching_Load(object sender, EventArgs e)
         {
             

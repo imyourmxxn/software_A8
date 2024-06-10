@@ -1,12 +1,15 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace AmenityExpress
 {
@@ -159,6 +162,112 @@ namespace AmenityExpress
         {
             this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice; this.ImagePath = imagePath;
         }
+        public void Room_Insert(Room room) // 객체 정보를 받아와서 DB에 삽입하는 함수
+        {
+            string sql = "INSERT INTO ROOM_MANAGE (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE, PHOTOPATH) VALUES (:ROOMNUM, :NAME, :MAX_CLIENT, :PRICE, :NOTICE, :PHOTOPATH)";
+            // INSERT INTO 테이블명 (ROOMNUM, NAME, MAX_CLIENT, PRICE, NOTICE)는 컬럼 이름과 일치해야 함
+            // :ROOMNUM, :NAME 등은 매개변수 이름
+            OracleParameter[] parameters = new OracleParameter[]{
+                new OracleParameter("ROOMNUM", room.Num), // 매개변수 이름에 객체 인스턴스 값을 넣는다.
+                new OracleParameter("NAME", room.Name),
+                new OracleParameter("MAX_CLIENT", room.MaxP),
+                new OracleParameter("PRICE", room.Price),
+                new OracleParameter("NOTICE", room.Notice),
+                new OracleParameter("PHOTOPATH", room.ImagePath) // PHOTOPATH로 수정
+            };
+            DBConnector.DML_NON_QUERY(sql, parameters); // DB 객체 내에 있는 메소드 사용해서 삽입 실행
+        }
+        public void Update_Room(Room room)
+        {
+            string sql = "UPDATE ROOM_MANAGE SET NAME = :NAME, PRICE = :PRICE, MAX_CLIENT = :MAX_CLIENT, NOTICE = :NOTICE, PHOTOPATH = :PHOTOPATH WHERE ROOMNUM = :ROOMNUM";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("NAME", room.Name),
+                new OracleParameter("PRICE", room.Price),
+                new OracleParameter("MAX_CLIENT", room.MaxP),
+                new OracleParameter("NOTICE", room.Notice),
+                new OracleParameter("PHOTOPATH", room.ImagePath),
+                new OracleParameter("ROOMNUM", room.Num)
+            };
+
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql, parameters);
+                MessageBox.Show("객실 정보가 업데이트되었습니다.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("객실 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+        public static void Delete_Room(int roomNum)
+        {
+            string sql = $"DELETE FROM ROOM_MANAGE WHERE ROOMNUM = :RoomNum";
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+            new OracleParameter(":RoomNum", roomNum)
+            };
+
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql, parameters);
+                MessageBox.Show("객실 정보가 삭제되었습니다.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("객실 정보 삭제 중 오류가 발생했습니다: " + ex.Message);
+            }
+        }
+        public static void LoadRoomData(ListView listView)
+        {
+            string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE, PHOTOPATH FROM ROOM_MANAGE";
+            DataSet ds = DBConnector.DML_QUERY(sql, null);
+
+            listView.Items.Clear();
+
+            // 이미지 리스트 생성
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(50, 50); // 이미지 크기 조정 (가로, 세로)
+
+            // 이미지를 표시할 이미지 리스트에 이미지 추가
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                string imagePath = ds.Tables[0].Rows[i]["PHOTOPATH"].ToString();
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    try
+                    {
+                        // 이미지 리스트에 이미지 추가
+                        imageList.Images.Add(Image.FromFile(imagePath));
+                    }
+                    catch (Exception ex)
+                    {
+                        // 이미지 로드 실패 시 처리할 내용
+                        Console.WriteLine($"이미지 로드 실패: {ex.Message}");
+                    }
+                }
+            }
+
+            // 리스트뷰에 이미지 리스트 연결
+            listView.SmallImageList = imageList;
+
+            // 각 항목에 이미지 인덱스 설정하여 이미지 표시
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(new[]
+                {
+                ds.Tables[0].Rows[i]["NAME"].ToString(),
+                ds.Tables[0].Rows[i]["ROOMNUM"].ToString(),
+                ds.Tables[0].Rows[i]["PRICE"].ToString(),
+                ds.Tables[0].Rows[i]["MAX_CLIENT"].ToString(),
+                ds.Tables[0].Rows[i]["NOTICE"].ToString()
+            });
+                item.ImageIndex = i; // 이미지 인덱스 설정
+                listView.Items.Add(item);
+            }
+        }
+
     }
     public class FAQ
     {
