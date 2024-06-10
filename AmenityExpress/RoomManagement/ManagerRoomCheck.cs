@@ -73,12 +73,14 @@ namespace AmenityExpress
             RoomInformation_Del.Del_Room(listView1);
         }
 
-        private void RoomRenewal_btn_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         
-        
+
+        private void Cancel_Btn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

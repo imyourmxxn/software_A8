@@ -42,6 +42,7 @@ namespace AmenityExpress
             this.addButton = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
+            this.Cancel_Btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -114,7 +115,7 @@ namespace AmenityExpress
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(395, 12);
+            this.updateBtn.Location = new System.Drawing.Point(391, 12);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(104, 59);
             this.updateBtn.TabIndex = 70;
@@ -132,11 +133,22 @@ namespace AmenityExpress
             this.delBtn.UseVisualStyleBackColor = true;
             this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
+            // Cancel_Btn
+            // 
+            this.Cancel_Btn.Location = new System.Drawing.Point(12, 450);
+            this.Cancel_Btn.Name = "Cancel_Btn";
+            this.Cancel_Btn.Size = new System.Drawing.Size(48, 38);
+            this.Cancel_Btn.TabIndex = 73;
+            this.Cancel_Btn.Text = "취소";
+            this.Cancel_Btn.UseVisualStyleBackColor = true;
+            this.Cancel_Btn.Click += new System.EventHandler(this.Cancel_Btn_Click);
+            // 
             // ManagerRoomCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 500);
+            this.Controls.Add(this.Cancel_Btn);
             this.Controls.Add(this.delBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addButton);
@@ -164,5 +176,6 @@ namespace AmenityExpress
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button Cancel_Btn;
     }
 }

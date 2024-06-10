@@ -217,6 +217,7 @@
     </Compile>
     <Compile Include="RoomManagement\RoomInformationadd.cs" />
     <Compile Include="RoomManagement\RoomInformation_Del.cs" />
+    <Compile Include="RoomManagement\RoomInformationRetouch.cs" />
     <Compile Include="RoomManagement\RoomInformRetouching.cs">
       <SubType>Form</SubType>
     </Compile>

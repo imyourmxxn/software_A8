@@ -110,8 +110,7 @@ namespace AmenityExpress.RoomManagement
                 int.TryParse(RoomMaxTextBox.Text, out maxP) &&
                 int.TryParse(RoomPricetextBox.Text, out price))
             {
-                RoomData = new Room(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
-                RoomData.Update_Room(RoomData);
+                RoomInformationRetouch.RetouchRoom(roomNum, RoomNameTextBox.Text, maxP, price, RoomNoticeTextBox.Text, selectedImagePath);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
