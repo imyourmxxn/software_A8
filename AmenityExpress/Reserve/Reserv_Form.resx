@@ -117,4 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Notice_lbl.Text" xml:space="preserve">
+    <value>호텔 이용안내
+요금에는 10% 부가가치세가 부과됩니다.
+2인 1실 기준
+체크인 시 등록카드 작성 및 투숙객 본인 확인을 위해 본인 사진이 포함된 신분증을 반드시 제시해 주시기 바랍니다.
+13세 이하 어린이는 객실 인원 추가 요금을 받지 않습니다.
+37개월 미만 유아는 조식이 무료입니다.
+안내견을 제외한 애완견 등 동물 입장은 불가합니다.
+부모 등 법정대리인을 동반하지 않은 만 19세 미만 미성년자는 투숙할 수 없습니다.
+(체크인 시점에 생일이 지난 만 19세부터 법정대리인 동반 없이 투숙이 가능합니다.)
+상기 요금은 할인 요금이며, 중복 할인은 적용되지 않습니다.
+자세한 객실안내는 02-2230-0701로 문의 바랍니다.                            (신라호텔)</value>
+  </data>
 </root>

@@ -25,9 +25,12 @@ namespace AmenityExpress
         Client client = null;
         Reserve reserve = null;
 
-        public Reserv_Form()
+        public Reserv_Form(Reserve reserve, Client client)
         {
             InitializeComponent();
+
+            this.reserve = reserve;
+            this.client = client;
 
             Tell_cbb.SelectedIndex = 0;
 

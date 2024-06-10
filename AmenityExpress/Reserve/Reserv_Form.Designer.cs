@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserv_Form));
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.NoticeTitle_lbl = new System.Windows.Forms.Label();
@@ -216,12 +217,12 @@
             // Notice_lbl
             // 
             this.Notice_lbl.AutoSize = true;
-            this.Notice_lbl.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Notice_lbl.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.Notice_lbl.Location = new System.Drawing.Point(543, 81);
             this.Notice_lbl.Name = "Notice_lbl";
-            this.Notice_lbl.Size = new System.Drawing.Size(125, 37);
+            this.Notice_lbl.Size = new System.Drawing.Size(579, 143);
             this.Notice_lbl.TabIndex = 38;
-            this.Notice_lbl.Text = "유의사항";
+            this.Notice_lbl.Text = resources.GetString("Notice_lbl.Text");
             this.Notice_lbl.Click += new System.EventHandler(this.Notice_lbl_Click);
             // 
             // Reserv_Form

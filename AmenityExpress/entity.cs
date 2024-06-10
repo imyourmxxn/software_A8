@@ -21,7 +21,7 @@ namespace AmenityExpress
         public string Tel;
         public string Gender;
         public string Birthday;
-        public Manager(string Id, string Name, string Pwd, string Email, string Tel, string Gender,string Birthday)
+        public Manager(string Id, string Name, string Pwd, string Email, string Tel, string Gender, string Birthday)
         {
             this.Name = Name; this.Id = Id; this.Pwd = Pwd; this.Email = Email; this.Tel = Tel; this.Gender = Gender; this.Birthday = Birthday;
         }
@@ -36,7 +36,7 @@ namespace AmenityExpress
         public string Sex;
         public string Birth;
         public int Point;
-        public Client(string ID,string Name , string PW, string Email, string Tell, string Sex, string Birth, int Point)
+        public Client(string ID, string Name, string PW, string Email, string Tell, string Sex, string Birth, int Point)
         {
             this.Name = Name; this.ID = ID; this.PW = PW; this.Email = Email; this.Tell = Tell; this.Sex = Sex; this.Birth = Birth; this.Point = Point;
         }
@@ -63,7 +63,7 @@ namespace AmenityExpress
         {
             string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
             OracleParameter[] parameters = new OracleParameter[] {
-                new OracleParameter("ROOMNUM", 6),
+                new OracleParameter("ROOMNUM", RoomNum),
                 new OracleParameter("KR", Name_KR),
                 new OracleParameter("ENG", Name_ENG),
                 new OracleParameter("ID", ID),
@@ -112,7 +112,7 @@ namespace AmenityExpress
             else { return 2; }
         }
 
-        public bool IsValidEmail(string email)  
+        public bool IsValidEmail(string email)
         {
             bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
             return valid;
@@ -132,10 +132,10 @@ namespace AmenityExpress
         public string Mid;
         public int Roomnum;
 
-        public Request(int SNum, string Statue, string Cid,int Roomnum,DateTime WriteDate,string RequestKind, string Content, string Mid, DateTime? AnswerDate, string Answer)
+        public Request(int SNum, string Statue, string Cid, int Roomnum, DateTime WriteDate, string RequestKind, string Content, string Mid, DateTime? AnswerDate, string Answer)
         {
-            this.SNum = SNum; this.Statue = Statue; this.RequestKind = RequestKind;  this.Content = Content; this.Answer = Answer; this.Cid = Cid;
-            this.Mid = Mid; this.Roomnum = Roomnum;  this.WriteDate = WriteDate;  this.AnswerDate = AnswerDate;
+            this.SNum = SNum; this.Statue = Statue; this.RequestKind = RequestKind; this.Content = Content; this.Answer = Answer; this.Cid = Cid;
+            this.Mid = Mid; this.Roomnum = Roomnum; this.WriteDate = WriteDate; this.AnswerDate = AnswerDate;
         }
         public bool CheckAnswer()  //요청사항에 대한 답변을 작성 완료했는 지 체크하는 메소드
         {
@@ -160,7 +160,7 @@ namespace AmenityExpress
             else if (string.IsNullOrWhiteSpace(Content)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
             {
                 MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
             else
             {
@@ -179,7 +179,7 @@ namespace AmenityExpress
         public string ImagePath;
 
 
-        public Room(int Num, string Name, int MaxP, int Price, string Notice,string imagePath)
+        public Room(int Num, string Name, int MaxP, int Price, string Notice, string imagePath)
         {
             this.Num = Num; this.Name = Name; this.MaxP = MaxP; this.Price = Price; this.Notice = Notice; this.ImagePath = imagePath;
         }
@@ -242,18 +242,18 @@ namespace AmenityExpress
         }
         public static void LoadRoomData(ListView listView)
         {
-            
+
             string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE, PHOTOPATH FROM ROOM_MANAGE";
 
-            
+
             DataSet ds = DBConnector.DML_QUERY(sql, null);
 
-            
+
             listView.Items.Clear();
 
-          
+
             ImageList imageList = new ImageList();
-            
+
             imageList.ImageSize = new Size(50, 50);
 
             // 빈 이미지를 생성하고 ImageList에 추가합니다. 이 이미지는 0번 인덱스에 추가됩니다.
