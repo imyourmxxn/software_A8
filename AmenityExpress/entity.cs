@@ -69,14 +69,14 @@ namespace AmenityExpress
 
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("ID", ID),
                 new OracleParameter("Name", Name),
                 new OracleParameter("PW", PW),
                 new OracleParameter("Email", Email),
                 new OracleParameter("Tel", Tell),
                 new OracleParameter("Gender", Sex),
                 new OracleParameter("Birth", Birth),
-                new OracleParameter("Point", Point)
+                new OracleParameter("Point", Point) ,
+                new OracleParameter("ID", ID)
             };
 
             DBConnector.DML_NON_QUERY(sql, parameters);
