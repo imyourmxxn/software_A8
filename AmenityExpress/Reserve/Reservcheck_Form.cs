@@ -64,7 +64,6 @@ namespace AmenityExpress
                 reserve.Name_ENG = ENGname_txt.Text.ToString();
                 reserve.Email = Email_txt.Text.ToString();
                 reserve.Tell = Tell_cbb.Text.ToString() + Tell_txt.Text.ToString();
-                reserve.ID = client.ID.ToString();
                 reserve.PRE_REQUEST = Request_txt.Text.ToString();
 
                 if (!reserve.IsValidEmail(reserve.Email)) { MessageBox.Show("E-mail 형식이 다릅니다."); return; }

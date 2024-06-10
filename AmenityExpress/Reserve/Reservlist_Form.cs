@@ -135,8 +135,6 @@ namespace AmenityExpress
                 Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, "");
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
                 {
-                    string CKIN = row[0].ToString();
-                    DateTime myDate = DateTime.Parse(CKIN);
                     reserve.Name_KR = row[2].ToString();
                     reserve.Name_ENG = row[3].ToString();
                     reserve.ID = row[4].ToString();
