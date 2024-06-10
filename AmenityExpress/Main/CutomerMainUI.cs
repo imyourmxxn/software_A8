@@ -55,16 +55,17 @@ namespace AmenityExpress
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //MemberInformFix memberInformFix = new MemberInformFix(client.ID); 
-            //memberInformFix.Owner = this;
-            //memberInformFix.ShowDialog();
+            MemberInformFix memberInformFix = new MemberInformFix(client.ID);
+            memberInformFix.Owner = this;
+            memberInformFix.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e) // 예약 버튼 누를시 이동
         {
+            reserve = new Reserve("", "", "", "", "", dateTimePicker1.Value, dateTimePicker2.Value, 6, "");
             reserve.CKIN = dateTimePicker1.Value;
             reserve.CKOUT = dateTimePicker2.Value;
-            if (reserve.CKIN.ToString("MM-dd") == reserve.CKOUT.ToString("MM-dd")) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
+            if (DateTime.Parse(reserve.CKIN.ToString("MM-dd")) >= DateTime.Parse(reserve.CKOUT.ToString("MM-dd"))) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
             RoomCheck roomcheck = new RoomCheck(client, reserve);
             this.Visible = false;
             roomcheck.Owner = this;

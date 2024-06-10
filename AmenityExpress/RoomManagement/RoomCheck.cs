@@ -42,11 +42,11 @@ namespace AmenityExpress
                 int roomNum = int.Parse(selectedItem.SubItems[1].Text);
 
                 // 예약 로직을 여기에 추가합니다.
-                //this.Visible = false;
-                //Reserv_Form reserv_form = new Reserv_Form(reserve, client);
-                //reserv_form.Owner = this;
-                //reserv_form.ShowDialog();
-                //Close();
+                this.Visible = false;
+                Reserv_Form reserv_form = new Reserv_Form(reserve, client);
+                reserv_form.Owner = this;
+                reserv_form.ShowDialog();
+                Close();
             }
             else
             {

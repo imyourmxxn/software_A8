@@ -32,7 +32,7 @@ namespace AmenityExpress
         {
             string userID = RemoveHiddenChars(ID);
             string userPassword = RemoveHiddenChars(PW);
-            string sql = "SELECT * FROM MEMBER_CLIENT";
+            string sql = "SELECT * FROM MEMBER_CLIENT WHERE ID = '" + userID + "'";
             if (radioButton1.Checked) 
             {
                 sql = "SELECT * FROM MEMBER_MANAGER";
@@ -59,6 +59,7 @@ namespace AmenityExpress
                             textBox1.Text = "";
                             textBox2.Text = "";
                             this.Visible = true;
+                            manager = null;
                             return;
                         }
                         else
@@ -71,6 +72,7 @@ namespace AmenityExpress
                             textBox1.Text = "";
                             textBox2.Text = "";
                             this.Visible = true;
+                            client = null;
                             return;
                         }
                     }

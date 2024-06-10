@@ -17,6 +17,7 @@ namespace AmenityExpress
         {
             InitializeComponent();
             this.manager = manager;
+            label1.Text = manager.Name + "님 환영합니다!";
         }
 
         private void ManagerUI_Load(object sender, EventArgs e)
@@ -24,20 +25,14 @@ namespace AmenityExpress
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void money_btn_Click(object sender, EventArgs e)
         {
@@ -45,10 +40,7 @@ namespace AmenityExpress
             moneyUI.Show();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void reserv_btn_Click(object sender, EventArgs e)
         {
@@ -56,13 +48,11 @@ namespace AmenityExpress
             reserv_form.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void room_btn_Click(object sender, EventArgs e)
         {
+            ManagerRoomCheck managerRoomCheck = new ManagerRoomCheck();
+            managerRoomCheck.Show();
         }
 
         private void request_btn_Click(object sender, EventArgs e)
@@ -75,6 +65,19 @@ namespace AmenityExpress
         {
             ClientInformMangement clientInformManagetmentUI = new ClientInformMangement();
             clientInformManagetmentUI.Show();
+        }
+
+        
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LogIn login = new LogIn();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

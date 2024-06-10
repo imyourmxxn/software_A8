@@ -135,8 +135,6 @@ namespace AmenityExpress
                 Reserve reserve = new Reserve("", "", "", "", "", DateTime.Now, DateTime.Now, 1111, "");
                 foreach (DataRow row in dbconnector.Tables[0].Rows)
                 {
-                    string CKIN = row[0].ToString();
-                    DateTime myDate = DateTime.Parse(CKIN);
                     reserve.Name_KR = row[2].ToString();
                     reserve.Name_ENG = row[3].ToString();
                     reserve.ID = row[4].ToString();
@@ -148,16 +146,24 @@ namespace AmenityExpress
                     reserve.PRE_REQUEST = row[8].ToString();
                 }
 
+                sql = "SELECT * FROM ROOM_MANAGE WHERE ROOMNUM = " + reserve.RoomNum;
+                dbconnector = DBConnector.DML_QUERY(sql, null);
+                Room room = null;
+                foreach (DataRow row in dbconnector.Tables[0].Rows)
+                {
+                    room = new Room(Convert.ToInt32(row[0].ToString()), row[1].ToString(), Convert.ToInt32(row[2].ToString()), Convert.ToInt32(row[3].ToString()), row[4].ToString(), row[5].ToString());
+                }
+
                 if (check)
                 {
-                    Reservcheck_Form form = new Reservcheck_Form(null, reserve);
+                    Reservcheck_Form form = new Reservcheck_Form(null, reserve, room);
                     this.Visible = false;
                     form.Owner = this;
                     form.ShowDialog();
                 }
                 else
                 {
-                    Reservcheck_Form form = new Reservcheck_Form(client, reserve);
+                    Reservcheck_Form form = new Reservcheck_Form(client, reserve, room);
                     this.Visible = false;
                     form.Owner = this;
                     form.ShowDialog();

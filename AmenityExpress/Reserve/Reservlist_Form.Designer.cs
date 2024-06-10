@@ -178,7 +178,13 @@
             this.Room_cbb.FormattingEnabled = true;
             this.Room_cbb.Items.AddRange(new object[] {
             "선택안함",
-            "101"});
+            "101",
+            "102",
+            "104",
+            "105",
+            "108",
+            "198",
+            "501"});
             this.Room_cbb.Location = new System.Drawing.Point(587, 53);
             this.Room_cbb.Name = "Room_cbb";
             this.Room_cbb.Size = new System.Drawing.Size(121, 23);
