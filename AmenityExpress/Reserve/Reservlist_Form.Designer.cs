@@ -32,23 +32,23 @@
             this.Reservelist_listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reservelist_lbl = new System.Windows.Forms.Label();
-            this.Cancel_btn = new System.Windows.Forms.Button();
             this.Check_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Search_btn = new System.Windows.Forms.Button();
             this.Room_lbl = new System.Windows.Forms.Label();
             this.Room_cbb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Date_lbl = new System.Windows.Forms.Label();
             this.CKOUT_dtp = new System.Windows.Forms.DateTimePicker();
-            this.Search_btn = new System.Windows.Forms.Button();
             this.CKIN_dtp = new System.Windows.Forms.DateTimePicker();
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.Search_lbl = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cancel_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,18 @@
             this.columnHeader2.Text = "연락처";
             this.columnHeader2.Width = 570;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "체크인";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 150;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "체크아웃";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 150;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "객실번호";
@@ -112,17 +124,6 @@
             this.Reservelist_lbl.TabIndex = 15;
             this.Reservelist_lbl.Text = "예약자 리스트";
             // 
-            // Cancel_btn
-            // 
-            this.Cancel_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.Cancel_btn.Location = new System.Drawing.Point(24, 595);
-            this.Cancel_btn.Name = "Cancel_btn";
-            this.Cancel_btn.Size = new System.Drawing.Size(130, 45);
-            this.Cancel_btn.TabIndex = 22;
-            this.Cancel_btn.Text = "이전";
-            this.Cancel_btn.UseVisualStyleBackColor = true;
-            this.Cancel_btn.Click += new System.EventHandler(this.button3_Click);
-            // 
             // Check_btn
             // 
             this.Check_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
@@ -136,12 +137,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Search_btn);
             this.panel1.Controls.Add(this.Room_lbl);
             this.panel1.Controls.Add(this.Room_cbb);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Date_lbl);
             this.panel1.Controls.Add(this.CKOUT_dtp);
-            this.panel1.Controls.Add(this.Search_btn);
             this.panel1.Controls.Add(this.CKIN_dtp);
             this.panel1.Controls.Add(this.Search_txt);
             this.panel1.Controls.Add(this.Search_lbl);
@@ -149,6 +150,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(856, 77);
             this.panel1.TabIndex = 20;
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Location = new System.Drawing.Point(410, 0);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(82, 35);
+            this.Search_btn.TabIndex = 15;
+            this.Search_btn.Text = "검색";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
             // Room_lbl
             // 
@@ -201,16 +212,6 @@
             this.CKOUT_dtp.Size = new System.Drawing.Size(178, 21);
             this.CKOUT_dtp.TabIndex = 10;
             // 
-            // Search_btn
-            // 
-            this.Search_btn.Location = new System.Drawing.Point(409, 0);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(82, 35);
-            this.Search_btn.TabIndex = 8;
-            this.Search_btn.Text = "검색";
-            this.Search_btn.UseVisualStyleBackColor = true;
-            this.Search_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
             // CKIN_dtp
             // 
             this.CKIN_dtp.Location = new System.Drawing.Point(80, 53);
@@ -237,25 +238,24 @@
             this.Search_lbl.TabIndex = 3;
             this.Search_lbl.Text = "이름";
             // 
-            // columnHeader5
+            // Cancel_btn
             // 
-            this.columnHeader5.Text = "체크인";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 150;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "체크아웃";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 150;
+            this.Cancel_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Cancel_btn.Location = new System.Drawing.Point(24, 595);
+            this.Cancel_btn.Name = "Cancel_btn";
+            this.Cancel_btn.Size = new System.Drawing.Size(130, 45);
+            this.Cancel_btn.TabIndex = 24;
+            this.Cancel_btn.Text = "이전";
+            this.Cancel_btn.UseVisualStyleBackColor = true;
+            this.Cancel_btn.Click += new System.EventHandler(this.Cancel_btn_Click);
             // 
             // Reservlist_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 661);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.Cancel_btn);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.Check_btn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -280,7 +280,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label Reservelist_lbl;
-        private System.Windows.Forms.Button Cancel_btn;
         private System.Windows.Forms.Button Check_btn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Room_lbl;
@@ -288,11 +287,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Date_lbl;
         private System.Windows.Forms.DateTimePicker CKOUT_dtp;
-        private System.Windows.Forms.Button Search_btn;
         private System.Windows.Forms.DateTimePicker CKIN_dtp;
         private System.Windows.Forms.TextBox Search_txt;
         private System.Windows.Forms.Label Search_lbl;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.Button Cancel_btn;
     }
 }

@@ -76,12 +76,11 @@ namespace AmenityExpress
                     }
                     else
                     {
-                        MessageBox.Show("비밀번호 오류");
+                        MessageBox.Show("비밀번호 오류");  return;
                     }
                 }
-                else { MessageBox.Show("아이디 오류"); }
-                
             }
+            MessageBox.Show("아이디 오류");
         }
 
         private string RemoveHiddenChars(string input)
@@ -115,6 +114,11 @@ namespace AmenityExpress
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

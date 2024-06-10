@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,6 +55,65 @@ namespace AmenityExpress
         public Reserve(string Name_KR, string Name_ENG, string Tell, string Email, string ID, DateTime CKIN, DateTime CKOUT, int RoomNum, string PRE_REQUEST)
         {
             this.Name_KR = Name_KR; this.Name_ENG = Name_ENG; this.Tell = Tell; this.Email = Email; this.ID = ID; this.CKIN = CKIN; this.CKOUT = CKOUT; this.RoomNum = RoomNum; this.PRE_REQUEST = PRE_REQUEST;
+        }
+
+        public void reserve_dbset()
+        {
+            string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
+            OracleParameter[] parameters = new OracleParameter[] {
+                new OracleParameter("ROOMNUM", 18),
+                new OracleParameter("KR", Name_KR),
+                new OracleParameter("ENG", Name_ENG),
+                new OracleParameter("ID", ID),
+                new OracleParameter("TEL", Tell),
+                new OracleParameter("EMAIL", Email),
+                new OracleParameter("CKIN", CKIN),
+                new OracleParameter("CKOUT", CKOUT),
+                new OracleParameter("PRE_REQUEST", PRE_REQUEST)
+            };
+            DBConnector.DML_NON_QUERY(query, parameters);
+        }
+
+        public void reserve_retouch()
+        {
+            string query = "UPDATE RESERV_MANAGE SET KRNAME = :KR, ENGNAME = :ENG,  TEL = :TEL, EMAIL = :EMAIL, PRE_REQUEST = :PRE_REQUEST WHERE ROOMNUM = :RoomNum AND CKIN BETWEEN TO_DATE('" + DateTime.Parse(CKIN.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(CKIN.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999";
+            OracleParameter[] parameters = new OracleParameter[] {
+                new OracleParameter("KR", Name_KR),
+                new OracleParameter("ENG", Name_ENG),
+                new OracleParameter("TEL", Tell),
+                new OracleParameter("EMAIL", Email),
+                new OracleParameter("PRE_REQUEST", PRE_REQUEST),
+                new OracleParameter("ROOMNUM", RoomNum)
+            };
+            DBConnector.DML_NON_QUERY(query, parameters);
+        }
+
+        public void reserve_del()
+        {
+            string query = "DELETE RESERV_MANAGE WHERE ROOMNUM = :RoomNum AND CKIN BETWEEN TO_DATE('" + DateTime.Parse(CKIN.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') AND TO_DATE('" + DateTime.Parse(CKIN.ToString()).ToString("yyyy-MM-dd") + "', 'YYYY-MM-DD') + 0.99999";
+            OracleParameter[] parameters = new OracleParameter[] {
+                new OracleParameter("ROOMNUM", RoomNum)
+            };
+            DBConnector.DML_NON_QUERY(query, parameters);
+        }
+
+        public int TellNumCkeck(string Tell)
+        {
+            if (Tell.Length == 12 || Tell.Length == 13)
+            {
+                Regex regex = new Regex(@"01{1}[01]{1}-[0-9]{3,4}-[0-9]{4}");
+
+                Match m = regex.Match(Tell);
+                if (m.Success) { return 0; }
+                else { return 1; }
+            }
+            else { return 2; }
+        }
+
+        public bool IsValidEmail(string email)  
+        {
+            bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
+            return valid;
         }
     }
 
