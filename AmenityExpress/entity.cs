@@ -63,7 +63,7 @@ namespace AmenityExpress
         {
             string query = "INSERT INTO RESERV_MANAGE (ROOMNUM, KRNAME, ENGNAME, ID, TEL, EMAIL, CKIN, CKOUT, PRE_REQUEST) VALUES (:ROOMNUM, :KR, :ENG, :ID, :TEL, :EMAIL, :CKIN, :CKOUT, :PRE_REQUEST)";
             OracleParameter[] parameters = new OracleParameter[] {
-                new OracleParameter("ROOMNUM", 18),
+                new OracleParameter("ROOMNUM", 6),
                 new OracleParameter("KR", Name_KR),
                 new OracleParameter("ENG", Name_ENG),
                 new OracleParameter("ID", ID),
@@ -242,52 +242,77 @@ namespace AmenityExpress
         }
         public static void LoadRoomData(ListView listView)
         {
+            
             string sql = "SELECT NAME, ROOMNUM, PRICE, MAX_CLIENT, NOTICE, PHOTOPATH FROM ROOM_MANAGE";
+
+            
             DataSet ds = DBConnector.DML_QUERY(sql, null);
 
+            
             listView.Items.Clear();
 
-            // 이미지 리스트 생성
+          
             ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(50, 50); // 이미지 크기 조정 (가로, 세로)
+            
+            imageList.ImageSize = new Size(50, 50);
 
-            // 이미지를 표시할 이미지 리스트에 이미지 추가
+            // 빈 이미지를 생성하고 ImageList에 추가합니다. 이 이미지는 0번 인덱스에 추가됩니다.
+            Bitmap emptyImage = new Bitmap(50, 50);
+            imageList.Images.Add(emptyImage);
+
+            // 데이터셋의 각 행에 대해 반복합니다.
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
+                // 현재 행의 PHOTOPATH 값을 가져옵니다.
                 string imagePath = ds.Tables[0].Rows[i]["PHOTOPATH"].ToString();
+
+                // PHOTOPATH 값이 비어 있지 않은 경우
                 if (!string.IsNullOrEmpty(imagePath))
                 {
                     try
                     {
-                        // 이미지 리스트에 이미지 추가
+                        // 지정된 경로에서 이미지를 로드하여 ImageList에 추가합니다.
                         imageList.Images.Add(Image.FromFile(imagePath));
                     }
                     catch (Exception ex)
                     {
-                        // 이미지 로드 실패 시 처리할 내용
+                        // 이미지 로드에 실패한 경우 예외 메시지를 출력하고, 빈 이미지를 추가합니다.
                         Console.WriteLine($"이미지 로드 실패: {ex.Message}");
+                        imageList.Images.Add(emptyImage);
                     }
+                }
+                else
+                {
+                    // PHOTOPATH 값이 비어 있는 경우 빈 이미지를 추가합니다.
+                    imageList.Images.Add(emptyImage);
                 }
             }
 
-            // 리스트뷰에 이미지 리스트 연결
+            // ListView의 SmallImageList 속성에 ImageList를 연결합니다.
             listView.SmallImageList = imageList;
 
-            // 각 항목에 이미지 인덱스 설정하여 이미지 표시
+            // 데이터셋의 각 행에 대해 ListViewItem을 생성하고 ListView에 추가합니다.
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
+                // 현재 행의 데이터를 사용하여 ListViewItem을 생성합니다.
                 ListViewItem item = new ListViewItem(new[]
                 {
-                ds.Tables[0].Rows[i]["NAME"].ToString(),
-                ds.Tables[0].Rows[i]["ROOMNUM"].ToString(),
-                ds.Tables[0].Rows[i]["PRICE"].ToString(),
-                ds.Tables[0].Rows[i]["MAX_CLIENT"].ToString(),
-                ds.Tables[0].Rows[i]["NOTICE"].ToString()
-            });
-                item.ImageIndex = i; // 이미지 인덱스 설정
+            ds.Tables[0].Rows[i]["NAME"].ToString(),
+            ds.Tables[0].Rows[i]["ROOMNUM"].ToString(),
+            ds.Tables[0].Rows[i]["PRICE"].ToString(),
+            ds.Tables[0].Rows[i]["MAX_CLIENT"].ToString(),
+            ds.Tables[0].Rows[i]["NOTICE"].ToString()
+        });
+
+                // 이미지 인덱스를 설정합니다. 데이터셋의 인덱스에 1을 더한 값을 사용합니다.
+                // 0번 인덱스는 빈 이미지이므로, 실제 이미지 인덱스는 1부터 시작합니다.
+                item.ImageIndex = i + 1;
+
+                // ListView에 ListViewItem을 추가합니다.
                 listView.Items.Add(item);
             }
         }
+
 
     }
     public class FAQ
