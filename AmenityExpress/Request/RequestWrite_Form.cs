@@ -53,12 +53,11 @@ namespace AmenityExpress
             }
         }
 
-        
+
         private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
         {
-            request = new Request(0,"답변 전",reserve.ID,reserve.RoomNum,DateTime.Now,RequestKind_CmBox.SelectedItem.ToString(),RequestContent_txt.Text,null,null,null);
-            bool result = request.CheckRequest();
-            if (result)
+            request = new Request(0, "답변 전", reserve.ID, reserve.RoomNum, DateTime.Now, RequestKind_CmBox.SelectedItem == null ? "":RequestKind_CmBox.SelectedItem.ToString(), RequestContent_txt.Text, null, null, null);
+            if (request.CheckRequest())
             {
                 writeControl.RequestWriteEnroll(this, reserve, request);
             }

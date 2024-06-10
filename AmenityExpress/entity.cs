@@ -97,7 +97,7 @@ namespace AmenityExpress
             else if (string.IsNullOrWhiteSpace(Content)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
             {
                 MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return false; 
             }
             else
             {
