@@ -126,25 +126,47 @@ namespace AmenityExpress
         public string Statue;
         public string RequestKind;
         public string Content;
-        public string WriteDate;
+        public DateTime WriteDate;
         public string Answer;
-        public string AnswerDate;
+        public DateTime? AnswerDate;
         public string Cid;
         public string Mid;
         public int Roomnum;
 
-        public Request(int SNum, string Statue, string Cid,int Roomnum,string WriteDate,string RequestKind, string Content, string Mid, string AnswerDate, string Answer)
+        public Request(int SNum, string Statue, string Cid,int Roomnum,DateTime WriteDate,string RequestKind, string Content, string Mid, DateTime? AnswerDate, string Answer)
         {
-            this.SNum = SNum;
-            this.Statue = Statue;
-            this.RequestKind = RequestKind;
-            this.Content = Content;
-            this.Answer = Answer;
-            this.Cid = Cid;
-            this.Mid = Mid;
-            this.Roomnum = Roomnum;
-            this.WriteDate = WriteDate;
-            this.AnswerDate = AnswerDate;
+            this.SNum = SNum; this.Statue = Statue; this.RequestKind = RequestKind;  this.Content = Content; this.Answer = Answer; this.Cid = Cid;
+            this.Mid = Mid; this.Roomnum = Roomnum;  this.WriteDate = WriteDate;  this.AnswerDate = AnswerDate;
+        }
+        public bool CheckAnswer()  //요청사항에 대한 답변을 작성 완료했는 지 체크하는 메소드
+        {
+            if (string.IsNullOrWhiteSpace(Answer))  //요청사항에 대한 답변을 적지 않고 답변등록 버튼 클릭시,
+            {
+                MessageBox.Show("답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error); //오류메세지 박스 출력
+                return false;
+            }
+            else //답변을 작성하고 답변 등록 버튼 클릭했을 경우,
+            {
+                return true; //요청사항에 대한 답변이 작성됨을 확인
+            }
+        }
+
+        public bool CheckRequest()//요청사항 작성 완료했는 지 체크하는 메소드
+        {
+            if (string.IsNullOrWhiteSpace(RequestKind)) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
+            {
+                MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (string.IsNullOrWhiteSpace(Content)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
+            {
+                MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
+            }
+            else
+            {
+                return true;//요청사항이 작성됨을 확인
+            }
         }
     }
 

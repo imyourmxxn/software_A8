@@ -9,45 +9,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AmenityExpress
 {
     public partial class FAQ_Manage_Form : Form
     {
-        //string connectionString = "User Id=<admin>;Password=<1562>;DataSource=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=gyeongmin2022.kro.kr)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))";
-        //OracleConnection conn;
-        //OracleCommand cmd;
+        FAQ faq;
         public FAQ_Manage_Form()
         {
             InitializeComponent();
         }
 
-        private void FAQ_Manage_Form_Load(object sender, EventArgs e)
+        private void FAQ_Manage_Form_Load(object sender, EventArgs e) //FAQ 리스트뷰 출력
         {
+            faq = new FAQ(0,"","");
             FAQEnroll_ListView_Show();
         }
-        private void FAQEnroll_btn_Click(object sender, EventArgs e)
+
+        private void FAQEnroll_btn_Click(object sender, EventArgs e) //등록버튼 클릭 시,
         {
-            if (string.IsNullOrWhiteSpace(FAQQuestionContent_txt.Text))
+            if (string.IsNullOrWhiteSpace(FAQQuestionContent_txt.Text)) //FAQ 질문 칸이 공백일 시, 오류메세지 출력
             {
                 MessageBox.Show("자주 묻는 질문을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (string.IsNullOrWhiteSpace(FAQAnswerContent_txt.Text))
+            else if (string.IsNullOrWhiteSpace(FAQAnswerContent_txt.Text)) //답변 칸이 공백일 시, 오류메세지 출력
             {
                 MessageBox.Show("자주 묻는 질문에 대한 답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else //질문, 답변 칸이 공백이 아닐 시,
             {
-                FAQEnroll();
+                FAQEnroll(); //DB에 질문, 답변 삽입하는 함수 적용
+                FAQQuestionContent_txt.Clear();
+                FAQAnswerContent_txt.Clear();
             }
         }
+
         private void FAQEnroll()  //FAQ DB에 등록하는 함수
         {
             string Question = FAQQuestionContent_txt.Text;
             string Answer = FAQAnswerContent_txt.Text;
 
-            string sql = "INSERT INTO FAQLIST (QUESTION, ANSWER) VALUES (:QUESTION,:ANSWER)";
+            string sql = "INSERT INTO FAQLIST (QUESTION, ANSWER) VALUES (:QUESTION,:ANSWER)"; //DB INSERT문
             OracleParameter[] parameters = new OracleParameter[]
             {
                 new OracleParameter("QUESTION", OracleDbType.Varchar2, Question, ParameterDirection.Input),
@@ -55,12 +57,12 @@ namespace AmenityExpress
             };
             try
             {
-                DBConnector.DML_NON_QUERY(sql, parameters);
+                DBConnector.DML_NON_QUERY(sql, parameters); //INSERT, DELETE, UPDATE문 사용 시 쓰는 메소드
             }
-            catch (Exception)
+            catch (Exception) //메소드가 제대로 작동되지 않으면 오류 메세지 출력
             {
                 MessageBox.Show("FAQ가 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return; //RETRUN문을 써서 등록 실패 메세지 출력에서 마침
             }
             MessageBox.Show("FAQ가 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FAQEnroll_ListView_Show();
@@ -76,23 +78,25 @@ namespace AmenityExpress
             foreach (DataRow row in dbconnector.Tables[0].Rows)
             {
                 ListViewItem item = new ListViewItem(row["FAQNUM"].ToString()); // 첫 번째 컬럼의 값을 사용합니다.
-                item.SubItems.Add(row["Question"].ToString());
+                item.SubItems.Add(row["QUESTION"].ToString());
                 item.SubItems.Add(row["ANSWER"].ToString());// 두 번째 컬럼의 값을 사용합니다.
-                                                            
+
                 FAQ_list.Items.Add(item);
             }
         }
 
         private void FAQFix_btn_Click(object sender, EventArgs e) //수정 버튼 클릭 시
         {
-                if (FAQ_list.SelectedItems.Count > 0)
-                {
-                int n = FAQ_list.SelectedItems.Count;
-                {
-                    FAQFix();
-                    FAQ_list.Items[n].SubItems[1].Text = FAQQuestionContent_txt.Text;
-                    FAQ_list.Items[n].SubItems[2].Text = FAQAnswerContent_txt.Text;
-                }
+            if (FAQ_list.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = FAQ_list.SelectedItems[0];
+                faq.FAQNum = int.Parse(selectedItem.SubItems[0].Text);
+                faq.Question = FAQQuestionContent_txt.Text;
+                faq.Answer = FAQAnswerContent_txt.Text;
+
+                FAQFix();
+                FAQQuestionContent_txt.Clear();
+                FAQAnswerContent_txt.Clear();
             }
             else
             {
@@ -100,16 +104,22 @@ namespace AmenityExpress
             }
         }
 
-        private void FAQFix()
+        private void FAQFix() //DB FAQ 데이터 수정 메소드
         {
-            string sql = "UPDATE FROM FAQLIST WHERE FAQLIST";
-
+            string sql = "UPDATE FAQLIST SET QUESTION=:QUESTION, ANSWER=:ANSWER WHERE FAQNUM=:FAQNUM";
+            OracleParameter[] parameters = new OracleParameter[]
+           {
+                new OracleParameter("QUESTION", faq.Question),
+                new OracleParameter("ANSWER", faq.Answer),
+                new OracleParameter("FAQNUM", faq.FAQNum)
+           };
             try
             {
-                DBConnector.DML_NON_QUERY(sql, null);
+                DBConnector.DML_NON_QUERY(sql, parameters);
                 MessageBox.Show("선택하신 FAQ가 수정되었습니다!", "수정 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FAQEnroll_ListView_Show(); // 리스트뷰 새로고침
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("FAQ가 수정되지 않았습니다!", "수정 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -123,6 +133,9 @@ namespace AmenityExpress
                 {
                     FAQDel(FAQ_list.SelectedItems[i].SubItems[0].Text);  //DB 데이터 삭제하는 메소드 호출
                     FAQ_list.Items.RemoveAt(FAQ_list.SelectedIndices[i]);
+                    FAQQuestionContent_txt.Clear();
+                    FAQAnswerContent_txt.Clear();
+
                 }
             }
             else
@@ -133,14 +146,18 @@ namespace AmenityExpress
 
         private void FAQDel(String num) //DB의 FAQLIST 삭제 메소드
         {
-            string sql = "DELETE FROM FAQLIST WHERE FAQNUM="+num;
+            string sql = "DELETE FROM FAQLIST WHERE FAQNUM=:FAQNUM";
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("FAQNUM", num)
+            };
 
             try
             {
-                DBConnector.DML_NON_QUERY(sql,null);
+                DBConnector.DML_NON_QUERY(sql, parameters);
                 MessageBox.Show("선택하신 FAQ가 삭제되었습니다!", "삭제 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("FAQ가 삭제되지 않았습니다!", "삭제 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -153,9 +170,14 @@ namespace AmenityExpress
                 FAQQuestionContent_txt.Text = FAQ_list.FocusedItem.SubItems[1].Text;
                 FAQAnswerContent_txt.Text = FAQ_list.FocusedItem.SubItems[2].Text;
             }
-
             catch { }
+        }
+
+        private void FAQManageBack_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
+
 

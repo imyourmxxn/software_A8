@@ -85,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control.cs" />
+    <Compile Include="DBRoomConnect.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="dbtest.cs">
       <SubType>Form</SubType>

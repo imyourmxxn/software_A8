@@ -67,7 +67,7 @@ namespace AmenityExpress
 
         private void request_btn_Click(object sender, EventArgs e)
         {
-            RequestManage_Form requestManage_Form = new RequestManage_Form();
+            RequestManage_Form requestManage_Form = new RequestManage_Form(manager);
             requestManage_Form.Show();
         }
 

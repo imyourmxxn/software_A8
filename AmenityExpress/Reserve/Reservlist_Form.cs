@@ -139,6 +139,7 @@ namespace AmenityExpress
                     DateTime myDate = DateTime.Parse(CKIN);
                     reserve.Name_KR = row[2].ToString();
                     reserve.Name_ENG = row[3].ToString();
+                    reserve.ID = row[4].ToString();
                     reserve.Email = row[6].ToString();
                     reserve.Tell = row[5].ToString();
                     reserve.CKIN = DateTime.Parse(row[0].ToString());

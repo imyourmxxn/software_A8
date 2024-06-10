@@ -71,9 +71,10 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.Tell_txt);
             this.panel2.Controls.Add(this.Tell_cbb);
-            this.panel2.Location = new System.Drawing.Point(551, 32);
+            this.panel2.Location = new System.Drawing.Point(787, 48);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(560, 510);
+            this.panel2.Size = new System.Drawing.Size(800, 765);
             this.panel2.TabIndex = 67;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -81,9 +82,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(39, 8);
+            this.label1.Location = new System.Drawing.Point(56, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 37);
+            this.label1.Size = new System.Drawing.Size(212, 55);
             this.label1.TabIndex = 16;
             this.label1.Text = "성명(국문)";
             // 
@@ -91,9 +93,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(39, 63);
+            this.label2.Location = new System.Drawing.Point(56, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 37);
+            this.label2.Size = new System.Drawing.Size(212, 55);
             this.label2.TabIndex = 17;
             this.label2.Text = "성명(영문)";
             // 
@@ -103,7 +106,7 @@
             this.KRname_txt.Location = new System.Drawing.Point(186, 10);
             this.KRname_txt.MaxLength = 10;
             this.KRname_txt.Name = "KRname_txt";
-            this.KRname_txt.Size = new System.Drawing.Size(336, 38);
+            this.KRname_txt.Size = new System.Drawing.Size(478, 53);
             this.KRname_txt.TabIndex = 18;
             // 
             // ENGname_txt
@@ -112,43 +115,47 @@
             this.ENGname_txt.Location = new System.Drawing.Point(186, 65);
             this.ENGname_txt.MaxLength = 30;
             this.ENGname_txt.Name = "ENGname_txt";
-            this.ENGname_txt.Size = new System.Drawing.Size(336, 38);
+            this.ENGname_txt.Size = new System.Drawing.Size(478, 53);
             this.ENGname_txt.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(39, 117);
+            this.label3.Location = new System.Drawing.Point(56, 176);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 37);
+            this.label3.Size = new System.Drawing.Size(139, 55);
             this.label3.TabIndex = 21;
             this.label3.Text = "E-mail";
             // 
             // Email_txt
             // 
             this.Email_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Email_txt.Location = new System.Drawing.Point(186, 117);
+            this.Email_txt.Location = new System.Drawing.Point(266, 176);
+            this.Email_txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Email_txt.Name = "Email_txt";
-            this.Email_txt.Size = new System.Drawing.Size(336, 38);
+            this.Email_txt.Size = new System.Drawing.Size(478, 53);
             this.Email_txt.TabIndex = 22;
             // 
             // Request_txt
             // 
             this.Request_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Request_txt.Location = new System.Drawing.Point(46, 275);
+            this.Request_txt.Location = new System.Drawing.Point(66, 412);
+            this.Request_txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Request_txt.Multiline = true;
             this.Request_txt.Name = "Request_txt";
-            this.Request_txt.Size = new System.Drawing.Size(476, 205);
+            this.Request_txt.Size = new System.Drawing.Size(678, 306);
             this.Request_txt.TabIndex = 27;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(39, 171);
+            this.label4.Location = new System.Drawing.Point(56, 256);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 37);
+            this.label4.Size = new System.Drawing.Size(147, 55);
             this.label4.TabIndex = 23;
             this.label4.Text = "연락처";
             // 
@@ -156,18 +163,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(39, 225);
+            this.label5.Location = new System.Drawing.Point(56, 338);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 37);
+            this.label5.Size = new System.Drawing.Size(284, 55);
             this.label5.TabIndex = 26;
             this.label5.Text = "추가 요청사항";
             // 
             // Tell_txt
             // 
             this.Tell_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Tell_txt.Location = new System.Drawing.Point(312, 171);
+            this.Tell_txt.Location = new System.Drawing.Point(446, 256);
+            this.Tell_txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tell_txt.Name = "Tell_txt";
-            this.Tell_txt.Size = new System.Drawing.Size(210, 38);
+            this.Tell_txt.Size = new System.Drawing.Size(298, 53);
             this.Tell_txt.TabIndex = 24;
             // 
             // Tell_cbb
@@ -178,9 +187,10 @@
             this.Tell_cbb.Items.AddRange(new object[] {
             "010",
             "011"});
-            this.Tell_cbb.Location = new System.Drawing.Point(185, 171);
+            this.Tell_cbb.Location = new System.Drawing.Point(264, 256);
+            this.Tell_cbb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tell_cbb.Name = "Tell_cbb";
-            this.Tell_cbb.Size = new System.Drawing.Size(121, 36);
+            this.Tell_cbb.Size = new System.Drawing.Size(171, 49);
             this.Tell_cbb.TabIndex = 25;
             // 
             // panel1
@@ -192,18 +202,20 @@
             this.panel1.Controls.Add(this.CKIN_lbl);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(74, 299);
+            this.panel1.Location = new System.Drawing.Point(106, 448);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 205);
+            this.panel1.Size = new System.Drawing.Size(673, 308);
             this.panel1.TabIndex = 66;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 12F);
-            this.label6.Location = new System.Drawing.Point(12, 115);
+            this.label6.Location = new System.Drawing.Point(17, 172);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(449, 16);
+            this.label6.Size = new System.Drawing.Size(685, 24);
             this.label6.TabIndex = 50;
             this.label6.Text = "객실정보 501호(최대 5인, 금연,  침실 2개, 침대 3개, 욕실 1개)";
             // 
@@ -211,9 +223,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("굴림", 13F);
-            this.label12.Location = new System.Drawing.Point(216, 69);
+            this.label12.Location = new System.Drawing.Point(309, 104);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 18);
+            this.label12.Size = new System.Drawing.Size(142, 26);
             this.label12.TabIndex = 58;
             this.label12.Text = "오전 10:00";
             this.label12.UseWaitCursor = true;
@@ -222,9 +235,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 13F);
-            this.label7.Location = new System.Drawing.Point(12, 7);
+            this.label7.Location = new System.Drawing.Point(17, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 18);
+            this.label7.Size = new System.Drawing.Size(90, 26);
             this.label7.TabIndex = 53;
             this.label7.Text = "체크인";
             this.label7.UseWaitCursor = true;
@@ -233,9 +247,10 @@
             // 
             this.CKOUT_lbl.AutoSize = true;
             this.CKOUT_lbl.Font = new System.Drawing.Font("굴림", 13F);
-            this.CKOUT_lbl.Location = new System.Drawing.Point(216, 38);
+            this.CKOUT_lbl.Location = new System.Drawing.Point(309, 57);
+            this.CKOUT_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CKOUT_lbl.Name = "CKOUT_lbl";
-            this.CKOUT_lbl.Size = new System.Drawing.Size(116, 18);
+            this.CKOUT_lbl.Size = new System.Drawing.Size(173, 26);
             this.CKOUT_lbl.TabIndex = 57;
             this.CKOUT_lbl.Text = "2월 17일 (토)";
             this.CKOUT_lbl.UseWaitCursor = true;
@@ -244,9 +259,10 @@
             // 
             this.CKIN_lbl.AutoSize = true;
             this.CKIN_lbl.Font = new System.Drawing.Font("굴림", 13F);
-            this.CKIN_lbl.Location = new System.Drawing.Point(12, 38);
+            this.CKIN_lbl.Location = new System.Drawing.Point(17, 57);
+            this.CKIN_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CKIN_lbl.Name = "CKIN_lbl";
-            this.CKIN_lbl.Size = new System.Drawing.Size(116, 18);
+            this.CKIN_lbl.Size = new System.Drawing.Size(173, 26);
             this.CKIN_lbl.TabIndex = 54;
             this.CKIN_lbl.Text = "2월 14일 (수)";
             this.CKIN_lbl.UseWaitCursor = true;
@@ -255,9 +271,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림", 13F);
-            this.label10.Location = new System.Drawing.Point(216, 7);
+            this.label10.Location = new System.Drawing.Point(309, 10);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 18);
+            this.label10.Size = new System.Drawing.Size(116, 26);
             this.label10.TabIndex = 56;
             this.label10.Text = "체크아웃";
             this.label10.UseWaitCursor = true;
@@ -266,9 +283,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림", 13F);
-            this.label9.Location = new System.Drawing.Point(12, 69);
+            this.label9.Location = new System.Drawing.Point(17, 104);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 18);
+            this.label9.Size = new System.Drawing.Size(142, 26);
             this.label9.TabIndex = 55;
             this.label9.Text = "오후 15:00";
             this.label9.UseWaitCursor = true;
@@ -287,9 +305,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(89, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(127, 48);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 237);
+            this.pictureBox1.Size = new System.Drawing.Size(604, 356);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
@@ -331,7 +350,7 @@
             // 
             // Reservcheck_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 661);
             this.Controls.Add(this.Check_btn);
@@ -342,6 +361,7 @@
             this.Controls.Add(this.Reequest_btn1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Reservcheck_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservcheck_Form";
