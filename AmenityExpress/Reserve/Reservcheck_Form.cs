@@ -22,8 +22,21 @@ namespace AmenityExpress
             this.client = client;
             this.room = room;
             Reserve_set(reserve);
+            LoadRoomImage(room.ImagePath);
         }
 
+        private void LoadRoomImage(string imagePath)
+        {
+            if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+            {
+                RoomPictureBox.Image = Image.FromFile(imagePath);
+            }
+            else
+            {
+                // 기본 이미지 설정
+                RoomPictureBox.Image = null; // 기본 이미지를 설정하거나 null로 설정
+            }
+        }
         public void Reserve_set(Reserve reserve)
         { 
             string[] phoneNumberSplit =reserve.Tell.Split('-');
@@ -38,7 +51,7 @@ namespace AmenityExpress
 
             CKIN_lbl.Text = reserve.CKIN.ToString("MM월 dd일 (ddd)");
             CKOUT_lbl.Text = reserve.CKOUT.ToString("MM월 dd일 (ddd)");
-            label6.Text = "객실정보 " + reserve.RoomNum.ToString() + "호" + room.Name.ToString();
+            label6.Text = "객실정보 " + reserve.RoomNum.ToString() + "호 ( " + room.Name.ToString() + " )";
         }
         private void chart1_Click(object sender, EventArgs e)
         {

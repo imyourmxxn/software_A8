@@ -49,13 +49,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Reequest_btn1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RoomPictureBox = new System.Windows.Forms.PictureBox();
             this.Retouch_btn = new System.Windows.Forms.Button();
             this.Del_btn = new System.Windows.Forms.Button();
             this.Check_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -101,7 +101,7 @@
             // 
             this.KRname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.KRname_txt.Location = new System.Drawing.Point(185, 10);
-            this.KRname_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.KRname_txt.Margin = new System.Windows.Forms.Padding(2);
             this.KRname_txt.MaxLength = 10;
             this.KRname_txt.Name = "KRname_txt";
             this.KRname_txt.Size = new System.Drawing.Size(336, 38);
@@ -111,7 +111,7 @@
             // 
             this.ENGname_txt.Font = new System.Drawing.Font("맑은 고딕", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ENGname_txt.Location = new System.Drawing.Point(185, 62);
-            this.ENGname_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ENGname_txt.Margin = new System.Windows.Forms.Padding(2);
             this.ENGname_txt.MaxLength = 30;
             this.ENGname_txt.Name = "ENGname_txt";
             this.ENGname_txt.Size = new System.Drawing.Size(336, 38);
@@ -280,7 +280,7 @@
             this.Reequest_btn1.BackColor = System.Drawing.Color.White;
             this.Reequest_btn1.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Reequest_btn1.Location = new System.Drawing.Point(314, 584);
-            this.Reequest_btn1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Reequest_btn1.Margin = new System.Windows.Forms.Padding(2);
             this.Reequest_btn1.Name = "Reequest_btn1";
             this.Reequest_btn1.Size = new System.Drawing.Size(130, 45);
             this.Reequest_btn1.TabIndex = 64;
@@ -288,21 +288,21 @@
             this.Reequest_btn1.UseVisualStyleBackColor = false;
             this.Reequest_btn1.Click += new System.EventHandler(this.Reequest_btn_Click);
             // 
-            // pictureBox1
+            // RoomPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(89, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 237);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 63;
-            this.pictureBox1.TabStop = false;
+            this.RoomPictureBox.Location = new System.Drawing.Point(89, 32);
+            this.RoomPictureBox.Name = "RoomPictureBox";
+            this.RoomPictureBox.Size = new System.Drawing.Size(423, 237);
+            this.RoomPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RoomPictureBox.TabIndex = 63;
+            this.RoomPictureBox.TabStop = false;
             // 
             // Retouch_btn
             // 
             this.Retouch_btn.BackColor = System.Drawing.Color.White;
             this.Retouch_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Retouch_btn.Location = new System.Drawing.Point(24, 584);
-            this.Retouch_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Retouch_btn.Margin = new System.Windows.Forms.Padding(2);
             this.Retouch_btn.Name = "Retouch_btn";
             this.Retouch_btn.Size = new System.Drawing.Size(130, 45);
             this.Retouch_btn.TabIndex = 68;
@@ -315,7 +315,7 @@
             this.Del_btn.BackColor = System.Drawing.Color.White;
             this.Del_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Del_btn.Location = new System.Drawing.Point(169, 584);
-            this.Del_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Del_btn.Margin = new System.Windows.Forms.Padding(2);
             this.Del_btn.Name = "Del_btn";
             this.Del_btn.Size = new System.Drawing.Size(130, 45);
             this.Del_btn.TabIndex = 69;
@@ -327,7 +327,7 @@
             // 
             this.Check_btn.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.Check_btn.Location = new System.Drawing.Point(981, 583);
-            this.Check_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Check_btn.Margin = new System.Windows.Forms.Padding(2);
             this.Check_btn.Name = "Check_btn";
             this.Check_btn.Size = new System.Drawing.Size(130, 45);
             this.Check_btn.TabIndex = 70;
@@ -346,7 +346,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Reequest_btn1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.RoomPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reservcheck_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -356,7 +356,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,7 +384,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button Reequest_btn1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox RoomPictureBox;
         private System.Windows.Forms.Button Retouch_btn;
         private System.Windows.Forms.Button Del_btn;
         private System.Windows.Forms.Button Check_btn;
