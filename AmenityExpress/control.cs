@@ -112,10 +112,10 @@ namespace AmenityExpress
                 DialogResult ok = MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (ok == DialogResult.OK) //메세지박 스의 ok버튼 클릭시 요청사항 목록 폼으로 넘어감
                 {
-                    UI.Close();
                     // 새로운 폼을 생성하고 표시
                     RequestList_Form requestlist_form = new RequestList_Form();
                     requestlist_form.Show();
+                    UI.Hide();
                 }
             }
         }
