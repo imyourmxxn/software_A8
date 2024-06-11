@@ -30,12 +30,12 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.Reservelist_listView = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reservelist_lbl = new System.Windows.Forms.Label();
             this.Check_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -83,41 +83,36 @@
             this.Reservelist_listView.View = System.Windows.Forms.View.Details;
             this.Reservelist_listView.SelectedIndexChanged += new System.EventHandler(this.Reservelist_listView_SelectedIndexChanged);
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "No.";
+            this.columnHeader4.Width = 50;
+            // 
             // columnHeader1
             // 
-            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "성명";
             // 
             // columnHeader2
             // 
-            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "연락처";
             this.columnHeader2.Width = 570;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 2;
             this.columnHeader5.Text = "체크인";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.DisplayIndex = 3;
             this.columnHeader6.Text = "체크아웃";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 150;
+            this.columnHeader6.Width = 120;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 4;
             this.columnHeader3.Text = "객실번호";
-            this.columnHeader3.Width = 90;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "No.";
-            this.columnHeader4.Width = 50;
+            this.columnHeader3.Width = 100;
             // 
             // Reservelist_lbl
             // 

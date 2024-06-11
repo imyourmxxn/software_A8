@@ -17,12 +17,14 @@ namespace AmenityExpress
     public partial class Pay_Form : Form
     {
         Client client;
+        Reserve reserve;
 
         public Room RoomData { get; private set; }
         public Pay_Form(Client client, Reserve reserve)
         {
             InitializeComponent();
             this.client = client;
+            this.reserve = reserve;
 
             this.RoomData = new Room(reserve.RoomNum, "Default Name", 0, 0, "Default Notice", "Default ImagePath");
 
@@ -78,6 +80,7 @@ namespace AmenityExpress
 
         private void button5_Click(object sender, EventArgs e)
         {
+            reserve.reserve_dbset();
             MessageBox.Show("결제 및 예약이 완료되었습니다.");
             Close();
         }

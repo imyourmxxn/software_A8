@@ -60,19 +60,6 @@ namespace AmenityExpress
             memberInformFix.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e) // 예약 버튼 누를시 이동
-        {
-            reserve = new Reserve("", "", "", "", "", dateTimePicker1.Value, dateTimePicker2.Value, 6, "");
-            reserve.CKIN = dateTimePicker1.Value;
-            reserve.CKOUT = dateTimePicker2.Value;
-            if (DateTime.Parse(reserve.CKIN.ToString("MM-dd")) >= DateTime.Parse(reserve.CKOUT.ToString("MM-dd"))) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
-            RoomCheck roomcheck = new RoomCheck(client, reserve);
-            this.Visible = false;
-            roomcheck.Owner = this;
-            roomcheck.ShowDialog();
-            this.Visible = true;
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -83,6 +70,24 @@ namespace AmenityExpress
             RequestList_Form requestlist_form = new RequestList_Form();
             requestlist_form.Owner = this;
             requestlist_form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Search_btn_Click(object sender, EventArgs e)
+        {
+            reserve = new Reserve("", "", "", "", "", dateTimePicker1.Value, dateTimePicker2.Value, 6, "");
+            reserve.CKIN = dateTimePicker1.Value;
+            reserve.CKOUT = dateTimePicker2.Value;
+            if (DateTime.Parse(reserve.CKIN.ToString("MM-dd")) >= DateTime.Parse(reserve.CKOUT.ToString("MM-dd"))) { MessageBox.Show("체크인과 체크아웃의 날짜가 같을 수 없습니다."); return; }
+            RoomCheck roomcheck = new RoomCheck(client, reserve);
+            this.Visible = false;
+            roomcheck.Owner = this;
+            roomcheck.ShowDialog();
+            this.Visible = true;
         }
     }
 }
