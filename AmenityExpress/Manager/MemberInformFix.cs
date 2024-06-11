@@ -13,12 +13,12 @@ namespace AmenityExpress
 {
     public partial class MemberInformFix : Form
     {
-        private string userId;
+        private Client client;
 
-        public MemberInformFix(string userId)
+        public MemberInformFix(Client client)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.client = client;
             this.Load += new EventHandler(MemberInformFix_Load); // Load 이벤트 핸들러 연결
         }
 
@@ -33,21 +33,32 @@ namespace AmenityExpress
             string query = "SELECT ID, NAME, PW, EMAIL, TEL, GENDER, BIRTH, POINT FROM MEMBER_CLIENT WHERE ID = :ID";
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("ID", userId)
+                new OracleParameter("ID", client.ID)
             };
 
             DataSet ds = DBConnector.DML_QUERY(query, parameters);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                ID_txt.Text = row["ID"].ToString();
-                Name_txt.Text = row["NAME"].ToString();
-                PW_txt.Text = row["PW"].ToString();
-                PWC_txt.Text = row["PW"].ToString();
-                Email_txt.Text = row["EMAIL"].ToString();
-                Tel_txt.Text = row["TEL"].ToString();
-                Birth_txt.Text = Convert.ToDateTime(row["BIRTH"]).ToString("yyyy-MM-dd");
-                if (row["GENDER"].ToString() == "남")
+                client = new Client(
+                    row["ID"].ToString(),
+                    row["NAME"].ToString(),
+                    row["PW"].ToString(),
+                    row["EMAIL"].ToString(),
+                    row["TEL"].ToString(),  
+                    row["GENDER"].ToString(),
+                    Convert.ToDateTime(row["BIRTH"]).ToString("yyyy-MM-dd"),
+                    Convert.ToInt32(row["POINT"])
+                );
+
+                ID_txt.Text = client.ID;
+                Name_txt.Text = client.Name;
+                PW_txt.Text = client.PW;
+                PWC_txt.Text = client.PW;
+                Email_txt.Text = client.Email;
+                Tel_txt.Text = client.Tell;  
+                Birth_txt.Text = client.Birth;
+                if (client.Sex == "남")
                 {
                     male_Rbtn.Checked = true;
                 }
@@ -112,7 +123,7 @@ namespace AmenityExpress
                 new OracleParameter("Name", Name_txt.Text),
                 new OracleParameter("PW", PW_txt.Text),
                 new OracleParameter("Email", Email_txt.Text),
-                new OracleParameter("Tel", Tel_txt.Text),
+                new OracleParameter("Tel", Tel_txt.Text),  
                 new OracleParameter("Birth", DateTime.Parse(Birth_txt.Text)),
                 new OracleParameter("Gender", male_Rbtn.Checked ? "남" : "여"),
                 new OracleParameter("ID", ID_txt.Text)

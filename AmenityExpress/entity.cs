@@ -1,7 +1,9 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using AmenityExpress;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -40,7 +42,59 @@ namespace AmenityExpress
         {
             this.Name = Name; this.ID = ID; this.PW = PW; this.Email = Email; this.Tell = Tell; this.Sex = Sex; this.Birth = Birth; this.Point = Point;
         }
+        public void AddInform()
+        {
+            string sql = "INSERT INTO ADMIN.MEMBER_CLIENT (ID, NAME, PW, EMAIL, TEL, GENDER, BIRTH, POINT) " +
+                         "VALUES (:ID, :Name, :PW, :Email, :Tel, :Gender, :Birth, :Point)";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("ID", ID),
+                new OracleParameter("Name", Name),
+                new OracleParameter("PW", PW),
+                new OracleParameter("Email", Email),
+                new OracleParameter("Tel", Tell),
+                new OracleParameter("Gender", Sex),
+                new OracleParameter("Birth", Birth),
+                new OracleParameter("Point", Point)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
+
+        public void FixInform()
+        {
+            string sql = "UPDATE ADMIN.MEMBER_CLIENT SET NAME=:Name, PW=:PW, EMAIL=:Email, TEL=:Tel, " +
+                         "GENDER=:Gender, BIRTH=:Birth, POINT=:Point WHERE ID=:ID";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("Name", Name),
+                new OracleParameter("PW", PW),
+                new OracleParameter("Email", Email),
+                new OracleParameter("Tel", Tell),
+                new OracleParameter("Gender", Sex),
+                new OracleParameter("Birth", Birth),
+                new OracleParameter("Point", Point) ,
+                new OracleParameter("ID", ID)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
+
+        public void DelInform()
+        {
+            string sql = "DELETE FROM ADMIN.MEMBER_CLIENT WHERE ID=:ID";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("ID", ID)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
     }
+
 
     public class Reserve
     {
@@ -117,7 +171,9 @@ namespace AmenityExpress
             bool valid = Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
             return valid;
         }
+
     }
+
 
     public class Request
     {
@@ -137,37 +193,56 @@ namespace AmenityExpress
             this.SNum = SNum; this.Statue = Statue; this.RequestKind = RequestKind; this.Content = Content; this.Answer = Answer; this.Cid = Cid;
             this.Mid = Mid; this.Roomnum = Roomnum; this.WriteDate = WriteDate; this.AnswerDate = AnswerDate;
         }
-        public bool CheckAnswer()  //요청사항에 대한 답변을 작성 완료했는 지 체크하는 메소드
+
+        public void RequestWriteEnroll() //요청사항 등록 메소드(DB에 데이터 삽입됨) + 여기 시퀀스 들어가는 부분
         {
-            if (string.IsNullOrWhiteSpace(Answer))  //요청사항에 대한 답변을 적지 않고 답변등록 버튼 클릭시,
+            string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";
+            OracleParameter[] parameters = new OracleParameter[]
             {
-                MessageBox.Show("답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error); //오류메세지 박스 출력
-                return false;
+                new OracleParameter("STATUE",Statue),
+                new OracleParameter("CID", Cid),
+                new OracleParameter("ROOMNUM",Roomnum),
+                new OracleParameter("WRITEDATE", WriteDate),
+                new OracleParameter("REQUESTKIND", RequestKind),
+                new OracleParameter("CONTENT", Content)
+            };
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql, parameters);
             }
-            else //답변을 작성하고 답변 등록 버튼 클릭했을 경우,
+            catch
             {
-                return true; //요청사항에 대한 답변이 작성됨을 확인
+                MessageBox.Show("요청사항이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
-        public bool CheckRequest()//요청사항 작성 완료했는 지 체크하는 메소드
+        public void RequestAnswerEnroll()
         {
-            if (string.IsNullOrWhiteSpace(RequestKind)) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
+            string sql = "UPDATE REQUEST_MANAGE SET STATUE=:STATUE, MID=:MID, ANSWERDATE=:ANSWERDATE, ANSWER=:ANSWER WHERE SNUM = :SNUM";
+            OracleParameter[] parameters = new OracleParameter[]
             {
-                MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+               new OracleParameter("STATUE","답변 완료"),
+               new OracleParameter("MID",Mid),
+                new OracleParameter("ANSWERDATE", AnswerDate),
+                new OracleParameter("ANSWER", Answer),
+                new OracleParameter("SNUM", SNum)
+            };
+            try
+            {
+                DBConnector.DML_NON_QUERY(sql, parameters);
+                //MessageBox.Show("답변이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //e.Invoke(UI, EventArgs.Empty);
+                //UI.Close();
             }
-            else if (string.IsNullOrWhiteSpace(Content)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
+            catch
             {
-                MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            else
-            {
-                return true;//요청사항이 작성됨을 확인
+                MessageBox.Show("요청사항에 대한 답변이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }
+
 
     public class Room
     {

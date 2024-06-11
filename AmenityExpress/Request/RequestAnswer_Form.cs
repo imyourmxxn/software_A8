@@ -30,13 +30,8 @@ namespace AmenityExpress
 
         private void RequestAnswerEnroll_btn_Click(object sender, EventArgs e)
         {
-            request.Answer = RequestAnswer_txt.Text;
-            request.AnswerDate = DateTime.Now;
-            bool result = request.CheckAnswer(); //ENTITY 클래스 함수
-            if (result)
-            {
-                answerControl.RequestAnswerEnroll(this,manager,request,AnswerSubmitted); //CONTROL 클래스 함수
-            }
+            answerControl.ManageAnswer(this,request,manager);
+           
         }
 
         private void RequestAnswerBack_btn_Click(object sender, EventArgs e) //관리자 요청사항 답변 폼에서 뒤로가기 버튼 클릭하면,

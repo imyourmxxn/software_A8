@@ -15,25 +15,27 @@ namespace AmenityExpress
     public partial class SignUp : Form
     {
         private bool isAdmin = false;
+
         public SignUp()
         {
             InitializeComponent();
         }
-        private bool SignUpMember(string id, string name, string pw, string email, string tel, string gender, string birth)
+
+        private bool SignUpMember(Client client)
         {
             string tableName = isAdmin ? "MEMBER_MANAGER" : "MEMBER_CLIENT";
             string query = $@"INSERT INTO {tableName} (ID, NAME, PW, EMAIL, TEL, GENDER, BIRTH, POINT) 
-                     VALUES (:ID, :NAME, :PW, :EMAIL, :TEL, :GENDER, TO_DATE(:BIRTH, 'YYYY-MM-DD'), 0)";
+                              VALUES (:ID, :NAME, :PW, :EMAIL, :TEL, :GENDER, TO_DATE(:BIRTH, 'YYYY-MM-DD'), 0)";
 
             OracleParameter[] parameters = new OracleParameter[]
             {
-        new OracleParameter("ID", id),
-        new OracleParameter("NAME", name),
-        new OracleParameter("PW", pw),
-        new OracleParameter("EMAIL", email),
-        new OracleParameter("TEL", tel),
-        new OracleParameter("GENDER", gender),
-        new OracleParameter("BIRTH", birth)
+                new OracleParameter("ID", client.ID),
+                new OracleParameter("NAME", client.Name),
+                new OracleParameter("PW", client.PW),
+                new OracleParameter("EMAIL", client.Email),
+                new OracleParameter("TEL", client.Tell),
+                new OracleParameter("GENDER", client.Sex),
+                new OracleParameter("BIRTH", client.Birth)
             };
 
             try
@@ -47,6 +49,7 @@ namespace AmenityExpress
                 return false;
             }
         }
+
         private bool IsIdAvailable(string id)
         {
             string query = "SELECT COUNT(*) FROM MEMBER_CLIENT WHERE ID = :ID";
@@ -60,9 +63,8 @@ namespace AmenityExpress
             int count = Convert.ToInt32(result.Tables[0].Rows[0][0]);
             return count == 0;
         }
-        
 
-            private void doublecheck_btn_Click(object sender, EventArgs e)
+        private void doublecheck_btn_Click(object sender, EventArgs e)
         {
             string id = ID_txt.Text;
 
@@ -81,6 +83,7 @@ namespace AmenityExpress
                 MessageBox.Show("이미 사용 중인 아이디입니다.");
             }
         }
+
         private void SignUP_btn_Click(object sender, EventArgs e)
         {
             string id = ID_txt.Text;
@@ -98,17 +101,15 @@ namespace AmenityExpress
                 return;
             }
 
-            if (IsIdAvailable(id))
-            {
-                MessageBox.Show("사용 가능한 아이디입니다.");
-            }
-            else
+            if (!IsIdAvailable(id))
             {
                 MessageBox.Show("이미 사용 중인 아이디입니다.");
                 return;
             }
 
-            if (SignUpMember(id, name, pw, email, tel, gender, birth))
+            Client newClient = new Client(id, name, pw, email, tel, gender, birth, 0);
+
+            if (SignUpMember(newClient))
             {
                 MessageBox.Show("회원가입이 완료되었습니다.");
                 this.Close(); // 회원가입 성공 시 폼 닫기
@@ -119,20 +120,6 @@ namespace AmenityExpress
             }
         }
 
-        // 비밀번호 해싱 메서드
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
         private void admin_check_CheckedChanged(object sender, EventArgs e)
         {
             isAdmin = admin_check.Checked;
@@ -142,29 +129,15 @@ namespace AmenityExpress
         {
             isAdmin = !user_check.Checked;
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
+        private void label1_Click(object sender, EventArgs e) { }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private void label2_Click(object sender, EventArgs e) { }
 
-        }
+        private void textBox3_TextChanged(object sender, EventArgs e) { }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox6_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void SignUp_Load(object sender, EventArgs e) { }
     }
 }

@@ -16,7 +16,7 @@ namespace AmenityExpress
     {
         Reserve reserve;
         Request request;
-        RequestWriteControl writeControl = new RequestWriteControl();
+        RequestWriteControl writeControl = new RequestWriteControl(); //컨트롤 클래스 객체 생성자
         public RequestWrite_Form(Reserve reserve)
         {
             InitializeComponent();
@@ -56,12 +56,10 @@ namespace AmenityExpress
 
         private void RequestWriteEnroll_btn_Click(object sender, EventArgs e) //요청사항 작성 버튼
         {
-            request = new Request(0, "답변 전", reserve.ID, reserve.RoomNum, DateTime.Now, RequestKind_CmBox.SelectedItem == null ? "":RequestKind_CmBox.SelectedItem.ToString(), RequestContent_txt.Text, null, null, null);
-            if (request.CheckRequest())
-            {
-                writeControl.RequestWriteEnroll(this, reserve, request);
-            }
+            request = new Request(0, "답변 전", reserve.ID, reserve.RoomNum, DateTime.Now, RequestKind_CmBox.SelectedItem == null ? "" : RequestKind_CmBox.SelectedItem.ToString(), RequestContent_txt.Text, null, null, null);
+            writeControl.CustomEnroll(this, request);      //reserve.RoomNum으로 reserve의 방 번호 객체를 받아옴
         }
+
 
         private void RequestWriteBack_btn_Click(object sender, EventArgs e) //뒤로가기 버튼 클릭하면 상세 예약 조회 화면으로 돌아감
         {

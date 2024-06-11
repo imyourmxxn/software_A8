@@ -65,12 +65,12 @@
             // Reservelist_listView
             // 
             this.Reservelist_listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader3});
             this.Reservelist_listView.FullRowSelect = true;
             this.Reservelist_listView.GridLines = true;
             this.Reservelist_listView.HideSelection = false;
@@ -85,27 +85,32 @@
             // 
             // columnHeader1
             // 
+            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "성명";
             // 
             // columnHeader2
             // 
+            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "연락처";
             this.columnHeader2.Width = 570;
             // 
             // columnHeader5
             // 
+            this.columnHeader5.DisplayIndex = 2;
             this.columnHeader5.Text = "체크인";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
+            this.columnHeader6.DisplayIndex = 3;
             this.columnHeader6.Text = "체크아웃";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 150;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 4;
             this.columnHeader3.Text = "객실번호";
             this.columnHeader3.Width = 90;
             // 
@@ -170,6 +175,7 @@
             this.Room_lbl.Size = new System.Drawing.Size(92, 28);
             this.Room_lbl.TabIndex = 14;
             this.Room_lbl.Text = "객실번호";
+            this.Room_lbl.Click += new System.EventHandler(this.Room_lbl_Click);
             // 
             // Room_cbb
             // 

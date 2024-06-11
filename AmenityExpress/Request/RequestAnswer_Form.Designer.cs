@@ -113,7 +113,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox RequestAnswer_txt;
+        public System.Windows.Forms.TextBox RequestAnswer_txt;
         private System.Windows.Forms.Label Answer_lbl;
         private System.Windows.Forms.Button RequestAnswerEnroll_btn;
         private System.Windows.Forms.TextBox RequestContentReadOnly_txt;
