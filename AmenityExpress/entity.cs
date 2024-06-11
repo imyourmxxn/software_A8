@@ -1,7 +1,9 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using AmenityExpress;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -40,7 +42,59 @@ namespace AmenityExpress
         {
             this.Name = Name; this.ID = ID; this.PW = PW; this.Email = Email; this.Tell = Tell; this.Sex = Sex; this.Birth = Birth; this.Point = Point;
         }
+        public void AddInform()
+        {
+            string sql = "INSERT INTO ADMIN.MEMBER_CLIENT (ID, NAME, PW, EMAIL, TEL, GENDER, BIRTH, POINT) " +
+                         "VALUES (:ID, :Name, :PW, :Email, :Tel, :Gender, :Birth, :Point)";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("ID", ID),
+                new OracleParameter("Name", Name),
+                new OracleParameter("PW", PW),
+                new OracleParameter("Email", Email),
+                new OracleParameter("Tel", Tell),
+                new OracleParameter("Gender", Sex),
+                new OracleParameter("Birth", Birth),
+                new OracleParameter("Point", Point)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
+
+        public void FixInform()
+        {
+            string sql = "UPDATE ADMIN.MEMBER_CLIENT SET NAME=:Name, PW=:PW, EMAIL=:Email, TEL=:Tel, " +
+                         "GENDER=:Gender, BIRTH=:Birth, POINT=:Point WHERE ID=:ID";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("Name", Name),
+                new OracleParameter("PW", PW),
+                new OracleParameter("Email", Email),
+                new OracleParameter("Tel", Tell),
+                new OracleParameter("Gender", Sex),
+                new OracleParameter("Birth", Birth),
+                new OracleParameter("Point", Point) ,
+                new OracleParameter("ID", ID)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
+
+        public void DelInform()
+        {
+            string sql = "DELETE FROM ADMIN.MEMBER_CLIENT WHERE ID=:ID";
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("ID", ID)
+            };
+
+            DBConnector.DML_NON_QUERY(sql, parameters);
+        }
     }
+
 
     public class Reserve
     {

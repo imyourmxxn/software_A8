@@ -55,7 +55,7 @@ namespace AmenityExpress
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MemberInformFix memberInformFix = new MemberInformFix(client.ID);
+            MemberInformFix memberInformFix = new MemberInformFix(client);
             memberInformFix.Owner = this;
             memberInformFix.ShowDialog();
         }
