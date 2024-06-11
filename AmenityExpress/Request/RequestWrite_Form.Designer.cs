@@ -113,11 +113,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label RequestKind_lbl;
-        private System.Windows.Forms.ComboBox RequestKind_CmBox;
-        private System.Windows.Forms.Label RequestWrite_lbl;
-        private System.Windows.Forms.TextBox RequestContent_txt;
-        private System.Windows.Forms.Button RequestWriteEnroll_btn;
-        private System.Windows.Forms.Button RequestWriteBack_btn;
+        public System.Windows.Forms.Label RequestKind_lbl;
+        public System.Windows.Forms.ComboBox RequestKind_CmBox;
+        public System.Windows.Forms.Label RequestWrite_lbl;
+        public System.Windows.Forms.TextBox RequestContent_txt;
+        public System.Windows.Forms.Button RequestWriteEnroll_btn;
+        public System.Windows.Forms.Button RequestWriteBack_btn;
     }
 }
