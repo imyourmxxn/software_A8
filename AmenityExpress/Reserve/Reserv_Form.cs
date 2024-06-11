@@ -150,8 +150,6 @@ namespace AmenityExpress
                 if (reserve.TellNumCkeck(reserve.Tell.ToString()) == 1){ MessageBox.Show("전화번호 형식이 다릅니다."); return; }
                 else if (reserve.TellNumCkeck(reserve.Tell.ToString()) == 2) { MessageBox.Show("전화번호 자릿수가 맞지 않습니다."); return; }
 
-                reserve.reserve_dbset();
-
                 this.Visible = false;
                 Pay_Form pay_form = new Pay_Form(client, reserve);
                 pay_form.Owner = this;

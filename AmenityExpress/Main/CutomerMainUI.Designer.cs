@@ -34,7 +34,6 @@ namespace AmenityExpress
             this.button3 = new System.Windows.Forms.Button();
             this.체크인 = new System.Windows.Forms.ListBox();
             this.체크아웃 = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +48,7 @@ namespace AmenityExpress
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Search_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -99,6 +99,7 @@ namespace AmenityExpress
             this.button3.TabIndex = 3;
             this.button3.Text = "로그아웃";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // 체크인
             // 
@@ -119,17 +120,6 @@ namespace AmenityExpress
             this.체크아웃.Name = "체크아웃";
             this.체크아웃.Size = new System.Drawing.Size(176, 76);
             this.체크아웃.TabIndex = 5;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(892, 129);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 39);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "검색";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dateTimePicker1
             // 
@@ -250,11 +240,23 @@ namespace AmenityExpress
             this.pictureBox4.TabIndex = 26;
             this.pictureBox4.TabStop = false;
             // 
+            // Search_btn
+            // 
+            this.Search_btn.Location = new System.Drawing.Point(870, 129);
+            this.Search_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(100, 39);
+            this.Search_btn.TabIndex = 27;
+            this.Search_btn.Text = "검색";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
             // CustomerMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 698);
+            this.Controls.Add(this.Search_btn);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -268,7 +270,6 @@ namespace AmenityExpress
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.체크아웃);
             this.Controls.Add(this.체크인);
             this.Controls.Add(this.button3);
@@ -295,7 +296,6 @@ namespace AmenityExpress
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox 체크인;
         private System.Windows.Forms.ListBox 체크아웃;
-        private System.Windows.Forms.Button button4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -310,5 +310,6 @@ namespace AmenityExpress
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button Search_btn;
     }
 }

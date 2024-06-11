@@ -39,7 +39,7 @@ namespace AmenityExpress
             if (Room_list.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = Room_list.SelectedItems[0];
-                int roomNum = int.Parse(selectedItem.SubItems[1].Text);
+                reserve.RoomNum = int.Parse(selectedItem.SubItems[1].Text);
 
                 // 예약 로직을 여기에 추가합니다.
                 this.Visible = false;
