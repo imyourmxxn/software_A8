@@ -15,15 +15,21 @@ namespace AmenityExpress
 {
     public partial class RequestList_Form : Form
     {
-        public RequestList_Form()
+        string client_id;
+        public RequestList_Form(string client_id)
         {
             InitializeComponent();
+            this.client_id = client_id;
         }
 
         private void RequestEnroll_ListView_Show()
         {//얘도 쑤셔넣어야하나?
-            string sql = "SELECT * FROM REQUEST_MANAGE ORDER BY SNUM";
-            DataSet dbconnector = DBConnector.DML_QUERY(sql, null);
+            string sql = "SELECT * FROM REQUEST_MANAGE WHERE CID = :CID ORDER BY SNUM";
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("CID", client_id)
+            };
+            DataSet dbconnector = DBConnector.DML_QUERY(sql,parameters);
 
             RequestList_list.Items.Clear(); // 기존 항목 지우기
 

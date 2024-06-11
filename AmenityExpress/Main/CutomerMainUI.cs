@@ -67,7 +67,7 @@ namespace AmenityExpress
 
         private void RequestCheck_Click(object sender, EventArgs e) //요청사항 조회 버튼 클릭시 이동
         {
-            RequestList_Form requestlist_form = new RequestList_Form();
+            RequestList_Form requestlist_form = new RequestList_Form(client.ID);
             requestlist_form.Owner = this;
             requestlist_form.ShowDialog();
         }

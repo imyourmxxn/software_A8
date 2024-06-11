@@ -114,7 +114,7 @@ namespace AmenityExpress
                 {
                     UI.Hide();
                     // 새로운 폼을 생성하고 표시
-                    RequestList_Form requestlist_form = new RequestList_Form();
+                    RequestList_Form requestlist_form = new RequestList_Form(request.Cid);
                     requestlist_form.ShowDialog();
                     
                 }
