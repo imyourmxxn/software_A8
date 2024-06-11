@@ -28,9 +28,7 @@ namespace AmenityExpress
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.체크인 = new System.Windows.Forms.ListBox();
             this.체크아웃 = new System.Windows.Forms.ListBox();
@@ -49,22 +47,13 @@ namespace AmenityExpress
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Search_btn = new System.Windows.Forms.Button();
+            this.ReserveCheck_btn = new System.Windows.Forms.Button();
+            this.ClientInform_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 39);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "예약조회";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // maskedTextBox1
             // 
@@ -78,17 +67,6 @@ namespace AmenityExpress
             this.maskedTextBox1.Text = "어서오세요 홍길동님 잔여 마일리지 : 2500p";
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(883, 23);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 44);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "회원정보수정";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -251,11 +229,35 @@ namespace AmenityExpress
             this.Search_btn.UseVisualStyleBackColor = true;
             this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
+            // ReserveCheck_btn
+            // 
+            this.ReserveCheck_btn.Location = new System.Drawing.Point(12, 28);
+            this.ReserveCheck_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ReserveCheck_btn.Name = "ReserveCheck_btn";
+            this.ReserveCheck_btn.Size = new System.Drawing.Size(100, 39);
+            this.ReserveCheck_btn.TabIndex = 28;
+            this.ReserveCheck_btn.Text = "예약조회";
+            this.ReserveCheck_btn.UseVisualStyleBackColor = true;
+            this.ReserveCheck_btn.Click += new System.EventHandler(this.ReserveCheck_btn_Click);
+            // 
+            // ClientInform_btn
+            // 
+            this.ClientInform_btn.Location = new System.Drawing.Point(861, 21);
+            this.ClientInform_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientInform_btn.Name = "ClientInform_btn";
+            this.ClientInform_btn.Size = new System.Drawing.Size(109, 44);
+            this.ClientInform_btn.TabIndex = 29;
+            this.ClientInform_btn.Text = "회원정보수정";
+            this.ClientInform_btn.UseVisualStyleBackColor = true;
+            this.ClientInform_btn.Click += new System.EventHandler(this.ClientInform_btn_Click);
+            // 
             // CustomerMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 698);
+            this.Controls.Add(this.ClientInform_btn);
+            this.Controls.Add(this.ReserveCheck_btn);
             this.Controls.Add(this.Search_btn);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -273,9 +275,7 @@ namespace AmenityExpress
             this.Controls.Add(this.체크아웃);
             this.Controls.Add(this.체크인);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.button1);
             this.Name = "CustomerMainUI";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.CustomerUI_Load);
@@ -289,10 +289,7 @@ namespace AmenityExpress
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox 체크인;
         private System.Windows.Forms.ListBox 체크아웃;
@@ -311,5 +308,7 @@ namespace AmenityExpress
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.Button ReserveCheck_btn;
+        private System.Windows.Forms.Button ClientInform_btn;
     }
 }

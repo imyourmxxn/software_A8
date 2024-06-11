@@ -43,9 +43,7 @@ namespace AmenityExpress
 
         private void button1_Click(object sender, EventArgs e) //예약 조회 넘어가는 버튼임
         {
-            Reservlist_Form reservlist_form = new Reservlist_Form(client,false); //고객이기 때문에 false 관리자면 true
-            reservlist_form.Owner = this;
-            reservlist_form.ShowDialog();
+            
         }
 
         private void Notice_btn_Click(object sender, EventArgs e)
@@ -55,9 +53,7 @@ namespace AmenityExpress
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MemberInformFix memberInformFix = new MemberInformFix(client);
-            memberInformFix.Owner = this;
-            memberInformFix.ShowDialog();
+            
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -88,6 +84,20 @@ namespace AmenityExpress
             roomcheck.Owner = this;
             roomcheck.ShowDialog();
             this.Visible = true;
+        }
+
+        private void ReserveCheck_btn_Click(object sender, EventArgs e)
+        {
+            Reservlist_Form reservlist_form = new Reservlist_Form(client, false); //고객이기 때문에 false 관리자면 true
+            reservlist_form.Owner = this;
+            reservlist_form.ShowDialog();
+        }
+
+        private void ClientInform_btn_Click(object sender, EventArgs e)
+        {
+            MemberInformFix memberInformFix = new MemberInformFix(client);
+            memberInformFix.Owner = this;
+            memberInformFix.ShowDialog();
         }
     }
 }
