@@ -11,70 +11,69 @@ namespace AmenityExpress
 {
     class RequestAnswerControl
     {
-        public RequestAnswerControl() {} //요청사항에 대한 답변 등록
-        public void RequestAnswerEnroll(RequestAnswer_Form UI,Manager manager,Request request, EventHandler e)
+        public bool CheckAnswer(TextBox answer)  //요청사항에 대한 답변을 작성 완료했는 지 체크하는 메소드
         {
-            string sql = "UPDATE REQUEST_MANAGE SET STATUE=:STATUE, MID=:MID, ANSWERDATE=:ANSWERDATE, ANSWER=:ANSWER WHERE SNUM = :SNUM";
-            OracleParameter[] parameters = new OracleParameter[]
+            if (string.IsNullOrWhiteSpace(answer.Text))  //요청사항에 대한 답변을 적지 않고 답변등록 버튼 클릭시,
             {
-               new OracleParameter("STATUE","답변 완료"),
-               new OracleParameter("MID",manager.Id),
-                new OracleParameter("ANSWERDATE", request.AnswerDate),
-                new OracleParameter("ANSWER", request.Answer),
-                new OracleParameter("SNUM",request.SNum)
-            };
-            try
-            {
-                DBConnector.DML_NON_QUERY(sql, parameters);
-                MessageBox.Show("답변이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Invoke(UI,EventArgs.Empty);
-                UI.Close();
+                MessageBox.Show("답변을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error); //오류메세지 박스 출력
+                return false;
             }
-            catch
+            else //답변을 작성하고 답변 등록 버튼 클릭했을 경우,
             {
-                MessageBox.Show("요청사항에 대한 답변이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return true; //요청사항에 대한 답변이 작성됨을 확인
             }
         }
-        
+
+        public void ManageAnswer(RequestAnswer_Form UI, Request request,Manager manager)
+        {
+            if (this.CheckAnswer(UI.RequestAnswer_txt))
+            {
+                request.Answer = UI.RequestAnswer_txt.Text;
+                request.Mid = manager.Id;
+                request.AnswerDate = DateTime.Now;
+                request.RequestAnswerEnroll(); // Request의 entity 클래스에서 받아옴
+                if (DialogResult.OK == MessageBox.Show("답변이 완료되었습니다.", "답변 완료", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                {
+                    UI.Close();
+                }
+            }
+        }
     }
 
     class RequestWriteControl
     {
-        public RequestWriteControl() { } //요청사항 등록
-        public void RequestWriteEnroll(RequestWrite_Form UI, Reserve reserve, Request request) //요청사항 등록 메소드(DB에 데아터 삽입됨) + 여기 시퀀스 들어가는 부분
+        public bool CheckRequest(TextBox content, ComboBox kindcombo)//요청사항 작성 완료했는 지 체크하는 메소드
         {
-                string sql = "INSERT INTO Request_Manage (STATUE, CID, ROOMNUM, WRITEDATE, REQUESTKIND, CONTENT) VALUES (:STATUE, :CID, :ROOMNUM, :WRITEDATE, :REQUESTKIND, :CONTENT)";
-                OracleParameter[] parameters = new OracleParameter[]
-                {
-                new OracleParameter("STATUE",request.Statue),
-                new OracleParameter("CID", reserve.ID),
-                new OracleParameter("ROOMNUM",reserve.RoomNum),
-                new OracleParameter("WRITEDATE", request.WriteDate),
-                new OracleParameter("REQUESTKIND", request.RequestKind),
-                new OracleParameter("CONTENT", request.Content)
-                };
-                try
-                {
-                    DBConnector.DML_NON_QUERY(sql, parameters);
-                }
-                catch
-                {
-                    MessageBox.Show("요청사항이 등록되지 않았습니다!", "등록 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                DialogResult enrollok = MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (enrollok == DialogResult.OK) //메세지박스의 ok버튼 클릭시 요청사항 목록 폼으로 넘어감
+            if (string.IsNullOrWhiteSpace(kindcombo.SelectedItem == null ? "" : kindcombo.SelectedItem.ToString())) //요청사항 종류를 선택하지 않고 등록버튼 클릭시
+            {
+                MessageBox.Show("요청사항 종류를 선택해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (string.IsNullOrWhiteSpace(content.Text)) //요청사항 내용을 입력하지 않고 등록버튼 클릭시
+            {
+                MessageBox.Show("요청사항을 입력해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;//요청사항이 작성됨을 확인
+            }
+        }
+        public void CustomEnroll(RequestWrite_Form UI,Request request) 
+        {
+            if(this.CheckRequest(UI.RequestContent_txt, UI.RequestKind_CmBox)) //요청사항 종류와 요청사항이 제대로 입력됐는지 bool값으로 판단하는 함수
+            {
+                request.RequestWriteEnroll(); //엔티티 클래스의 RequestWriteEnroll 함수 불러와서 DB에 삽입  
+                DialogResult ok = MessageBox.Show("요청사항이 등록되었습니다!", "등록 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (ok == DialogResult.OK) //메세지박 스의 ok버튼 클릭시 요청사항 목록 폼으로 넘어감
                 {
                     // 새로운 폼을 생성하고 표시
                     RequestList_Form requestlist_form = new RequestList_Form();
                     requestlist_form.Show();
-
-                // 기존 폼을 숨김
-                UI.Hide();
+                }
             }
-
         }
+       
     }
 
     internal class RoomInformation_Del
